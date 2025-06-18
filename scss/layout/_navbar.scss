@@ -98,7 +98,7 @@
         border-top: px(1) solid color(gray-200);
       }
 
-      &:hover {
+      @include hover {
         background-color: color(gray-0);
         color: color(Primary);
 

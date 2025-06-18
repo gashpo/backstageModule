@@ -11,7 +11,7 @@
     display: none;
   }
 
-  &:hover {
+  @include hover {
     border-color: color(gray-300);
   }
 
@@ -60,7 +60,7 @@
         }
       }
 
-      &:hover {
+      @include hover {
         background-color: color(gray-50);
       }
 

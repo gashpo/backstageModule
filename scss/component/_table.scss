@@ -72,7 +72,7 @@
         }
       }
 
-      &:hover {
+      @include hover {
         > td {
           background-color: color(gray-100);
           --bs-table-accent-bg: color(gray-100);
