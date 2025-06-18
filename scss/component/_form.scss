@@ -3,7 +3,7 @@
   align-items: center;
   gap: px(8);
   @include fontRWD(body2);
-  color: color(LabelColor);
+  color: color(grayBlue-500);
 
   i {
     font-size: px(16);

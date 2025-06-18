@@ -39,55 +39,65 @@
                 <main>
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header py-3 text-center color-LabelColor bg-gray-0 font-body1-bold">使用者登入</div>
-                                    <div class="card-body pb-4">
-                                        <form>
-                                            <div class="mb-4">
-                                                <label for="mid" class="form-label">MID 商家代碼</label>
-                                                <input class="form-control error" id="mid" type="password" placeholder="請輸入 MID 商家代碼" required></input>
-                                                <div class="d-flex justify-content-between mt-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="rememberMid" value="rememberMid">
-                                                        <label class="form-check-label" for="rememberMid">記住 MID 商家代碼</label>
+                            <div class="col-lg-9">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5 overflow-hidden">
+                                    <div class="d-flex">
+                                        <div class="col-5">
+                                            <div class="card-header py-3 text-center color-grayBlue-500 bg-gray-0 font-body1-bold">使用者登入</div>
+                                            <div class="card-body pb-4">
+                                                <div class="alert alert-danger">您的帳號因連續3次登入失敗已被鎖定，請聯絡相關人員進行解鎖作業。</div>
+                                                <form>
+                                                    <div class="mb-4">
+                                                        <label for="mid" class="form-label">MID 商家代碼</label>
+                                                        <input class="form-control error" id="mid" type="password" placeholder="請輸入 MID 商家代碼" required></input>
+                                                        <div class="d-flex justify-content-between mt-2">
+                                                            <small class="error-message">MID 商家代碼錯誤</small>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" id="rememberMid" value="rememberMid">
+                                                                
+                                                                <label class="form-check-label" for="rememberMid">記住 MID 商家代碼</label>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <small class="error-message">MID 商家代碼錯誤</small>
-                                                </div>
-                                            </div>
-                                            <div class="mb-4">
-                                                <label for="cid" class="form-label">CID 產品代碼 (選填)</label>
-                                                <input class="form-control error" id="cid" type="password" placeholder="請輸入 CID 產品代碼" required></input>
-                                                <div class="d-flex justify-content-between mt-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="rememberCid" value="rememberCid">
-                                                        <label class="form-check-label" for="rememberCid">記住 CID 產品代碼</label>
+                                                    <div class="mb-4">
+                                                        <label for="cid" class="form-label">CID 產品代碼 (選填)</label>
+                                                        <input class="form-control error" id="cid" type="password" placeholder="請輸入 CID 產品代碼" required></input>
+                                                        <div class="d-flex justify-content-between mt-2">
+                                                            <small class="error-message">CID 產品代碼錯誤</small>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" id="rememberCid" value="rememberCid">
+                                                                <label class="form-check-label" for="rememberCid">記住 CID 產品代碼</label>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <small class="error-message">CID 產品代碼錯誤</small>
-                                                </div>
-                                            </div>
-                                            <div class="mb-4">
-                                                <label for="userID" class="form-label">帳號</label>
-                                                <input class="form-control error" id="userID" type="password" placeholder="請輸入帳號" required></input>
-                                                <div class="d-flex justify-content-between mt-2">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="checkbox" id="rememberUserID" value="rememberUserID">
-                                                        <label class="form-check-label" for="rememberUserID">記住 帳號</label>
+                                                    <div class="mb-4">
+                                                        <label for="userID" class="form-label">帳號</label>
+                                                        <input class="form-control error" id="userID" type="password" placeholder="請輸入帳號" required></input>
+                                                        <div class="d-flex justify-content-between mt-2">
+                                                            <small class="error-message">帳號錯誤</small>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" id="rememberUserID" value="rememberUserID">
+                                                                <label class="form-check-label" for="rememberUserID">記住 帳號</label>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <small class="error-message">帳號錯誤</small>
-                                                </div>
+                                                    <div class="mb-4">
+                                                        <label for="password" class="form-label">密碼</label>
+                                                        <input class="form-control error" id="password" type="password" placeholder="請輸入密碼" required></input>
+                                                        <div class="d-flex mt-2">
+                                                            <small class="error-message">密碼錯誤</small>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <a class="btn btn-primary w-100" href="index.html">登入</a>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <div class="mb-4">
-                                                <label for="password" class="form-label">密碼</label>
-                                                <input class="form-control error" id="password" type="password" placeholder="請輸入密碼" required></input>
-                                                <div class="d-flex justify-content-end mt-2">
-                                                    <small class="error-message">密碼錯誤</small>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <a class="btn btn-primary w-100" href="index.html">登入</a>
-                                            </div>
-                                        </form>
+                                        </div>
+                                        <div class="d-flex flex-column bg-primary color-gray-0 d-flex align-items-center justify-content-center col-7">
+                                            <img src="images/Logo_dark.svg">
+                                            <h3>Payment System</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

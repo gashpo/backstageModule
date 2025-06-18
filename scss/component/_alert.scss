@@ -1,0 +1,26 @@
+.alert {
+  @include rounded(8);
+  padding: px(8) px(16);
+  border: none;
+  @include fontRWD(body2);
+
+  &.alert-danger {
+    background-color: color(LightDanger);
+    color: color(Danger);
+  }
+
+  &.alert-warning {
+    background-color: color(LightWarning);
+    color: color(Warning);
+  }
+
+  &.alert-info {
+    background-color: color(LightInfo);
+    color: color(Info);
+  }
+
+  &.alert-success {
+    background-color: color(LightSuccess);
+    color: color(Success);
+  }
+}
