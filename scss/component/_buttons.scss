@@ -42,18 +42,23 @@ $gray-1000: color(gray-1000);
     border: px(1) solid color(gray-150);
   }
 
+  // Size
   &.btn-xs {
     padding: px(4) px(8);
     @include rounded(6);
     @include fontRWD(caption);
   }
-
   &.btn-lg {
     padding: px(12) px(16);
     @include rounded(8);
     @include fontRWD(body1);
   }
 
+  // Type
+  &.btn-link {
+    background-color: transparent;
+    border-color: transparent;
+  }
   &.btn-outline {
     color: color(gray-700);
     background-color: transparent;
@@ -75,6 +80,7 @@ $gray-1000: color(gray-1000);
     }
   }
 
+  // Primary
   &.btn-primary {
     color: color(gray-0);
     background-color: color(Primary);
@@ -126,13 +132,14 @@ $gray-1000: color(gray-1000);
   &.btn-primary-light-flat {
     color: color(gray-0);
     background-color: transparent;
-    border-color: color(gray-0);
+    border-color: transparent;
 
     @include hover {
       background-color: color(gray-0-12);
     }
   }
 
+  // Secondary
   &.btn-secondary {
     color: color(gray-0);
     background-color: color(Secondary);
@@ -143,31 +150,58 @@ $gray-1000: color(gray-1000);
       border: px(1) solid color(DarkSecondary);
     }
   }
+  &.btn-secondary-outline {
+    color: color(Secondary);
+    background-color: transparent;
+    border-color: color(Secondary);
 
-  &.btn-outline-secondary {
-    --bs-btn-color: #{$Secondary};
-    --bs-btn-border-color: #{$Secondary};
-    --bs-btn-hover-color: #{$gray-0};
-    --bs-btn-hover-bg: #{$DarkSecondary};
-    --bs-btn-hover-border-color: #{$DarkSecondary};
-    --bs-btn-focus-shadow-rgb: 107, 10, 229;
-    --bs-btn-active-color: #{$gray-0};
-    --bs-btn-active-bg: #{$DarkSecondary};
-    --bs-btn-active-border-color: #{$DarkSecondary};
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #{$gray-0};
-    --bs-btn-disabled-bg: #{$gray-150};
-    --bs-btn-disabled-border-color: #{$gray-150};
-    --bs-gradient: none;
+    @include hover {
+      color: color(DarkSecondary);
+      border-color: color(DarkSecondary);
+    }
+  }
+  &.btn-secondary-flat {
+    color: color(Secondary);
+    background-color: transparent;
+    border-color: transparent !important;
+
+    @include hover {
+      color: color(Secondary);
+      background-color: color(grayBlue-850-12);
+    }
+  }
+  &.btn-secondary-light {
+    color: color(Secondary);
+    background-color: color(gray-0);
+    border-color: transparent !important;
+
+    @include hover {
+      color: color(DarkSecondary);
+    }
+  }
+  &.btn-secondary-light-outline {
+    color: color(gray-0);
+    background-color: transparent;
+    border-color: color(gray-0);
+
+    @include hover {
+      background-color: color(gray-0-12);
+    }
+  }
+  &.btn-secondary-light-flat {
+    color: color(gray-0);
+    background-color: transparent;
+    border-color: transparent;
+
+    @include hover {
+      background-color: color(gray-0-12);
+    }
   }
 
-  &.btn-flat-secondary {
-    --bs-btn-color: #{$Secondary};
-    --bs-btn-hover-color: #{$DarkSecondary};
-    --bs-btn-active-color: #{$DarkSecondary};
-    --bs-btn-active-border-color: transparent;
-    --bs-btn-disabled-color: #{$gray-0};
-    --bs-btn-disabled-bg: #{$Secondary};
-    --bs-btn-disabled-border-color: #{$Secondary};
+  // Danger
+  &.btn-danger {
+    color: color(gray-0);
+    background-color: color(Danger);
+    border: px(1) solid color(Danger);
   }
 }
