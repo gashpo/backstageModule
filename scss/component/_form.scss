@@ -1,0 +1,94 @@
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: px(8);
+  @include fontRWD(body2);
+  color: color(LabelColor);
+
+  i {
+    font-size: px(16);
+  }
+
+  &.required {
+    &::before {
+      content: "* ";
+      color: color(Danger);
+    }
+  }
+}
+
+.form-control {
+  height: px(40);
+  border: px(1) solid color(gray-300);
+
+  &:focus {
+    border-color: color(gray-850);
+    box-shadow: 0 0 px(1.6) 0 color(grayBlue-700);
+  }
+
+  &.error {
+    border: px(1) solid color(Danger);
+  }
+
+  &::placeholder {
+    color: color(gray-300);
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%)
+      contrast(90%);
+  }
+}
+
+.helper-text {
+  color: color(gray-650);
+  display: block;
+}
+
+.error-message {
+  color: color(Danger);
+  display: block;
+}
+
+.query-btn-group {
+  padding-top: px(29);
+}
+
+.form-check {
+  color: color(gray-800);
+
+  > * {
+    cursor: pointer;
+  }
+
+  .form-check-input {
+    &:focus {
+      border-color: color(LightPrimary);
+      box-shadow: none;
+    }
+
+    &:checked {
+      background-color: color(Primary);
+      border-color: color(Primary);
+    }
+
+    &.error {
+      border-color: color(Danger);
+    }
+
+    &[disabled],
+    &:disabled {
+      opacity: 0.3;
+
+      ~ .form-check-label {
+        opacity: 0.3;
+      }
+    }
+
+    &.indeterminate {
+      background-image: url("../../images/icon_indeterminate.svg");
+      background-color: color(Primary);
+      border-color: color(Primary);
+    }
+  }
+}

@@ -1,0 +1,313 @@
+// 字重
+$font-weight: (
+  "Light": 300,
+  "Regular": 400,
+  "Medium": 500,
+  "Bold": 700,
+);
+@function fontweight($key) {
+  @return map-get($font-weight, $key);
+}
+
+// 字體大小
+@function fontsize($key) {
+  @return calc($key / 16 * 1rem);
+}
+
+// 字體定義
+$font-family: (
+  desktop: (
+    h1: (
+      font-size: fontsize(40),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h2: (
+      font-size: fontsize(32),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h3: (
+      font-size: fontsize(28),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    h4: (
+      font-size: fontsize(20),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    h5: (
+      font-size: fontsize(18),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    body1: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body1-bold: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Bold),
+      line-height: 150%,
+    ),
+    body2: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body2-bold: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Bold),
+      line-height: 150%,
+    ),
+    subtitle: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Medium),
+      line-height: 130%,
+    ),
+    caption: (
+      font-size: fontsize(12),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    overline: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Medium),
+      line-height: 100%,
+    ),
+    button: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 100%,
+    ),
+    link: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 100%,
+    ),
+  ),
+  tablet: (
+    h1: (
+      font-size: fontsize(36),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h2: (
+      font-size: fontsize(28),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h3: (
+      font-size: fontsize(24),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    h4: (
+      font-size: fontsize(18),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    h5: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    body1: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body1-bold: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Bold),
+      line-height: 150%,
+    ),
+    body2: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body2-bold: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Bold),
+      line-height: 150%,
+    ),
+    subtitle: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Medium),
+      line-height: 130%,
+    ),
+    caption: (
+      font-size: fontsize(12),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    overline: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Medium),
+      line-height: 100%,
+    ),
+    button: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 100%,
+    ),
+    link: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 100%,
+    ),
+  ),
+  mobile: (
+    h1: (
+      font-size: fontsize(28),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h2: (
+      font-size: fontsize(24),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h3: (
+      font-size: fontsize(20),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    h4: (
+      font-size: fontsize(18),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    h5: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Bold),
+      line-height: 130%,
+    ),
+    body1: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body1-bold: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Bold),
+      line-height: 150%,
+    ),
+    body2: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body2-bold: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Bold),
+      line-height: 150%,
+    ),
+    subtitle: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Medium),
+      line-height: 130%,
+    ),
+    caption: (
+      font-size: fontsize(12),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    overline: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Medium),
+      line-height: 100%,
+    ),
+    button: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 100%,
+    ),
+    link: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 100%,
+    ),
+  ),
+);
+
+@function fontfamily($key, $device: desktop, $property: font-size) {
+  @if map-has-key($font-family, $device) {
+    $device-map: map-get($font-family, $device);
+    @if map-has-key($device-map, $key) {
+      $style-map: map-get($device-map, $key);
+      @if map-has-key($style-map, $property) {
+        @return map-get($style-map, $property);
+      } @else {
+        @error "The property `#{$property}` does not exist for `#{$key}` in the `#{$device}` map.";
+      }
+    } @else {
+      @error "The key `#{$key}` does not exist in the `#{$device}` map.";
+    }
+  } @else {
+    @error "The device `#{$device}` does not exist in the `$font-family` map.";
+  }
+}
+
+@mixin fontRWD($element) {
+  font-size: fontfamily("#{$element}");
+  font-weight: fontfamily("#{$element}", "desktop", "font-weight");
+  line-height: fontfamily("#{$element}", "desktop", "line-height");
+
+  @include max-to(tablet) {
+    font-size: fontfamily("#{$element}", "tablet");
+    font-weight: fontfamily("#{$element}", "tablet", "font-weight");
+    line-height: fontfamily("#{$element}", "desktop", "line-height");
+  }
+}
+
+// 用法
+p,
+span {
+  @include fontRWD(body2);
+}
+h1 {
+  @include fontRWD(h1);
+}
+h2 {
+  @include fontRWD(h2);
+}
+h3 {
+  @include fontRWD(h3);
+}
+h4 {
+  @include fontRWD(h4);
+}
+h5 {
+  @include fontRWD(h5);
+}
+.caption {
+  @include fontRWD(caption);
+}
+
+@each $name, $styles in map-get($font-family, desktop) {
+  .font-#{$name} {
+    font-size: map-get($styles, font-size);
+    font-weight: map-get($styles, font-weight);
+    line-height: map-get($styles, line-height);
+  }
+}
+
+@each $name, $styles in map-get($font-family, tablet) {
+  .font-tablet-#{$name} {
+    font-size: map-get($styles, font-size);
+    font-weight: map-get($styles, font-weight);
+    line-height: map-get($styles, line-height);
+  }
+}
+
+@each $name, $styles in map-get($font-family, mobile) {
+  .font-mobile-#{$name} {
+    font-size: map-get($styles, font-size);
+    font-weight: map-get($styles, font-weight);
+    line-height: map-get($styles, line-height);
+  }
+}

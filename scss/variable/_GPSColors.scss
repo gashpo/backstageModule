@@ -1,0 +1,61 @@
+@import "basicColors";
+
+// 專案色彩
+// 主色系
+$colors: map-merge(
+  $colors,
+  (
+    Primary: color(GASH-500),
+    LightPrimary: color(GASH-100),
+    DarkPrimary: color(GASH-600),
+    Primary-12: rgba(color(GASH-500), 0.12),
+    Primary-14: rgba(color(GASH-500), 0.14),
+    Primary-20: rgba(color(GASH-500), 0.2),
+    Primary-80: rgba(color(GASH-500), 0.8),
+  )
+);
+
+// 輔色系
+$colors: map-merge(
+  $colors,
+  (
+    Secondary: color(grayBlue-800),
+    DarkSecondary: color(grayBlue-950),
+    Secondary-12: rgba(color(gray-1000), 0.12),
+    Secondary-14: rgba(color(gray-1000), 0.14),
+    Secondary-20: rgba(color(gray-1000), 0.2),
+  )
+);
+
+// 狀態色
+$colors: map-merge(
+  $colors,
+  (
+    Danger: color(red-600),
+    LightDanger: color(red-100),
+    Danger-12: rgba(color(red-500), 0.12),
+    Danger-14: rgba(color(red-500), 0.14),
+    Danger-20: rgba(color(red-500), 0.2),
+    Success: color(green-600),
+    LightSuccess: color(green-100),
+    Success-12: rgba(color(green-600), 0.12),
+    Success-14: rgba(color(green-600), 0.14),
+    Success-20: rgba(color(green-600), 0.2),
+    Warning: color(yellow-500),
+    LightWarning: color(yellow-100),
+    Info: color(blue-500),
+    LightInfo: color(blue-100),
+  )
+);
+
+@each $name, $value in $colors {
+  .color-#{$name} {
+    color: $value;
+  }
+}
+
+@each $name, $value in $colors {
+  .bg-#{$name} {
+    background-color: $value;
+  }
+}

@@ -1,0 +1,112 @@
+@import "variable/basicColors";
+@import "variable/GPSColors";
+
+$Primary: color(Primary);
+$LightPrimary: color(LightPrimary);
+$DarkPrimary: color(DarkPrimary);
+$Secondary: color(Secondary);
+$DarkSecondary: color(DarkSecondary);
+$gray-150: color(gray-150);
+$gray-0: color(gray-0);
+$gray-50: color(gray-50);
+$gray-1000: color(gray-1000);
+
+:root {
+  --bs-primary: #{$Primary};
+  --bs-primary-rgb: 229, 0, 110;
+}
+
+.table,
+.datatable-table {
+  --bs-table-striped-bg: #{$gray-50};
+}
+
+.page-link,
+.datatable-pagination a {
+  --bs-pagination-color: #{$DarkSecondary};
+
+  &:hover {
+    --bs-pagination-hover-color: #{$DarkSecondary};
+  }
+}
+
+// Primary
+.table-primary {
+  --bs-table-color: #{$gray-0};
+  --bs-table-bg: #cfe2ff;
+  --bs-table-border-color: #bacbe6;
+  --bs-table-striped-bg: #c5d7f2;
+  --bs-table-striped-color: #{$gray-0};
+  --bs-table-active-bg: #bacbe6;
+  --bs-table-active-color: #{$gray-0};
+  --bs-table-hover-bg: #bfd1ec;
+  --bs-table-hover-color: #{$gray-0};
+  color: var(--bs-table-color);
+  border-color: var(--bs-table-border-color);
+}
+
+.alert-primary {
+  --bs-alert-color: #2c1a4d;
+  --bs-alert-bg: #cfe2ff;
+  --bs-alert-border-color: #b6d4fe;
+
+  .alert-link {
+    color: #06357a;
+  }
+}
+
+.list-group-item-primary {
+  color: #2c1a4d;
+  background-color: #cfe2ff;
+
+  &.list-group-item-action {
+    &:hover,
+    &:focus {
+      color: #2c1a4d;
+      background-color: #bacbe6;
+    }
+
+    &.active {
+      color: #{$gray-0};
+      background-color: #2c1a4d;
+      border-color: #2c1a4d;
+    }
+  }
+}
+
+.text-bg-primary {
+  color: #{$gray-0} !important;
+  background-color: RGBA(107, 10, 229, var(--bs-bg-opacity, 1)) !important;
+}
+
+.link-primary {
+  color: #{$Primary} !important;
+
+  &:hover,
+  &:focus {
+    color: #{$DarkPrimary} !important;
+  }
+}
+
+.border-primary {
+  --bs-border-opacity: 1;
+  border-color: rgba(
+    var(--bs-primary-rgb),
+    var(--bs-border-opacity)
+  ) !important;
+}
+
+/* rtl:end:remove */
+.text-primary {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+}
+
+.bg-primary {
+  --bs-bg-opacity: 1;
+
+  background-color: rgba(
+    var(--bs-primary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}

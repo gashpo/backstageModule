@@ -1,0 +1,14 @@
+.breadcrumb-item {
+  color: color(gray-700);
+  @include fontRWD(body2);
+
+  & + .breadcrumb-item {
+    padding-left: px(2);
+
+    &::before {
+      content: "\e5cc";
+      font-family: "Material Symbols Rounded";
+      padding-right: px(2);
+    }
+  }
+}

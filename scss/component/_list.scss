@@ -1,0 +1,10 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  @include fontRWD(body1);
+
+  li {
+    padding: px(4) 0;
+  }
+}

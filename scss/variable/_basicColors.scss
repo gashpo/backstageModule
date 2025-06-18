@@ -1,0 +1,235 @@
+// 色彩定義
+$colors: ();
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+// 灰階
+$colors: map-merge(
+  $colors,
+  (
+    gray-0: #ffffff,
+    gray-30: #fcfcfc,
+    gray-50: #f9f9f9,
+    gray-100: #ededed,
+    gray-150: #e2e2e2,
+    gray-200: #dddddd,
+    gray-300: #cccccc,
+    gray-500: #a2a2a2,
+    gray-550: #989898,
+    gray-600: #919191,
+    gray-650: #8c8c8c,
+    gray-700: #727171,
+    gray-800: #545454,
+    gray-850: #494949,
+    gray-900: #333333,
+    gray-1000: #000000,
+  )
+);
+// 灰階 透明度
+$colors: map-merge(
+  $colors,
+  (
+    gray-0-0: rgba(color(gray-0), 0),
+    gray-0-12: rgba(color(gray-0), 0.12),
+    gray-0-14: rgba(color(gray-0), 0.14),
+    gray-0-15: rgba(color(gray-0), 0.15),
+    gray-0-20: rgba(color(gray-0), 0.2),
+    gray-0-25: rgba(color(gray-0), 0.25),
+    gray-0-30: rgba(color(gray-0), 0.3),
+    gray-0-40: rgba(color(gray-0), 0.4),
+    gray-0-50: rgba(color(gray-0), 0.5),
+    gray-0-60: rgba(color(gray-0), 0.6),
+    gray-800-90: rgba(color(gray-800), 0.9),
+    gray-1000-0: rgba(color(gray-1000), 0),
+    gray-1000-5: rgba(color(gray-1000), 0.05),
+    gray-1000-10: rgba(color(gray-1000), 0.1),
+    gray-1000-12: rgba(color(gray-1000), 0.12),
+    gray-1000-14: rgba(color(gray-1000), 0.14),
+    gray-1000-15: rgba(color(gray-1000), 0.15),
+    gray-1000-20: rgba(color(gray-1000), 0.2),
+    gray-1000-25: rgba(color(gray-1000), 0.25),
+    gray-1000-30: rgba(color(gray-1000), 0.3),
+    gray-1000-40: rgba(color(gray-1000), 0.4),
+    gray-1000-50: rgba(color(gray-1000), 0.5),
+    gray-1000-60: rgba(color(gray-1000), 0.6),
+  )
+);
+
+// 灰藍
+$colors: map-merge(
+  $colors,
+  (
+    grayBlue-200: #ced4da,
+    grayBlue-300: #c3ccdd,
+    grayBlue-400: #a2b0cb,
+    grayBlue-500: #8988a7,
+    grayBlue-700: #3e3151,
+    grayBlue-800: #1f2f3c,
+    grayBlue-850: #322741,
+    grayBlue-900: #16222b,
+    grayBlue-950: #131d24,
+  )
+);
+// 灰藍 透明度
+$colors: map-merge(
+  $colors,
+  (
+    grayBlue-850-12: rgba(color(grayBlue-850), 0.12),
+    grayBlue-850-14: rgba(color(grayBlue-850), 0.14),
+    grayBlue-850-20: rgba(color(grayBlue-850), 0.2),
+  )
+);
+
+// 紅
+$colors: map-merge(
+  $colors,
+  (
+    red-50: #f8f4f6,
+    red-100: #ffe3e4,
+    red-300: #ff838b,
+    red-400: #ff5965,
+    red-450: #ff3a48,
+    red-500: #ff303e,
+    red-600: #e22432,
+    red-700: #cd2632,
+    red-800: #9c1d25,
+  )
+);
+// 紅 透明度
+$colors: map-merge(
+  $colors,
+  (
+    red-500-12: rgba(color(red-500), 0.12),
+    red-500-14: rgba(color(red-500), 0.14),
+    red-500-20: rgba(color(red-500), 0.2),
+  )
+);
+
+// 黃
+$colors: map-merge(
+  $colors,
+  (
+    yellow-100: #fff4d3,
+    yellow-300: #ffda6a,
+    yellow-400: #ffcd39,
+    yellow-500: #ffc107,
+    yellow-550: #ed8100,
+    yellow-600: #d39e00,
+    yellow-700: #997404,
+    yellow-900: #2e281a,
+  )
+);
+
+// 綠
+$colors: map-merge(
+  $colors,
+  (
+    green-100: #e8f9d9,
+    green-300: #b1e980,
+    green-400: #97e255,
+    green-450: #91dd50,
+    green-500: #7ddb2b,
+    green-600: #64af22,
+    green-700: #4b831a,
+  )
+);
+// 綠 透明度
+$colors: map-merge(
+  $colors,
+  (
+    green-600-12: rgba(color(green-600), 0.12),
+    green-600-14: rgba(color(green-600), 0.14),
+    green-600-20: rgba(color(green-600), 0.2),
+  )
+);
+
+// 藍
+$colors: map-merge(
+  $colors,
+  (
+    blue-100: #ccefff,
+    blue-500: #00aeff,
+    blue-900: #16222b,
+  )
+);
+
+// bg! Green
+$colors: map-merge(
+  $colors,
+  (
+    bfGreen-100: #d1f3e2,
+    bfGreen-400: #1bd87b,
+    bfGreen-450: #19ca73,
+    bfGreen-500: #18c16e,
+  )
+);
+// bg! Green 透明度
+$colors: map-merge(
+  $colors,
+  (
+    bfGreen-400-12: rgba(color(bfGreen-400), 0.12),
+    bfGreen-400-14: rgba(color(bfGreen-400), 0.14),
+    bfGreen-400-20: rgba(color(bfGreen-400), 0.2),
+  )
+);
+
+// Master Merchant
+$colors: map-merge(
+  $colors,
+  (
+    masterMerchant-100: #f0f5fa,
+    masterMerchant-200: #e3f0fa,
+    masterMerchant-300: #a9bdcb,
+    masterMerchant-400: #008bf2,
+    masterMerchant-500: #006bbb,
+    masterMerchant-800: #353b50,
+  )
+);
+// Master Merchant 透明度
+$colors: map-merge(
+  $colors,
+  (
+    masterMerchant-400-12: rgba(color(masterMerchant-400), 0.12),
+    masterMerchant-400-14: rgba(color(masterMerchant-400), 0.14),
+    masterMerchant-400-20: rgba(color(masterMerchant-400), 0.2),
+  )
+);
+
+// GASH
+$colors: map-merge(
+  $colors,
+  (
+    GASH-100: #facce2,
+    GASH-200: #f599c5,
+    GASH-300: #ef66a8,
+    GASH-400: #ea338b,
+    GASH-500: #e5006e,
+    GASH-550: #c0105f,
+    GASH-800: #b70058,
+  )
+);
+// GASH 透明度
+$colors: map-merge(
+  $colors,
+  (
+    GASH-500-12: rgba(color(GASH-500), 0.12),
+    GASH-500-14: rgba(color(GASH-500), 0.14),
+    GASH-500-20: rgba(color(GASH-500), 0.2),
+  )
+);
+
+// Tokens
+$colors: map-merge(
+  $colors,
+  (
+    Contrast: color(GASH-500),
+    Text-AAAA: color(gray-850),
+    Text-AAA: color(gray-800),
+    Text-AA: color(gray-700),
+    Text-A: color(gray-600),
+    LabelColor: color(grayBlue-500),
+    Placeholder: color(gray-500),
+  )
+);

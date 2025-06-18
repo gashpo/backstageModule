@@ -1,0 +1,154 @@
+.inner-table {
+  width: 100%;
+  border: px(1) solid color(gray-150);
+  color: color(gray-700);
+
+  thead {
+    background-color: color(gray-50);
+
+    tr {
+      th {
+        @include fontRWD(body1);
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+      }
+    }
+  }
+
+  thead,
+  tbody {
+    tr {
+      th,
+      td {
+        text-align: center;
+        padding: px(12);
+      }
+    }
+  }
+}
+
+// datatables 套件
+.datatable-container {
+  @include rounded(8, 8, 0, 0);
+  overflow: hidden;
+}
+
+.datatable-table {
+  @include rounded(8, 8, 0, 0);
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 0 !important;
+  border: none;
+
+  thead {
+    > tr {
+      > th {
+        color: color(gray-600);
+        @include fontRWD(body2);
+        text-align: center;
+        background-color: color(gray-100);
+      }
+    }
+  }
+
+  tbody {
+    > tr {
+      > td {
+        @include fontRWD(body1);
+        color: color(gray-700);
+        background-color: color(gray-0);
+      }
+
+      &:nth-child(odd) {
+        background-color: color(gray-50);
+
+        td {
+          background-color: color(gray-50);
+        }
+      }
+
+      &:hover {
+        > td {
+          background-color: color(gray-100);
+          --bs-table-accent-bg: color(gray-100);
+        }
+      }
+    }
+  }
+
+  thead,
+  tbody {
+    > tr {
+      border: none;
+      position: relative;
+
+      > th,
+      > td {
+        border: none;
+        padding: px(12);
+        min-width: fit-content;
+        white-space: nowrap;
+
+        &:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 1;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 100%;
+            width: px(6);
+            background: linear-gradient(
+              to right,
+              color(gray-1000-12) 0%,
+              transparent 100%
+            );
+          }
+        }
+
+        &:last-child {
+          position: sticky;
+          right: 0;
+          z-index: 1;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 100%;
+            width: px(6);
+            background: linear-gradient(
+              to left,
+              color(gray-1000-12) 0%,
+              transparent 100%
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+.datatable-bottom {
+  background-color: color(gray-100);
+  @include rounded(0, 0, 8, 8);
+  padding: px(12);
+}
+
+.datatable-info {
+  display: inline-block;
+}
+
+.table-container {
+  @include rounded(8);
+  overflow: hidden;
+}

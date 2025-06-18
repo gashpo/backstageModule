@@ -1,0 +1,5 @@
+.card {
+  border: none;
+  box-shadow: 0 0 px(12) color(gray-1000-12);
+  @include rounded(12);
+}

@@ -1,0 +1,9 @@
+// 尺寸
+@function px($key) {
+  @return calc($key / 16 * 1rem);
+}
+
+// 導圓角
+@mixin rounded($lt, $rt: $lt, $rb: $lt, $lb: $lt) {
+  border-radius: px($lt) px($rt) px($rb) px($lb);
+}

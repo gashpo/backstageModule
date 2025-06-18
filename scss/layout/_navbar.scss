@@ -1,0 +1,116 @@
+.sb-topnav {
+  height: auto;
+  color: color(gray-0);
+  padding: px(8) px(16);
+
+  .navbar-brand {
+    display: flex;
+    gap: px(8);
+    @include fontRWD(body2-bold);
+    color: color(gray-300);
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: color(gray-0);
+
+      img {
+        max-width: 100%;
+        max-height: px(14);
+      }
+    }
+  }
+
+  .notification,
+  .navbar-nav {
+    cursor: pointer;
+    color: color(gray-300);
+
+    > li {
+      height: px(40);
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.sb-sidenav {
+  .sb-sidenav-menu {
+    .nav {
+      .nav-link {
+        gap: px(8);
+        color: color(grayBlue-300);
+        padding: px(8) px(24);
+        @include fontRWD(body1);
+
+        i {
+          font-size: px(20);
+        }
+
+        .sb-sidenav-collapse-arrow {
+          color: color(grayBlue-300);
+        }
+
+        &.active {
+          background-color: color(Primary);
+          color: color(gray-0);
+        }
+      }
+
+      .sb-sidenav-menu-nested {
+        margin-left: 0;
+
+        .nav-link {
+          padding: px(8) px(24) px(8) px(52);
+        }
+      }
+    }
+  }
+}
+
+.header-dropdown {
+  .dropdown-menu {
+    padding: 0;
+
+    .dropdown-item {
+      padding: px(12);
+      display: flex;
+      flex-direction: column;
+      @include rounded(0);
+      color: color(gray-800);
+
+      a {
+        color: color(gray-800);
+        text-decoration: none;
+      }
+
+      .notification-time {
+        @include fontRWD(caption);
+        color: color(gray-300);
+      }
+
+      + .dropdown-item {
+        border-top: px(1) solid color(gray-200);
+      }
+
+      &:hover {
+        background-color: color(gray-0);
+        color: color(Primary);
+
+        a {
+          color: color(Primary);
+        }
+      }
+
+      &.read {
+        background-color: color(gray-100);
+        color: color(gray-800) !important;
+      }
+    }
+  }
+}

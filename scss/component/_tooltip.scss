@@ -1,0 +1,18 @@
+$gray-800-90: color(gray-800-90);
+
+.custom-tooltip {
+  --bs-tooltip-bg: #{$gray-800-90};
+  --bs-tooltip-color: var(--bs-white);
+
+  ul {
+    padding: px(8) px(16);
+    list-style-type: disc;
+    text-align: left;
+    @include fontRWD(body2);
+    padding-left: px(24);
+
+    li {
+      padding: 0;
+    }
+  }
+}

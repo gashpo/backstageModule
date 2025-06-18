@@ -1,0 +1,53 @@
+.container-fluid {
+  .page-title {
+    border-bottom: px(1) solid color(gray-1000-5);
+    padding-bottom: px(16);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      color: color(gray-800);
+      display: inline;
+
+      small {
+        display: block;
+        @include fontRWD(caption);
+        color: color(gray-600);
+      }
+    }
+
+    .page-description {
+      color: color(gray-600);
+      @include fontRWD(caption);
+    }
+  }
+
+  .content-section {
+    display: flex;
+    flex-direction: column;
+    gap: px(20);
+    color: color(gray-800);
+
+    h5 {
+      margin-bottom: 0;
+    }
+  }
+
+  hr {
+    border-color: color(gray-150);
+    margin: px(20) 0;
+    opacity: 1;
+  }
+}
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: px(12);
+  height: 100%;
+  width: 100%;
+  color: color(gray-300);
+}
