@@ -10,8 +10,8 @@
   }
 
   &.required {
-    &::before {
-      content: "* ";
+    &::after {
+      content: " *";
       color: color(Danger);
     }
   }

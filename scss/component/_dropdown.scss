@@ -20,8 +20,21 @@
     border-color: color(gray-300);
   }
 
-  &.entered {
+  &.selected {
     color: color(gray-800);
+  }
+
+  &.show {
+    border-color: color(gray-850);
+    box-shadow: 0 0 px(1.6) 0 color(grayBlue-700);
+  }
+
+  &:focus {
+    color: color(gray-300);
+
+    &.selected {
+      color: color(gray-800);
+    }
   }
 }
 
@@ -62,6 +75,7 @@
       align-self: stretch;
       height: 100%;
       padding-right: px(12);
+      flex: 1;
 
       + ul {
         border-left: px(1) solid color(gray-150);

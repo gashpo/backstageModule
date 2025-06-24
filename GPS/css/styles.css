@@ -1633,7 +1633,17 @@ h5 {
     border-color: #cccccc;
   }
 }
-.dropdown-toggle.entered {
+.dropdown-toggle.selected {
+  color: #545454;
+}
+.dropdown-toggle.show {
+  border-color: #494949;
+  box-shadow: 0 0 0.1rem 0 #3e3151;
+}
+.dropdown-toggle:focus {
+  color: #cccccc;
+}
+.dropdown-toggle:focus.selected {
   color: #545454;
 }
 
@@ -1671,6 +1681,7 @@ h5 {
   align-self: stretch;
   height: 100%;
   padding-right: 0.75rem;
+  flex: 1;
 }
 .dropdown-menu .dropdown-container ul + ul {
   border-left: 0.0625rem solid #e2e2e2;
@@ -1720,8 +1731,8 @@ h5 {
 .form-label i {
   font-size: 1rem;
 }
-.form-label.required::before {
-  content: "* ";
+.form-label.required::after {
+  content: " *";
   color: #ba121e;
 }
 
