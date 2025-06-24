@@ -126,6 +126,7 @@
                                     <div class="dropdown-menu">
                                         <div class="dropdown-container">
                                             <ul>
+                                                <!-- 單選的下拉選單，選取到的項目需增加 .active 套用選取樣式 (多選則不須增加) -->
                                                 <li class="dropdown-item active">GASH 交易單號</li>
                                                 <li class="dropdown-item">商家交易單號</li>
                                                 <li class="dropdown-item">商家會員帳號</li>
@@ -147,7 +148,174 @@
                             </div>
                             <div class="col-4 mb-4">
                                 <label for="paymentMethod" class="form-label">支付渠道</label>
-                                <button class="form-control dropdown-toggle multi-select" id="paymentMethod" data-bs-toggle="dropdown" aria-expanded="false">請選擇支付渠道</button>
+                                <!-- 多選的下拉選單，需以「, 」區隔，將所有選到的項目依排序顯示於 div.dropdown-toggle 中 -->
+                                <button class="form-control dropdown-toggle multi-select selected" id="paymentMethod" data-bs-toggle="dropdown" aria-expanded="false">BNK00401 台灣銀行虛擬帳號交易, BNK00402 台灣銀行WebATM</button>
+                                <div class="dropdown-menu">
+                                    <!-- 下拉選單當項目多於10個時(11起)，需顯示 div.dropdown-search 搜尋框 -->
+                                    <div class="dropdown-search">
+                                        <div class="input-icon-btn">
+                                            <input class="form-control" type="text" placeholder="請輸入關鍵字"></input>
+                                            <i class="material-symbols-rounded">search</i>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-container">
+                                        <!-- 多選的下拉選單，需將已選取到的項目排序移至最上方，取消選取時則回到原本的排序 -->
+                                        <ul>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <!-- 當下方選項被局部選取時，「全部」使用 :indeterminate 改變樣式 -->
+                                                    <input class="form-check-input indeterminate" type="checkbox" id="paymentMethodAll" value="optionAll">
+                                                    <label class="form-check-label" for="paymentMethodAll">全部</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod1" value="option1" checked>
+                                                    <label class="form-check-label" for="paymentMethod1">BNK00401 台灣銀行虛擬帳號交易</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod2" value="option2" checked>
+                                                    <label class="form-check-label" for="paymentMethod2">BNK00402 台灣銀行WebATM</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod3" value="option3">
+                                                    <label class="form-check-label" for="paymentMethod3">BNK00701 微信支付</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod4" value="option4">
+                                                    <label class="form-check-label" for="paymentMethod4">BNK10301 微信支付(新光)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod5" value="option5">
+                                                    <label class="form-check-label" for="paymentMethod5">BNK80702 永豐信用卡</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod6" value="option6">
+                                                    <label class="form-check-label" for="paymentMethod6">BNK80702Test 永豐信用卡(正式環境)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod7" value="option7">
+                                                    <label class="form-check-label" for="paymentMethod7">BNK80703 永豐信用卡(快速結帳)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod8" value="option8">
+                                                    <label class="form-check-label" for="paymentMethod8">BNK80704 永豐信用卡(指定週期扣款)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod9" value="option9">
+                                                    <label class="form-check-label" for="paymentMethod9">BNK80707 永豐信用卡(果核 非3D)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod10" value="option10">
+                                                    <label class="form-check-label" for="paymentMethod10">BNK80708 永豐信用卡(員工訂餐)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod11" value="option11">
+                                                    <label class="form-check-label" for="paymentMethod11">BNK80709 永豐信用卡(價保國內外卡)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod12" value="option12">
+                                                    <label class="form-check-label" for="paymentMethod12">BNK80710 永豐信用卡(價保限國內卡)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod13" value="option13">
+                                                    <label class="form-check-label" for="paymentMethod13">BNK80711 永豐信用卡(價保首次3D)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod14" value="option14">
+                                                    <label class="form-check-label" for="paymentMethod14">BNK80712 永豐信用卡(綁定價保限國內卡)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod15" value="option15">
+                                                    <label class="form-check-label" for="paymentMethod15">BNK80713 永豐信用卡(綁定價保國內外卡)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod16" value="option16">
+                                                    <label class="form-check-label" for="paymentMethod16">BNK80714 永豐信用卡(價保不限綁定)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod17" value="option17">
+                                                    <label class="form-check-label" for="paymentMethod17">BNK80715 永豐信用卡(全免3D)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod18" value="option18">
+                                                    <label class="form-check-label" for="paymentMethod18">BNK80716 永豐信用卡(票劵)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod19" value="option19">
+                                                    <label class="form-check-label" for="paymentMethod19">BNK80717 永豐信用卡(月租扣款)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod20" value="option20">
+                                                    <label class="form-check-label" for="paymentMethod20">BNK80801 玉山銀行WEB ATM</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paymentMethod21" value="option21">
+                                                    <label class="form-check-label" for="paymentMethod21">BNK80802 玉山銀行消費性扣款</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 mb-4">
+                                <label for="midSelect" class="form-label">MID 商家代碼</label>
+                                <button class="form-control dropdown-toggle selected" id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">M1000001 ----- GASH測試用(UAT).,LTD CO</button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-container">
+                                        <ul>
+                                            <li class="dropdown-item active">M1000001 ----- GASH測試用(UAT).,LTD CO</li>
+                                            <li class="dropdown-item">M1000002 ----- GASH測試用(RD)</li>
+                                            <li class="dropdown-item">M1000003 ----- 隨身遊戲服份有限公司【已停用】</li>
+                                            <li class="dropdown-item">M1000004 ----- MID測試【已刪除】</li>
+                                            <li class="dropdown-item">M1000005 ----- test【已刪除】</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 mb-4">
+                                <label for="cidSelect" class="form-label">CID 產品代碼</label>
+                                <button class="form-control dropdown-toggle multi-select" id="cidSelect" data-bs-toggle="dropdown" aria-expanded="false">請選擇 CID 產品代碼</button>
                                 <div class="dropdown-menu">
                                     <div class="dropdown-search">
                                         <div class="input-icon-btn">
@@ -156,6 +324,7 @@
                                         </div>
                                     </div>
                                     <div class="dropdown-container">
+                                        <!-- 當下拉選單有兩層時，則增加第二個<ul>，且第一層選到的項目需增加 .active 套用樣式，並展開其子層<ul> -->
                                         <ul>
                                             <li class="dropdown-item active">
                                                 item 1
@@ -179,118 +348,7 @@
                                             </li>
                                         </ul>
                                         <ul>
-                                            <li class="dropdown-item select-all-item" data-action="select-all">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethodAll" value="optionAll">
-                                                    <label class="form-check-label" for="paymentMethodAll">全部</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option1">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod1" value="option1">
-                                                    <label class="form-check-label" for="paymentMethod1">BNK00401 台灣銀行虛擬帳號交易</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option2">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod2" value="option2">
-                                                    <label class="form-check-label" for="paymentMethod2">BNK00402 台灣銀行WebATM</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod3" value="option3">
-                                                    <label class="form-check-label" for="paymentMethod3">BNK00701 微信支付</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod4" value="option4">
-                                                    <label class="form-check-label" for="paymentMethod4">BNK10301 微信支付(新光)</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option5">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod5" value="option5">
-                                                    <label class="form-check-label" for="paymentMethod5">BNK80702 永豐信用卡</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option6">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod6" value="option6">
-                                                    <label class="form-check-label" for="paymentMethod6">BNK80702Test 永豐信用卡(正式環境)</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option7">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod7" value="option7">
-                                                    <label class="form-check-label" for="paymentMethod7">BNK80703 永豐信用卡(快速結帳)</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option8">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod8" value="option8">
-                                                    <label class="form-check-label" for="paymentMethod8">BNK80704 永豐信用卡(指定週期扣款)</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option9">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod9" value="option9">
-                                                    <label class="form-check-label" for="paymentMethod9">BNK80707 永豐信用卡(果核 非3D)</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option10">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod10" value="option10">
-                                                    <label class="form-check-label" for="paymentMethod10">BNK80708 永豐信用卡(員工訂餐)</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option11">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod11" value="option11">
-                                                    <label class="form-check-label" for="paymentMethod11">BNK80709 永豐信用卡(價保國內外卡)</label>
-                                                </div>
-                                            </li>
-                                            <li class="dropdown-item" data-value="option12">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="paymentMethod12" value="option12">
-                                                    <label class="form-check-label" for="paymentMethod12">BNK80710 永豐信用卡(價保限國內卡)</label>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 mb-4">
-                                <label for="midSelect" class="form-label">MID 商家代碼</label>
-                                <!-- 下拉選單有選取值的時候，在 button.dropdown-toggle 上增加 .selected -->
-                                <button class="form-control dropdown-toggle selected" id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">M1000001 ----- GASH測試用(UAT).,LTD CO</button>
-                                <div class="dropdown-menu">
-                                    <!-- 下拉選單當項目少於10個時，不顯示 .dropdown-search 搜尋框 -->
-                                    <div class="dropdown-container">
-                                        <ul>
-                                            <li class="dropdown-item active">M1000001 ----- GASH測試用(UAT).,LTD CO</li>
-                                            <li class="dropdown-item">M1000002 ----- GASH測試用(RD)</li>
-                                            <li class="dropdown-item">M1000003 ----- 隨身遊戲服份有限公司【已停用】</li>
-                                            <li class="dropdown-item">M1000004 ----- MID測試【已刪除】</li>
-                                            <li class="dropdown-item">M1000005 ----- test【已刪除】</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 mb-4">
-                                <label for="cidSelect" class="form-label">CID 產品代碼</label>
-                                <button class="form-control dropdown-toggle multi-select" id="cidSelect" data-bs-toggle="dropdown" aria-expanded="false">請選擇 CID 產品代碼</button>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-search">
-                                        <div class="input-icon-btn">
-                                            <input class="form-control" type="text" placeholder="請輸入關鍵字"></input>
-                                            <i class="material-symbols-rounded">search</i>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-container">
-                                        <ul>
-                                            <li class="dropdown-item select-all-item" data-action="select-all">
+                                            <li class="dropdown-item select-all-item">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="cidSelectAll" value="optionAll">
                                                     <label class="form-check-label" for="cidSelectAll">全部</label>

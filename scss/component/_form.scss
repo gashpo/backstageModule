@@ -98,7 +98,7 @@
       }
     }
 
-    &.indeterminate {
+    &:indeterminate {
       background-image: url("../../images/icon_indeterminate.svg");
       background-color: color(Primary);
       border-color: color(Primary);

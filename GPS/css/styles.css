@@ -1803,7 +1803,7 @@ h5 {
 .form-check .form-check-input[disabled] ~ .form-check-label, .form-check .form-check-input:disabled ~ .form-check-label {
   opacity: 0.3;
 }
-.form-check .form-check-input.indeterminate {
+.form-check .form-check-input:indeterminate {
   background-image: url("../../images/icon_indeterminate.svg");
   background-color: #e5006e;
   border-color: #e5006e;
