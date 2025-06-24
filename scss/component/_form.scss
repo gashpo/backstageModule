@@ -40,6 +40,19 @@
   }
 }
 
+.input-icon-btn {
+  position: relative;
+
+  i {
+    position: absolute;
+    top: 50%;
+    right: px(16);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: color(gray-800);
+  }
+}
+
 .helper-text {
   color: color(gray-650);
   display: block;

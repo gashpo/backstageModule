@@ -31,16 +31,16 @@ $colors: map-merge(
 $colors: map-merge(
   $colors,
   (
-    Danger: color(red-600),
-    LightDanger: color(red-100),
-    Danger-12: rgba(color(red-500), 0.12),
-    Danger-14: rgba(color(red-500), 0.14),
-    Danger-20: rgba(color(red-500), 0.2),
-    Success: color(green-600),
+    Success: color(green-500),
     LightSuccess: color(green-100),
     Success-12: rgba(color(green-600), 0.12),
     Success-14: rgba(color(green-600), 0.14),
     Success-20: rgba(color(green-600), 0.2),
+    Danger: color(red-500),
+    LightDanger: color(red-100),
+    Danger-12: rgba(color(red-500), 0.12),
+    Danger-14: rgba(color(red-500), 0.14),
+    Danger-20: rgba(color(red-500), 0.2),
     Warning: color(yellow-500),
     LightWarning: color(yellow-100),
     Info: color(blue-500),
@@ -58,4 +58,11 @@ $colors: map-merge(
   .bg-#{$name} {
     background-color: $value;
   }
+}
+
+// Settings for Bootstrap
+$Primary: color(Primary);
+:root {
+  --bs-primary: #{$Primary};
+  --bs-primary-rgb: 229, 0, 110;
 }

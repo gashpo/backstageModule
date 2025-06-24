@@ -1,8 +1,7 @@
-$gray-800-90: color(gray-800-90);
-
 .custom-tooltip {
-  --bs-tooltip-bg: #{$gray-800-90};
-  --bs-tooltip-color: var(--bs-white);
+  background-color: color(gray-800);
+  color: color(gray-0);
+  opacity: 0.9;
 
   ul {
     padding: px(8) px(16);

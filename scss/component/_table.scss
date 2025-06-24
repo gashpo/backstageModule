@@ -44,6 +44,7 @@
   overflow-x: auto;
   margin-bottom: 0 !important;
   border: none;
+  background-color: color(gray-50);
 
   thead {
     > tr {
@@ -151,4 +152,13 @@
 .table-container {
   @include rounded(8);
   overflow: hidden;
+}
+
+.page-link,
+.datatable-pagination a {
+  color: color(DarkSecondary);
+
+  @include hover {
+    color: color(DarkSecondary);
+  }
 }
