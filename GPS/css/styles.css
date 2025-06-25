@@ -1809,6 +1809,16 @@ h5 {
   border-color: #e5006e;
 }
 
+.input-group > *:first-child.dropdown-group button {
+  border-radius: 0.5rem 0rem 0rem 0.5rem;
+}
+.input-group > *:last-child {
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+}
+.input-group > *:nth-last-child(2)[type=date], .input-group > *:nth-last-child(2)[type=month], .input-group > *:nth-last-child(2)[type=year] {
+  border-radius: 0rem 0.5rem 0.5rem 0rem !important;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -2041,6 +2051,9 @@ ul li {
     line-height: 150%;
   }
 }
+.container-fluid .page-title button {
+  min-width: 6.25rem;
+}
 .container-fluid .page-title .page-description {
   color: #919191;
   font-size: 0.75rem;
@@ -2217,4 +2230,14 @@ footer copyright {
 .header-dropdown .dropdown-menu .dropdown-item.read {
   background-color: #ededed;
   color: #545454 !important;
+}
+
+.login-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/loginImage.jpg");
+  background-size: cover;
+  background-position: center;
 }

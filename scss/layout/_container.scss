@@ -17,6 +17,10 @@
       }
     }
 
+    button {
+      min-width: px(100);
+    }
+
     .page-description {
       color: color(gray-600);
       @include fontRWD(caption);

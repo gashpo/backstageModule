@@ -105,3 +105,28 @@
     }
   }
 }
+
+.input-group {
+  > * {
+    &:first-child {
+      &.dropdown-group {
+        button {
+          @include rounded(8, 0, 0, 8);
+        }
+      }
+    }
+
+    &:last-child {
+      @include rounded(0, 8, 8, 0);
+    }
+
+    // 日期類input專用設定 (因應套件日期類input會生成一個隱藏的input)
+    &:nth-last-child(2) {
+      &[type="date"],
+      &[type="month"],
+      &[type="year"] {
+        border-radius: px(0) px(8) px(8) px(0) !important;
+      }
+    }
+  }
+}
