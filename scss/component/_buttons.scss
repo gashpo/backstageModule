@@ -37,9 +37,9 @@ $gray-1000: color(gray-1000);
   }
 
   &:disabled {
-    color: color(gray-0);
-    background-color: color(gray-150);
-    border: px(1) solid color(gray-150);
+    color: color(gray-0) !important;
+    background-color: color(gray-150) !important;
+    border: px(1) solid color(gray-150) !important;
   }
 
   // Size

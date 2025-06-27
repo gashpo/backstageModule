@@ -1,0 +1,28 @@
+.badge {
+  @include rounded(8);
+  padding: px(4) px(8);
+  display: inline-block;
+  @include fontRWD(body2);
+  color: color(gray-800);
+  background-color: color(gray-100);
+
+  &.badge-danger {
+    color: color(Danger);
+    background-color: color(LightDanger);
+  }
+
+  &.badge-warning {
+    color: color(Warning);
+    background-color: color(LightWarning);
+  }
+
+  &.badge-info {
+    color: color(Info);
+    background-color: color(LightInfo);
+  }
+
+  &.badge-success {
+    color: color(Success);
+    background-color: color(LightSuccess);
+  }
+}

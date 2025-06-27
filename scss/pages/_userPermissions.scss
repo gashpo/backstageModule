@@ -1,0 +1,45 @@
+.permissions-card {
+  overflow-x: auto;
+  padding-bottom: px(32);
+
+  .permissions-container {
+    display: flex;
+    gap: px(20);
+
+    > li {
+      //   flex: px(300);
+      flex-shrink: 0;
+      width: px(300);
+    }
+  }
+
+  .permissions-title {
+    @include fontRWD(body2-bold);
+    color: color(Primary);
+  }
+
+  .permissions-group {
+    padding: px(12);
+    background-color: color(gray-50);
+
+    > li {
+      padding-left: px(52);
+
+      .collapse-toggle {
+        margin-left: px(-52);
+      }
+    }
+  }
+}
+
+@include max-to(mobile) {
+  .permissions-card {
+    .permissions-container {
+      flex-direction: column;
+
+      > li {
+        width: 100%;
+      }
+    }
+  }
+}

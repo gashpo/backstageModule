@@ -59,18 +59,6 @@
     display: flex;
     overflow-x: hidden;
 
-    &::-webkit-scrollbar {
-      width: px(6);
-      background-color: color(gray-0);
-      @include rounded(100);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      width: px(5);
-      background-color: color(gray-150);
-      @include rounded(100);
-    }
-
     ul {
       align-self: stretch;
       height: 100%;

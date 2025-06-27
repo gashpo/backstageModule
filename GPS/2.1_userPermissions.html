@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>帳號管理 | GASH Point Payent System 後台管理系統</title>
+        <meta name="description" content="GASH Point Payent System 後台管理系統" />
+        <meta name="keywords" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="GASH Point Payent System 後台管理系統" />
+        <meta property="og:image" content="images/og-image.jpg" />
+        <meta property="og:image:type" content="images/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <link rel="icon" type="image/png" href="images/favicon.svg" />
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.jpg" />
+
+        <!-- Font Awesome 6.3 -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google Material Symbols -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+        <!-- Datatables -->
+        <link href="../css/simple-datatables.min.css" rel="stylesheet" />
+
+        <!-- Bootstrap 5.2 -->
+        <link href="../css/bootstrapStyles.css" rel="stylesheet" />
+
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- <link rel="stylesheet" href="css/multiSelect.css"> -->
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">
+                <div>
+                    <img src="images/Logo_dark.svg">
+                    <span>Payment System</span>
+                </div>
+                後台
+            </a>
+            <!-- Navbar-->
+            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-2 my-md-0 d-flex align-items-center">
+                <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="me-1">admin</span>
+                         <i class="material-symbols-rounded">person</i>
+                         <i class="material-symbols-rounded">arrow_drop_down</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                        <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
+                        <li class="dropdown-item"><a href="login.html">登出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <i class="material-symbols-rounded">storefront</i>
+                                商家 MID 報表
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="1.1_orderInquiry.html">訂單查詢</a>
+                                    <a class="nav-link" href="1.2_financialDetailReport.html">帳務明細報表</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <i class="material-symbols-rounded">category</i>
+                                後台管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse show" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link active" href="2.1_userPermissions.html">帳號管理</a>
+                                    <a class="nav-link" href="2.2_groupManagement.html">群組管理</a>
+                                    <a class="nav-link" href="2.3_directoryManagement.html">目錄管理</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mt-4">
+                            <li class="breadcrumb-item">GASH POINT Payment System 後台</li>
+                            <li class="breadcrumb-item">後台管理</li>
+                            <li class="breadcrumb-item active">帳號管理</li>
+                        </ol>
+                        <div class="page-title mb-4">
+                            <h3>帳號管理</h3>
+                            <a class="btn btn-primary" href="2.1.1_userPermissionsInpage.html">
+                                <i class="material-symbols-rounded">add</i>
+                                新增
+                            </a>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <label for="midSelect" class="form-label required">MID 商家代碼</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle selected" id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">M1000001 ----- GASH測試用(UAT).,LTD CO</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input indeterminate" type="checkbox" id="midSelectAll" value="optionAll">
+                                                        <label class="form-check-label" for="midSelectAll">全部</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="midSelect1" value="option1" checked>
+                                                        <label class="form-check-label" for="midSelect1">M1000001 ----- GASH測試用(UAT).,LTD CO</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="midSelect2" value="option2">
+                                                        <label class="form-check-label" for="midSelect2">M1000002 ----- GASH測試用(RD)</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="midSelect3" value="option3">
+                                                        <label class="form-check-label" for="midSelect3">M1000003 ----- 隨身遊戲服份有限公司【已停用】</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="midSelect4" value="option4">
+                                                        <label class="form-check-label" for="midSelect4">M1000004 ----- MID測試【已刪除】</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="midSelect5" value="option5">
+                                                        <label class="form-check-label" for="midSelect5">M1000005 ----- test【已刪除】</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="userID" class="form-label">使用者帳號</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle" id="userID" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">zhiyili</li>
+                                                <li class="dropdown-item">bellalin</li>
+                                                <li class="dropdown-item">samcheng</li>
+                                                <li class="dropdown-item">yaxudai</li>
+                                                <li class="dropdown-item">michaelcheng</li>
+                                                <li class="dropdown-item">jiuyang</li>
+                                                <li class="dropdown-item">ripplehuang</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="lockState" class="form-label">鎖定狀態</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle" id="lockState" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="lockState1" value="option1">
+                                                        <label class="form-check-label" for="lockState1">未鎖定</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="lockState2" value="option2">
+                                                        <label class="form-check-label" for="lockState2">已鎖定</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="enableState" class="form-label">啟用狀態</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle" id="enableState" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="enableState1" value="option1">
+                                                        <label class="form-check-label" for="enableState1">已啟用</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="enableState2" value="option2">
+                                                        <label class="form-check-label" for="enableState2">待啟用</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="enableState3" value="option3">
+                                                        <label class="form-check-label" for="enableState3">已停用</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <!-- 當「啟用狀態」為「已啟用」時才可填寫，否則 disabled -->
+                                <label for="autoDisableDate" class="form-label">自動停用日期</label>
+                                <input id="autoDisableDate" type="date" class="form-control" placeholder="yyyy/mm/dd" aria-label="autoDisableDate">
+                            </div>
+                            <div class="col-md-4 query-btn-group">
+                                <button type="button" class="btn btn-secondary">
+                                    <i class="material-symbols-rounded">search</i>
+                                    查詢
+                                </button>
+                                <button type="button" class="btn btn-secondary-flat">
+                                    <i class="material-symbols-rounded">delete</i>
+                                    清空
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card p-3">
+                            <div class="table-container">
+                                <table id="datatablesSimple" class="text-center">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>使用者帳號</th>
+                                            <th>使用者名稱</th>
+                                            <th>MID 商家代碼</th>
+                                            <th>鎖定狀態</th>
+                                            <th>啟用狀態</th>
+                                            <th>建立日期</th>
+                                            <th>自動停用日期</th>
+                                            <th>動作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>AARONKUO</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-warning">待啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>AMYPI</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-success">已啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>ANNAHUANG</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-success">已啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>ARIELSHEN</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-success">已啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>BELLALIN</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-success">已啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>DARRENCHANG</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-success">已啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>BRIANWANG</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-success">已啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>EUREKALIU</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-danger">已停用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>JACKCHEN</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-success">已啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>SOPHIATSAI</td>
+                                            <td>王小明</td>
+                                            <td>M1000001</td>
+                                            <td>未鎖定</td>
+                                            <td><span class="badge badge-success">已啟用</span></td>
+                                            <td>2030/12/31</td>
+                                            <td>2030/12/31</td>
+                                            <td>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯"><i class="material-symbols-rounded">edit</i></a>
+                                                <a class="btn btn-secondary-flat btn-xs" href="2.1.1_userPermissionsInpage.html" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視"><i class="material-symbols-rounded">visibility</i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer>
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-center small">
+                            <copyright>© 2025 GASH POINT Co., Ltd. All right reserved</copyright>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        <!-- jQuery -->
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap 5.2.3 -->
+        <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+        <!-- Datatable -->
+        <script src="../js/simple-datatables.js"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
+        <!-- Tooltip -->
+        <script src="../js/tooltip.js"></script>
+    </body>
+</html>

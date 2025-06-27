@@ -1,0 +1,18 @@
+.collapse-toggle {
+  display: flex;
+  align-items: center;
+  gap: px(8);
+
+  i {
+    transition: transform 0.3s;
+    cursor: pointer;
+
+    &.collapsed {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .form-check {
+    display: inline-block;
+  }
+}

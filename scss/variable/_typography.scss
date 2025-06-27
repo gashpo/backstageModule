@@ -267,7 +267,7 @@ $font-family: (
 // 用法
 p,
 span {
-  @include fontRWD(body2);
+  @include fontRWD(body1);
 }
 h1 {
   @include fontRWD(h1);

@@ -38,6 +38,22 @@
     filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%)
       contrast(90%);
   }
+
+  &[readonly] {
+    background-color: color(gray-50);
+  }
+
+  &:disabled {
+    border-color: color(gray-300);
+    background-color: color(gray-100);
+    color: color(gray-300);
+  }
+}
+
+textarea {
+  &.form-control {
+    min-height: px(140);
+  }
 }
 
 .input-icon-btn {
@@ -69,6 +85,7 @@
 
 .form-check {
   color: color(gray-800);
+  margin: 0;
 
   > * {
     cursor: pointer;
@@ -87,6 +104,14 @@
 
     &.error {
       border-color: color(Danger);
+    }
+
+    &.readonly {
+      opacity: 0.8 !important;
+
+      ~ .form-check-label {
+        opacity: 0.8 !important;
+      }
     }
 
     &[disabled],

@@ -43,6 +43,12 @@
     margin: px(20) 0;
     opacity: 1;
   }
+
+  .page-actions {
+    button {
+      min-width: px(100);
+    }
+  }
 }
 
 .index-container {

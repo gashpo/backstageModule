@@ -1,14 +1,15 @@
-@import "../../scss/layout/settings";
-
 @import "../../scss/variable/breakpoints";
 @import "../../scss/variable/GPSColors";
 @import "../../scss/variable/sizing";
 @import "../../scss/variable/typography";
+@import "../../scss/layout/settings";
 
 @import "../../scss/component/alert";
+@import "../../scss/component/badge";
 @import "../../scss/component/breadcrumb";
 @import "../../scss/component/buttons";
 @import "../../scss/component/card";
+@import "../../scss/component/collapse";
 @import "../../scss/component/dropdown";
 @import "../../scss/component/form";
 @import "../../scss/component/list";
@@ -20,3 +21,4 @@
 @import "../../scss/layout/navbar";
 
 @import "../../scss/pages/login";
+@import "../../scss/pages/userPermissions";

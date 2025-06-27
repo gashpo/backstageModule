@@ -3,6 +3,17 @@
   padding: px(8) px(16);
   border: none;
   @include fontRWD(body2);
+  position: fixed;
+  top: px(50);
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: fit-content;
+  z-index: 1050;
+
+  &.alert-inline {
+    position: inherit;
+    transform: none;
+  }
 
   &.alert-danger {
     background-color: color(LightDanger);

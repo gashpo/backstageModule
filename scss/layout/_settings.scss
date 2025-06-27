@@ -2,6 +2,22 @@ body {
   background-color: color(gray-50);
 }
 
+* {
+  &::-webkit-scrollbar {
+    width: px(6);
+    height: px(6);
+    background-color: color(gray-0);
+    @include rounded(100);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: px(5);
+    height: px(5);
+    background-color: color(gray-150);
+    @include rounded(100);
+  }
+}
+
 // Hover (Mouse Only)
 @mixin hover {
   @media (hover: hover) {

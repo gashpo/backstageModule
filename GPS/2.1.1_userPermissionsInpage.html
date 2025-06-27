@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>帳號管理 | GASH Point Payent System 後台管理系統</title>
+        <meta name="description" content="GASH Point Payent System 後台管理系統" />
+        <meta name="keywords" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="GASH Point Payent System 後台管理系統" />
+        <meta property="og:image" content="images/og-image.jpg" />
+        <meta property="og:image:type" content="images/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <link rel="icon" type="image/png" href="images/favicon.svg" />
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.jpg" />
+
+        <!-- Font Awesome 6.3 -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google Material Symbols -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+        
+        <!-- Bootstrap 5.2 -->
+        <link href="../css/bootstrapStyles.css" rel="stylesheet" />
+
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">
+                <div>
+                    <img src="images/Logo_dark.svg">
+                    <span>Payment System</span>
+                </div>
+                後台
+            </a>
+            <!-- Navbar-->
+            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-2 my-md-0 d-flex align-items-center">
+                <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="me-1">admin</span>
+                         <i class="material-symbols-rounded">person</i>
+                         <i class="material-symbols-rounded">arrow_drop_down</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                        <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
+                        <li class="dropdown-item"><a href="login.html">登出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <i class="material-symbols-rounded">storefront</i>
+                                商家 MID 報表
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="1.1_orderInquiry.html">訂單查詢</a>
+                                    <a class="nav-link" href="1.2_financialDetailReport.html">帳務明細報表</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <i class="material-symbols-rounded">category</i>
+                                後台管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse show" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link active" href="2.1_userPermissions.html">帳號管理</a>
+                                    <a class="nav-link" href="2.2_groupManagement.html">群組管理</a>
+                                    <a class="nav-link" href="2.3_directoryManagement.html">目錄管理</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mt-4">
+                            <li class="breadcrumb-item">GASH POINT Payment System 後台</li>
+                            <li class="breadcrumb-item">後台管理</li>
+                            <li class="breadcrumb-item active">帳號管理</li>
+                        </ol>
+                        <div class="page-title mb-4">
+                            <h3>帳號管理</h3>
+                            <a class="btn btn-secondary-flat" href="2.1_userPermissions.html">
+                                <i class="material-symbols-rounded">arrow_back</i>
+                                返回
+                            </a>
+                        </div>
+
+                        <!-- 僅擁有檢視權限時，所有欄位狀態改為readonly (checkbox不支援readonly，故使用disabled) -->
+                        <div class="card p-3">
+                            <div class="content-section">
+                                <h5>基本資料</h5>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label for="userID" class="form-label required">使用者帳號</label>
+                                        <input type="text" class="form-control" placeholder="請輸入使用者帳號" required>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <label for="password" class="form-label required">使用者密碼</label>
+                                        <div class="input-icon-btn">
+                                            <input class="form-control" id="password" type="password" placeholder="請輸入使用者密碼" required></input>
+                                            <i class="material-symbols-rounded">visibility_off</i>
+                                        </div>
+                                    </div>
+                                    <div class="w-100"></div>
+                                    <div class="col-md-3 mb-4">
+                                        <label for="userName" class="form-label required">使用者名稱</label>
+                                        <input id="userName" type="text" class="form-control" placeholder="請輸入使用者名稱" required>
+                                    </div>
+                                    <div class="col-md-3 mb-4">
+                                        <label for="midSelect" class="form-label required">MID 商家代碼</label>
+                                        <div class="dropdown-group">
+                                            <button class="form-control dropdown-toggle" id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                            <div class="dropdown-menu">
+                                                <div class="dropdown-container">
+                                                    <ul>
+                                                        <li class="dropdown-item">M1000001 ----- GASH測試用(UAT).,LTD CO</li>
+                                                        <li class="dropdown-item">M1000002 ----- GASH測試用(RD)</li>
+                                                        <li class="dropdown-item">M1000003 ----- 隨身遊戲服份有限公司【已停用】</li>
+                                                        <li class="dropdown-item">M1000004 ----- MID測試【已刪除】</li>
+                                                        <li class="dropdown-item">M1000005 ----- test【已刪除】</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-4">
+                                        <label for="mobile" class="form-label">手機</label>
+                                        <div class="input-group">
+                                            <div class="dropdown-group">
+                                                <button class="btn dropdown-toggle selected" id="mobile" type="button" data-bs-toggle="dropdown" aria-expanded="false">+886</button>
+                                                <div class="dropdown-menu">
+                                                    <div class="dropdown-container">
+                                                        <ul>
+                                                            <li class="dropdown-item active">+886</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="0912345678">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-4">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input id="email" type="text" class="form-control" placeholder="請輸入Email">
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <label for="lockState" class="form-label required">鎖定狀態</label>
+                                        <div class="dropdown-group">
+                                            <button class="form-control dropdown-toggle selected" id="lockState" type="text" data-bs-toggle="dropdown" aria-expanded="false">未鎖定</button>
+                                            <div class="dropdown-menu">
+                                                <div class="dropdown-container">
+                                                    <ul>
+                                                        <li class="dropdown-item active">未鎖定</li>
+                                                        <li class="dropdown-item">已鎖定</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <label for="enableState" class="form-label required">啟用狀態</label>
+                                        <div class="dropdown-group">
+                                            <button class="form-control dropdown-toggle selected" id="enableState" type="text" data-bs-toggle="dropdown" aria-expanded="false">已啟用</button>
+                                            <div class="dropdown-menu">
+                                                <div class="dropdown-container">
+                                                    <ul>
+                                                        <li class="dropdown-item active">已啟用</li>
+                                                        <li class="dropdown-item">待啟用</li>
+                                                        <li class="dropdown-item">已停用</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <label for="autoDisableDate" class="form-label required">自動停用日期</label>
+                                        <input id="autoDisableDate" type="date" class="form-control" placeholder="yyyy/mm/dd" aria-label="autoDisableDate" required>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <label for="identityRemarks" class="form-label">身份備註</label>
+                                        <textarea id="identityRemarks" class="form-control" placeholder="請輸入身份備註"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="content-section">
+                                <h5>權限設定 <span class="text-danger">*</span></h5>
+                                <div class="card card-flat p-3 bg-gray-50">
+                                    <p>選擇欲套用的預設值，可以讓你更快速的設定使用者權限。</p>
+                                    <div class="row">
+                                        <div class="col-md-4 dropdown-group">
+                                            <button class="form-control dropdown-toggle multi-select" id="fastApply" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                            <div class="dropdown-menu">
+                                                <div class="dropdown-search">
+                                                    <div class="input-icon-btn">
+                                                        <input class="form-control" type="text" placeholder="請輸入關鍵字"></input>
+                                                        <i class="material-symbols-rounded">search</i>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-container">
+                                                    <ul>
+                                                        <li class="dropdown-item">
+                                                            使用者名稱
+                                                            <i class="material-symbols-rounded">arrow_right</i>
+                                                        </li>
+                                                        <li class="dropdown-item active">
+                                                            群組名稱
+                                                            <i class="material-symbols-rounded">arrow_right</i>
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li class="dropdown-item" data-value="permissions1">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply1" value="permissions1">
+                                                                <label class="form-check-label" for="fastApply1">系統管理人員</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="permissions2">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply2" value="permissions2" checked>
+                                                                <label class="form-check-label" for="fastApply2">風控人員</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="permissions3">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply3" value="permissions3">
+                                                                <label class="form-check-label" for="fastApply3">帳務人員</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="permissions4">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply4" value="permissions4">
+                                                                <label class="form-check-label" for="fastApply4">業務人員</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="permissions5">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply5" value="option5">
+                                                                <label class="form-check-label" for="fastApply5">行銷人員</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="option6">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply6" value="option6" checked>
+                                                                <label class="form-check-label" for="fastApply6">客服人員</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="option7">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply7" value="option7">
+                                                                <label class="form-check-label" for="fastApply7">營運部</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="option8">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply8" value="option8">
+                                                                <label class="form-check-label" for="fastApply8">QA Team</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="option9">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply9" value="option9">
+                                                                <label class="form-check-label" for="fastApply9">委外客服_專員</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item" data-value="option10">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="fastApply10" value="option10">
+                                                                <label class="form-check-label" for="fastApply10">樂點卡客服</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <button type="button" class="btn btn-secondary-flat">
+                                                <i class="material-symbols-rounded">delete</i>
+                                                清空
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="permissions-card">
+                                    <ul class="permissions-container">
+                                        <li>
+                                            <p class="permissions-title">商家 MID 管理</p>
+                                            <ul class="card card-flat permissions-group">
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions1-1" aria-expanded="false" aria-controls="permissions1-1">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions1-1-All" value="option1-1-All">
+                                                            <label class="form-check-label" for="permissions1-1-All">訂單查詢</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions1-1">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-add" value="option1-1-add">
+                                                                <label class="form-check-label" for="permissions1-1-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-edit" value="option1-1-edit">
+                                                                <label class="form-check-label" for="permissions1-1-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-delete" value="option1-1-delete">
+                                                                <label class="form-check-label" for="permissions1-1-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-view" value="option1-1-view">
+                                                                <label class="form-check-label" for="permissions1-1-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-download" value="option1-1-download">
+                                                                <label class="form-check-label" for="permissions1-1-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions1-2" aria-expanded="false" aria-controls="permissions1-2">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions1-2-All" value="option1-2-All">
+                                                            <label class="form-check-label" for="permissions1-2-All">帳務明細報表</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions1-2">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-add" value="option1-2-add">
+                                                                <label class="form-check-label" for="permissions1-2-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-edit" value="option1-2-edit">
+                                                                <label class="form-check-label" for="permissions1-2-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-delete" value="option1-2-delete">
+                                                                <label class="form-check-label" for="permissions1-2-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-view" value="option1-2-view">
+                                                                <label class="form-check-label" for="permissions1-2-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-download" value="option1-2-download">
+                                                                <label class="form-check-label" for="permissions1-2-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p class="permissions-title">後台管理</p>
+                                            <ul class="card card-flat permissions-group">
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-1" aria-expanded="false" aria-controls="permissions2-1">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-1-All" value="permissions2-1-All">
+                                                            <label class="form-check-label" for="permissions2-1-All">帳號管理</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-1">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-add" value="permissions2-1-add">
+                                                                <label class="form-check-label" for="permissions2-1-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-edit" value="permissions2-1-edit">
+                                                                <label class="form-check-label" for="permissions2-1-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-delete" value="permissions2-1-delete">
+                                                                <label class="form-check-label" for="permissions2-1-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-view" value="permissions2-1-view">
+                                                                <label class="form-check-label" for="permissions2-1-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-download" value="permissions2-1-download">
+                                                                <label class="form-check-label" for="permissions2-1-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-2" aria-expanded="false" aria-controls="permissions2-2">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-2-All" value="permissions2-2-All">
+                                                            <label class="form-check-label" for="permissions2-2-All">群組管理</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-2">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-add" value="permissions2-2-add">
+                                                                <label class="form-check-label" for="permissions2-2-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-edit" value="permissions2-2-edit">
+                                                                <label class="form-check-label" for="permissions2-2-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-delete" value="permissions2-2-delete">
+                                                                <label class="form-check-label" for="permissions2-2-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-view" value="permissions2-2-view">
+                                                                <label class="form-check-label" for="permissions2-2-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-download" value="permissions2-2-download">
+                                                                <label class="form-check-label" for="permissions2-2-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-3" aria-expanded="false" aria-controls="permissions2-3">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-3-All" value="permissions2-3-All">
+                                                            <label class="form-check-label" for="permissions2-3-All">目錄管理</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-3">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-add" value="permissions2-3-add">
+                                                                <label class="form-check-label" for="permissions2-3-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-edit" value="permissions2-3-edit">
+                                                                <label class="form-check-label" for="permissions2-3-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-delete" value="permissions2-3-delete">
+                                                                <label class="form-check-label" for="permissions2-3-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-view" value="permissions2-3-view">
+                                                                <label class="form-check-label" for="permissions2-3-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-download" value="permissions2-3-download">
+                                                                <label class="form-check-label" for="permissions2-3-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 新增時按鈕文案為「新增」，編輯時為「儲存」，檢視時不顯示按鈕 -->
+                            <div class="page-actions">
+                                <button type="button" class="btn btn-secondary-outline me-3">
+                                    清空重填
+                                </button>
+                                <button type="button" class="btn btn-primary" disabled>
+                                    新增
+                                </button>
+                                <small class="error-message"></small>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer>
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-center small">
+                            <copyright>© 2025 GASH POINT Co., Ltd. All right reserved</copyright>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- <div class="alert alert-danger" role="alert">A simple danger alert—check it out!</div> -->
+
+
+        <!-- jQuery -->
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap 5.2.3 -->
+        <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>

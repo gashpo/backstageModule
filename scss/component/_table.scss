@@ -149,6 +149,20 @@
   display: inline-block;
 }
 
+.innertable-container {
+  overflow-x: auto;
+
+  table {
+    thead {
+      tr {
+        th {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
 .table-container {
   @include rounded(8);
   overflow: hidden;
