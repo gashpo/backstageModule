@@ -31,26 +31,23 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm me-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">
-                <div>
-                    <img src="images/Logo_dark.svg">
-                    <span>Payment System</span>
-                </div>
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Logo_dark.svg">
+                <span>Payment System</span>
                 後台
             </a>
             <!-- Navbar-->
-            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-2 my-md-0 d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-0 d-flex align-items-center">
                 <li class="nav-item dropdown header-dropdown">
                     <a class="nav-link" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="me-1">admin</span>
                          <i class="material-symbols-rounded">person</i>
-                         <i class="material-symbols-rounded">arrow_drop_down</i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
                         <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
-                        <li class="dropdown-item"><a href="login.html">登出</a></li>
+                        <li class="dropdown-item"><a data-bs-toggle="modal" data-bs-target="#logout">登出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,11 +90,12 @@
                         <ol class="breadcrumb mt-4">
                             <li class="breadcrumb-item">GASH POINT Payment System 後台</li>
                             <li class="breadcrumb-item">後台管理</li>
-                            <li class="breadcrumb-item active">群組權限</li>
+                            <li class="breadcrumb-item">群組權限</li>
+                            <li class="breadcrumb-item active">編輯群組權限</li>
                         </ol>
-                        <div class="page-title mb-4">
-                            <h3>群組權限</h3>
-                            <a class="btn btn-secondary-flat" href="2.2_groupManagement.html">
+                        <div class="page-title">
+                            <h3>編輯群組權限</h3>
+                            <a class="btn btn-secondary-flat" data-bs-toggle="modal" data-bs-target="#unchangeRemind">
                                 <i class="material-symbols-rounded">arrow_back</i>
                                 返回
                             </a>
@@ -1377,6 +1375,44 @@
                         </div>
                     </div>
                 </main>
+
+                <!-- Modal -->
+                <div class="modal modal-warning fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="logoutLabel"><i class="material-symbols-rounded">error</i></h2>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>確定登出</h4>
+                                <p>您是否確定要登出？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <a href="login.html" class="btn btn-primary flex-grow-1">登出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal modal-warning fade" id="unchangeRemind" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="unchangeRemind" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2><i class="material-symbols-rounded">error</i></h2>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>尚有未儲存的變更</h4>
+                                <p>離開此頁面後，您的編輯內容將無法復原。</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="2.2_groupManagement.html" class="btn btn-secondary-flat flex-grow-1">離開</a>
+                                <button type="button" class="btn btn-primary flex-grow-1" data-bs-dismiss="modal">繼續編輯</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <footer>
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-center small">

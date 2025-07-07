@@ -5,6 +5,7 @@
     left: 50%;
     transform: translate(-50%, -50%) !important;
     max-width: px(560);
+    min-width: px(300);
 
     .modal-content {
       .modal-header {

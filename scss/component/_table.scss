@@ -32,143 +32,6 @@
   }
 }
 
-// datatables 套件
-.datatable-container {
-  @include rounded(8, 8, 0, 0);
-  overflow: hidden;
-}
-
-.datatable-table {
-  @include rounded(8, 8, 0, 0);
-  width: 100%;
-  overflow-x: auto;
-  margin-bottom: 0 !important;
-  border: none;
-  background-color: color(gray-50);
-
-  &.fix-firstline {
-    thead,
-    tbody {
-      > tr {
-        > th,
-        > td {
-          &:first-child {
-            position: sticky;
-            left: 0;
-            z-index: 1;
-
-            &::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              left: 100%;
-              width: px(6);
-              background: linear-gradient(
-                to right,
-                color(gray-1000-12) 0%,
-                transparent 100%
-              );
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &.fix-lastline {
-    thead,
-    tbody {
-      > tr {
-        > th,
-        > td {
-          &:last-child {
-            position: sticky;
-            right: 0;
-            z-index: 1;
-
-            &::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              right: 100%;
-              width: px(6);
-              background: linear-gradient(
-                to left,
-                color(gray-1000-12) 0%,
-                transparent 100%
-              );
-            }
-          }
-        }
-      }
-    }
-  }
-
-  thead {
-    > tr {
-      > th {
-        color: color(gray-600);
-        @include fontRWD(body2);
-        text-align: center;
-        background-color: color(gray-100);
-      }
-    }
-  }
-
-  tbody {
-    > tr {
-      > td {
-        @include fontRWD(body1);
-        color: color(gray-700);
-        background-color: color(gray-0);
-      }
-
-      &:nth-child(odd) {
-        background-color: color(gray-50);
-
-        td {
-          background-color: color(gray-50);
-        }
-      }
-
-      @include hover {
-        > td {
-          background-color: color(gray-100);
-          --bs-table-accent-bg: color(gray-100);
-        }
-      }
-    }
-  }
-
-  thead,
-  tbody {
-    > tr {
-      border: none;
-      position: relative;
-
-      > th,
-      > td {
-        border: none;
-        padding: px(12);
-        min-width: fit-content;
-        white-space: nowrap;
-      }
-    }
-  }
-}
-
-.datatable-bottom {
-  background-color: color(gray-100);
-  @include rounded(0, 0, 8, 8);
-  padding: px(12);
-}
-
-.datatable-info {
-  display: inline-block;
-}
-
 .innertable-container {
   overflow-x: auto;
 
@@ -183,13 +46,199 @@
   }
 }
 
+// datatables 套件
+.datatable-container {
+  @include rounded(8, 8, 0, 0);
+  overflow: hidden;
+
+  .datatable-table {
+    @include rounded(8, 8, 0, 0);
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 0 !important;
+    border: none;
+    background-color: color(gray-50);
+    min-height: px(300);
+
+    .btn-xs {
+      min-width: auto;
+    }
+
+    thead,
+    tbody {
+      > tr {
+        border: none;
+        position: relative;
+
+        > th,
+        > td {
+          border: none;
+          padding: px(12);
+          min-width: fit-content;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    thead {
+      > tr {
+        > th {
+          color: color(gray-600);
+          @include fontRWD(body2);
+          text-align: center;
+          background-color: color(gray-100);
+        }
+      }
+    }
+
+    tbody {
+      > tr {
+        > td {
+          @include fontRWD(body1);
+          color: color(gray-700);
+          background-color: color(gray-0);
+        }
+
+        &:nth-child(odd) {
+          background-color: color(gray-50);
+
+          td {
+            background-color: color(gray-50);
+          }
+        }
+
+        @include hover {
+          > td {
+            background-color: color(gray-100);
+            --bs-table-accent-bg: color(gray-100);
+          }
+        }
+      }
+    }
+
+    &.fix-firstline {
+      thead,
+      tbody {
+        > tr {
+          > th,
+          > td {
+            &:first-child {
+              position: sticky;
+              left: 0;
+              z-index: 1;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 100%;
+                width: px(6);
+                background: linear-gradient(
+                  to right,
+                  color(gray-1000-12) 0%,
+                  transparent 100%
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.fix-lastline {
+      thead,
+      tbody {
+        > tr {
+          > th,
+          > td {
+            &:last-child {
+              position: sticky;
+              right: 0;
+              z-index: 1;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 100%;
+                width: px(6);
+                background: linear-gradient(
+                  to left,
+                  color(gray-1000-12) 0%,
+                  transparent 100%
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.datatable-bottom {
+  background-color: color(gray-100);
+  @include rounded(0, 0, 8, 8);
+  padding: px(12);
+  color: color(gray-700);
+
+  .datatable-selector {
+    border: px(1) solid color(gray-300);
+    color: color(gray-550);
+  }
+
+  .datatable-info {
+    display: inline-block;
+  }
+
+  .datatable-pagination {
+    .datatable-pagination-list {
+      gap: px(4);
+
+      .datatable-pagination-list-item {
+        a {
+          padding: px(8);
+          border: none;
+          @include rounded(4);
+          color: color(gray-700);
+
+          @include hover {
+            background-color: color(gray-150);
+          }
+        }
+
+        &.datatable-active {
+          a {
+            background-color: color(DarkSecondary);
+            color: color(gray-0);
+          }
+        }
+
+        &.datatable-disabled {
+          a {
+            background-color: transparent;
+          }
+        }
+
+        &:first-child,
+        &:last-child {
+          a {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
 .table-container {
   @include rounded(8);
   overflow: hidden;
 }
 
-.page-link,
-.datatable-pagination a {
+.page-link {
   color: color(DarkSecondary);
 
   @include hover {

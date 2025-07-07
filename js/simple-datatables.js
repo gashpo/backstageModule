@@ -3324,7 +3324,7 @@
                 }
               }
               const X = {
-                  sortable: !0,
+                  sortable: false,
                   locale: "en",
                   numeric: !0,
                   caseFirst: "false",

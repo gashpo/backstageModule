@@ -31,26 +31,23 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm me-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">
-                <div>
-                    <img src="images/Logo_dark.svg">
-                    <span>Payment System</span>
-                </div>
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Logo_dark.svg">
+                <span>Payment System</span>
                 後台
             </a>
             <!-- Navbar-->
-            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-2 my-md-0 d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-0 d-flex align-items-center">
                 <li class="nav-item dropdown header-dropdown">
                     <a class="nav-link" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="me-1">admin</span>
                          <i class="material-symbols-rounded">person</i>
-                         <i class="material-symbols-rounded">arrow_drop_down</i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
                         <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
-                        <li class="dropdown-item"><a href="login.html">登出</a></li>
+                        <li class="dropdown-item"><a data-bs-toggle="modal" data-bs-target="#logout">登出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -60,10 +57,10 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <i class="material-symbols-rounded">storefront</i>
                                 商家 MID 報表
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow collapsed"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
@@ -71,10 +68,10 @@
                                     <a class="nav-link" href="1.2_financialDetailReport.html">帳務明細報表</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <i class="material-symbols-rounded">category</i>
                                 後台管理
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow collapsed"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse show" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -100,7 +97,10 @@
                         </div>
 
                         <div class="card p-3">
-                            <h5>目錄內容</h5>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h5>目錄內容</h5>
+                                <a href="2.3.1_directoryManagementInpage.html" class="btn btn-primary">切換編輯模式</a>
+                            </div>
                             <div class="card card-flat directory-content list-group col nested-sortable">
                                 <div class="dropdown-group">
                                     <button class="btn dropdown-toggle dropdown-ghost selected" id="queryType" type="button" data-bs-toggle="dropdown" aria-expanded="false">待啟用/已啟用</button>
@@ -115,111 +115,38 @@
                                 </div>
                                 <div class="card directory-group drag-item">
                                     <div class="directory-parent">
-                                        <i class="material-symbols-rounded handle">drag_indicator</i>
                                         <span>商家 MID 報表</span>
-                                        <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editParent">edit</i>
-                                        <i class="material-symbols-rounded arrow" data-bs-toggle="collapse" data-bs-target="#collapseGroup1" aria-expanded="false" aria-controls="collapseGroup1">keyboard_arrow_up</i>
+                                        <i class="material-symbols-rounded arrow collapsed" data-bs-toggle="collapse" data-bs-target="#collapseGroup1" aria-expanded="false" aria-controls="collapseGroup1">keyboard_arrow_up</i>
                                     </div>
-                                    <div class="list-group nested-sortable collapse show" id="collapseGroup1">
+                                    <div class="list-group nested-sortable collapse" id="collapseGroup1">
                                         <div class="list-group-item directory-child drag-item">
-                                            <i class="material-symbols-rounded handle">drag_indicator</i>
                                             <span class="flex-grow-1">訂單查詢</span>
-                                            <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editChild">edit</i>
                                         </div>
                                         <div class="list-group-item directory-child drag-item">
-                                            <i class="material-symbols-rounded handle">drag_indicator</i>
                                             <span class="flex-grow-1">帳務明細報表</span>
-                                            <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editChild">edit</i>
-                                        </div>
-                                        <div class="list-group-item directory-child" data-bs-toggle="modal" data-bs-target="#addChild">
-                                            <i class="material-symbols-rounded">add</i>
-                                            <span class="flex-grow-1">新增子選單</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card directory-group drag-item">
                                     <div class="directory-parent">
-                                        <i class="material-symbols-rounded handle">drag_indicator</i>
                                         <span>後台管理</span>
-                                        <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editParent">edit</i>
-                                        <i class="material-symbols-rounded arrow" data-bs-toggle="collapse" data-bs-target="#collapseGroup2" aria-expanded="false" aria-controls="collapseGroup2">keyboard_arrow_up</i>
+                                        <i class="material-symbols-rounded arrow collapsed" data-bs-toggle="collapse" data-bs-target="#collapseGroup2" aria-expanded="false" aria-controls="collapseGroup2">keyboard_arrow_up</i>
                                     </div>
-                                    <div class="list-group nested-sortable collapse show" id="collapseGroup2">
+                                    <div class="list-group nested-sortable collapse" id="collapseGroup2">
                                         <div class="list-group-item directory-child drag-item">
-                                            <i class="material-symbols-rounded handle">drag_indicator</i>
                                             <span class="flex-grow-1">帳號管理</span>
-                                            <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editChild">edit</i>
                                         </div>
                                         <div class="list-group-item directory-child drag-item">
-                                            <i class="material-symbols-rounded handle">drag_indicator</i>
                                             <span class="flex-grow-1">群組權限</span>
-                                            <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editChild">edit</i>
                                         </div>
                                         <div class="list-group-item directory-child drag-item">
-                                            <i class="material-symbols-rounded handle">drag_indicator</i>
                                             <span class="flex-grow-1">目錄管理</span>
-                                            <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editChild">edit</i>
-                                        </div>
-                                        <div class="list-group-item directory-child" data-bs-toggle="modal" data-bs-target="#addChild">
-                                            <i class="material-symbols-rounded">add</i>
-                                            <span class="flex-grow-1">新增子選單</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card directory-group drag-item">
                                     <div class="directory-parent">
-                                        <i class="material-symbols-rounded handle">drag_indicator</i>
                                         <span>Item 3</span>
-                                        <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editParent">edit</i>
-                                        <i class="material-symbols-rounded arrow"  data-bs-toggle="collapse" data-bs-target="#collapseGroup3" aria-expanded="false" aria-controls="collapseGroup3">keyboard_arrow_up</i>
-                                    </div>
-                                    <div class="list-group nested-sortable collapse show" id="collapseGroup3">
-                                        <div class="list-group-item directory-child" data-bs-toggle="modal" data-bs-target="#addChild">
-                                            <i class="material-symbols-rounded">add</i>
-                                            <span class="flex-grow-1">新增子選單</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card directory-group drag-item" data-bs-toggle="modal" data-bs-target="#addParent">
-                                    <div class="directory-parent">
-                                        <i class="material-symbols-rounded">add</i>
-                                        <span>新增父選單</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ↓ 切換到已停用時，在 .directory-content 上增加 .directory-disabled，仍可編輯，但不會有新增的按鈕 -->
-                            <div class="card card-flat directory-content list-group col nested-sortable directory-disabled">
-                                <div class="dropdown-group">
-                                    <button class="btn dropdown-toggle dropdown-ghost selected" id="queryType" type="button" data-bs-toggle="dropdown" aria-expanded="false">已停用</button>
-                                    <div class="dropdown-menu">
-                                        <div class="dropdown-container">
-                                            <ul>
-                                                <li class="dropdown-item">待啟用/已啟用</li>
-                                                <li class="dropdown-item active">已停用</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card directory-group">
-                                    <div class="directory-parent">
-                                        <i class="material-symbols-rounded handle">drag_indicator</i>
-                                        <span>Item 4</span>
-                                        <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editParent">edit</i>
-                                    </div>
-                                </div>
-                                <div class="card directory-group">
-                                    <div class="directory-parent">
-                                        <i class="material-symbols-rounded handle">drag_indicator</i>
-                                        <span>Item 5</span>
-                                        <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editParent">edit</i>
-                                        <i class="material-symbols-rounded arrow"  data-bs-toggle="collapse" data-bs-target="#collapseGroup5" aria-expanded="false" aria-controls="collapseGroup5">keyboard_arrow_up</i>
-                                    </div>
-                                    <div class="list-group nested-sortable collapse show" id="collapseGroup5">
-                                        <div class="list-group-item directory-child drag-item">
-                                            <i class="material-symbols-rounded handle">drag_indicator</i>
-                                            <span class="flex-grow-1">Item 5.1</span>
-                                            <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editChild">edit</i>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -228,303 +155,24 @@
                 </main>
 
                 <!-- Modal -->
-                <div class="modal fade" id="addParent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteGroupLabel" aria-hidden="true">
+                <div class="modal modal-warning fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <!-- 編輯時標題為「編輯{選單名稱}」 -->
-                                <h4>新增父選單</h4>
+                                <h2 id="logoutLabel"><i class="material-symbols-rounded">error</i></h2>
                             </div>
-                            <div class="modal-body row">
-                                <div class="col-md-6 mb-4">
-                                    <label for="addParentGroupID" class="form-label">ID</label>
-                                    <input class="form-control" id="addParentGroupID" type="text" value="151" readonly></input>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="addParentGroupIcon" class="form-label required">Icon name</label>
-                                    <input class="form-control" id="addParentGroupIcon" type="text" placeholder="請輸入 Icon name"></input>
-                                    <small class="helper-text">請至 <a href="https://fonts.google.com/icons?icon.style=Rounded" target="_blank">Google Fonts</a> 找尋對應的 Icon，並將 Icon name 回貼至此欄位。</small>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="addParentGroupName" class="form-label required">選單名稱</label>
-                                    <input class="form-control" id="addParentGroupName" type="text" placeholder="請輸入選單名稱"></input>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="addParentEnableState" class="form-label required">啟用狀態</label>
-                                    <div class="dropdown-group">
-                                        <button class="form-control dropdown-toggle selected" id="addParentEnableState" type="text" data-bs-toggle="dropdown" aria-expanded="false">已啟用</button>
-                                        <div class="dropdown-menu">
-                                            <div class="dropdown-container">
-                                                <ul>
-                                                    <li class="dropdown-item active">已啟用</li>
-                                                    <li class="dropdown-item">待啟用</li>
-                                                    <li class="dropdown-item">已停用</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="addParentFunctionUrl" class="form-label">功能路徑</label>
-                                    <input class="form-control" id="addParentFunctionUrl" type="text" placeholder="請輸入功能路徑"></input>
-                                    <div class="form-check mt-2">
-                                        <input class="form-check-input" type="checkbox" id="addParentFunctionUrlNew">
-                                        <label class="form-check-label" for="addParentFunctionUrlNew">在新視窗中開啟連結</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">功能權限</label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addParentFunctionPermission1" value="add">
-                                        <label class="form-check-label" for="addParentFunctionPermission1">新增</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addParentFunctionPermission2" value="edit">
-                                        <label class="form-check-label" for="addParentFunctionPermission2">編輯</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addParentFunctionPermission3" value="delete">
-                                        <label class="form-check-label" for="addParentFunctionPermission3">刪除</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addParentFunctionPermission4" value="view">
-                                        <label class="form-check-label" for="addParentFunctionPermission4">檢視</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addParentFunctionPermission5" value="download">
-                                        <label class="form-check-label" for="addParentFunctionPermission5">下載</label>
-                                    </div>
-                                </div>
+                            <div class="modal-body text-center">
+                                <h4>確定登出</h4>
+                                <p>您是否確定要登出？</p>
                             </div>
-                            <div class="modal-footer d-flex px-4">
-                                <button type="button" class="btn btn-secondary-flat" data-bs-dismiss="modal">取消</button>
-                                <!-- ↓ 「新增」按鈕預設 disabled，必填欄位全部填寫完才亮燈 -->
-                                <button type="button" class="btn btn-primary" disabled>新增</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <a href="login.html" class="btn btn-primary flex-grow-1">登出</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="modal fade" id="editParent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteGroupLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!-- 編輯時標題為「編輯{選單名稱}」 -->
-                                <h4>編輯商家 MID 報表</h4>
-                            </div>
-                            <div class="modal-body row">
-                                <div class="col-md-6 mb-4">
-                                    <label for="editParentGroupID" class="form-label">ID</label>
-                                    <input class="form-control" id="editParentGroupID" type="text" value="151" readonly></input>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="editParentGroupIcon" class="form-label required">Icon name</label>
-                                    <input class="form-control" id="editParentGroupIcon" type="text" value="category"></input>
-                                    <small class="helper-text">請至 <a href="https://fonts.google.com/icons?icon.style=Rounded" target="_blank">Google Fonts</a> 找尋對應的 Icon，並將 Icon name 回貼至此欄位。</small>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="editParentGroupName" class="form-label required">選單名稱</label>
-                                    <input class="form-control" id="editParentGroupName" type="text" value="商家 MID 報表"></input>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="editParentEnableState" class="form-label required">啟用狀態</label>
-                                    <div class="dropdown-group">
-                                        <button class="form-control dropdown-toggle selected" id="editParentEnableState" type="text" data-bs-toggle="dropdown" aria-expanded="false">已啟用</button>
-                                        <div class="dropdown-menu">
-                                            <div class="dropdown-container">
-                                                <ul>
-                                                    <li class="dropdown-item active">已啟用</li>
-                                                    <li class="dropdown-item">待啟用</li>
-                                                    <li class="dropdown-item">已停用</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="editParentFunctionUrl" class="form-label">功能路徑</label>
-                                    <input class="form-control" id="editParentFunctionUrl" type="text" value="~/app/sys/code/code_def/code_def.aspx"></input>
-                                    <div class="form-check mt-2">
-                                        <input class="form-check-input" type="checkbox" id="editParentFunctionUrlNew">
-                                        <label class="form-check-label" for="editParentFunctionUrlNew">在新視窗中開啟連結</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">功能權限</label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editParentFunctionPermission1" value="add" checked>
-                                        <label class="form-check-label" for="editParentFunctionPermission1">新增</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editParentFunctionPermission2" value="edit" checked>
-                                        <label class="form-check-label" for="editParentFunctionPermission2">編輯</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editParentFunctionPermission3" value="delete" checked>
-                                        <label class="form-check-label" for="editParentFunctionPermission3">刪除</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editParentFunctionPermission4" value="view" checked>
-                                        <label class="form-check-label" for="editParentFunctionPermission4">檢視</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editParentFunctionPermission5" value="download">
-                                        <label class="form-check-label" for="editParentFunctionPermission5">下載</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer d-flex px-4">
-                                <button type="button" class="btn btn-secondary-flat" data-bs-dismiss="modal">取消</button>
-                                <!-- ↓ 當任一必填欄位被清空時「儲存」按鈕需 disabled -->
-                                <button type="button" class="btn btn-primary">儲存</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="addChild" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteGroupLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!-- 編輯時標題為「編輯{選單名稱}」 -->
-                                <h4>新增子選單</h4>
-                            </div>
-                            <div class="modal-body row">
-                                <div class="col-12 mb-4">
-                                    <label for="addChildGroupID" class="form-label">ID</label>
-                                    <input class="form-control" id="addChildGroupID" type="text" value="151" readonly></input>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="addChildGroupName" class="form-label required">選單名稱</label>
-                                    <input class="form-control" id="addChildGroupName" type="text" placeholder="請輸入選單名稱"></input>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="addChildEnableState" class="form-label required">啟用狀態</label>
-                                    <div class="dropdown-group">
-                                        <button class="form-control dropdown-toggle selected" id="addChildEnableState" type="text" data-bs-toggle="dropdown" aria-expanded="false">已啟用</button>
-                                        <div class="dropdown-menu">
-                                            <div class="dropdown-container">
-                                                <ul>
-                                                    <li class="dropdown-item active">已啟用</li>
-                                                    <li class="dropdown-item">待啟用</li>
-                                                    <li class="dropdown-item">已停用</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="addChildFunctionUrl" class="form-label required">功能路徑</label>
-                                    <input class="form-control" id="addChildFunctionUrl" type="text" placeholder="請輸入功能路徑"></input>
-                                    <div class="form-check mt-2">
-                                        <input class="form-check-input" type="checkbox" id="addChildFunctionUrlNew">
-                                        <label class="form-check-label" for="addChildFunctionUrlNew">在新視窗中開啟連結</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label required">功能權限</label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addChildFunctionPermission1" value="add">
-                                        <label class="form-check-label" for="addChildFunctionPermission1">新增</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addChildFunctionPermission2" value="edit">
-                                        <label class="form-check-label" for="addChildFunctionPermission2">編輯</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addChildFunctionPermission3" value="delete">
-                                        <label class="form-check-label" for="addChildFunctionPermission3">刪除</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addChildFunctionPermission4" value="view">
-                                        <label class="form-check-label" for="addChildFunctionPermission4">檢視</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="addChildFunctionPermission5" value="download">
-                                        <label class="form-check-label" for="addChildFunctionPermission5">下載</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer d-flex px-4">
-                                <button type="button" class="btn btn-secondary-flat" data-bs-dismiss="modal">取消</button>
-                                <!-- ↓ 「新增」按鈕預設 disabled，必填欄位全部填寫完才亮燈 -->
-                                <button type="button" class="btn btn-primary" disabled>新增</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="editChild" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteGroupLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!-- 編輯時標題為「編輯{選單名稱}」 -->
-                                <h4>編輯訂單查詢</h4>
-                            </div>
-                            <div class="modal-body row">
-                                <div class="col-12 mb-4">
-                                    <label for="editChildGroupID" class="form-label">ID</label>
-                                    <input class="form-control" id="editChildGroupID" type="text" value="151" readonly></input>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="editChildGroupName" class="form-label required">選單名稱</label>
-                                    <input class="form-control" id="editChildGroupName" type="text" value="訂單查詢"></input>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="editChildEnableState" class="form-label required">啟用狀態</label>
-                                    <div class="dropdown-group">
-                                        <button class="form-control dropdown-toggle selected" id="editChildEnableState" type="text" data-bs-toggle="dropdown" aria-expanded="false">已啟用</button>
-                                        <div class="dropdown-menu">
-                                            <div class="dropdown-container">
-                                                <ul>
-                                                    <li class="dropdown-item active">已啟用</li>
-                                                    <li class="dropdown-item">待啟用</li>
-                                                    <li class="dropdown-item">已停用</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="editChildFunctionUrl" class="form-label required">功能路徑</label>
-                                    <input class="form-control" id="editChildFunctionUrl" type="text" value="~/app/sys/code/code_def/code_def.aspx"></input>
-                                    <div class="form-check mt-2">
-                                        <input class="form-check-input" type="checkbox" id="editChildFunctionUrlNew">
-                                        <label class="form-check-label" for="editChildFunctionUrlNew">在新視窗中開啟連結</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label required">功能權限</label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editChildFunctionPermission1" value="add">
-                                        <label class="form-check-label" for="editChildFunctionPermission1">新增</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editChildFunctionPermission2" value="edit">
-                                        <label class="form-check-label" for="editChildFunctionPermission2">編輯</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editChildFunctionPermission3" value="delete">
-                                        <label class="form-check-label" for="editChildFunctionPermission3">刪除</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editChildFunctionPermission4" value="view" checked>
-                                        <label class="form-check-label" for="editChildFunctionPermission4">檢視</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="editChildFunctionPermission5" value="download">
-                                        <label class="form-check-label" for="editChildFunctionPermission5">下載</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer d-flex px-4">
-                                <button type="button" class="btn btn-secondary-flat" data-bs-dismiss="modal">取消</button>
-                                <!-- ↓ 當任一必填欄位被清空時「儲存」按鈕需 disabled -->
-                                <button type="button" class="btn btn-primary">儲存</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <footer>
                     <div class="container-fluid px-4">

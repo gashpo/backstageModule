@@ -1,19 +1,27 @@
 .form-label {
   display: flex;
   align-items: center;
-  gap: px(8);
+  gap: px(4);
   @include fontRWD(body2);
   color: color(grayBlue-500);
-
-  i {
-    font-size: px(16);
-  }
 
   &.required {
     &::after {
       content: " *";
       color: color(Danger);
     }
+  }
+}
+
+.label-with-info {
+  display: flex;
+  align-items: center;
+  gap: px(8);
+
+  i {
+    font-size: px(16);
+    margin-bottom: px(8);
+    cursor: pointer;
   }
 }
 
@@ -81,10 +89,16 @@ textarea {
 .error-message {
   color: color(Danger);
   display: block;
+  margin-top: px(4);
 }
 
 .query-btn-group {
   padding-top: px(29);
+
+  @include max-to(tablet) {
+    padding-top: 0;
+    margin-bottom: px(24);
+  }
 }
 
 .form-check {
@@ -93,6 +107,10 @@ textarea {
 
   &.form-check-inline {
     margin-right: px(24);
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     .form-check-input ~ .valid-feedback {
       margin-left: px(0);
@@ -165,5 +183,9 @@ textarea {
         border-radius: px(0) px(8) px(8) px(0) !important;
       }
     }
+  }
+
+  .input-group-text {
+    padding: px(6) px(8);
   }
 }

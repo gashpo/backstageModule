@@ -1,14 +1,24 @@
 .breadcrumb-item {
   color: color(gray-700);
   @include fontRWD(body2);
+  padding-right: px(2);
+  padding-left: px(0) !important;
+  display: flex;
+  align-items: center;
+  gap: px(2);
 
-  & + .breadcrumb-item {
-    padding-left: px(2);
+  &::before {
+    display: none;
+  }
 
-    &::before {
-      content: "\e5cc";
-      font-family: "Material Symbols Rounded";
-      padding-right: px(2);
+  &::after {
+    content: "\e5cc";
+    font-family: "Material Symbols Rounded";
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
     }
   }
 }

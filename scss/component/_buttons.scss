@@ -6,7 +6,7 @@
   gap: px(4);
   padding: px(7) px(15);
   @include rounded(12);
-  min-width: fit-content;
+  min-width: px(100);
   word-break: keep-all;
   color: color(gray-700);
   background-color: color(gray-0);

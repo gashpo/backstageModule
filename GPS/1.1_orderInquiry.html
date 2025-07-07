@@ -35,26 +35,23 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm me-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">
-                <div>
-                    <img src="images/Logo_dark.svg">
-                    <span>Payment System</span>
-                </div>
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Logo_dark.svg">
+                <span>Payment System</span>
                 後台
             </a>
             <!-- Navbar-->
-            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-2 my-md-0 d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-0 d-flex align-items-center">
                 <li class="nav-item dropdown header-dropdown">
                     <a class="nav-link" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="me-1">admin</span>
                          <i class="material-symbols-rounded">person</i>
-                         <i class="material-symbols-rounded">arrow_drop_down</i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
                         <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
-                        <li class="dropdown-item"><a href="login.html">登出</a></li>
+                        <li class="dropdown-item"><a data-bs-toggle="modal" data-bs-target="#logout">登出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -64,23 +61,23 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMIDReport" aria-expanded="false" aria-controls="collapseMIDReport">
                                 <i class="material-symbols-rounded">storefront</i>
                                 商家 MID 報表
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse show" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse show" id="collapseMIDReport" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link active" href="1.1_orderInquiry.html">訂單查詢</a>
                                     <a class="nav-link" href="1.2_financialDetailReport.html">帳務明細報表</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBackendManagement" aria-expanded="false" aria-controls="collapseBackendManagement">
                                 <i class="material-symbols-rounded">category</i>
                                 後台管理
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseBackendManagement" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="2.1_userPermissions.html">帳號管理</a>
                                     <a class="nav-link" href="2.2_groupManagement.html">群組權限</a>
@@ -99,7 +96,7 @@
                             <li class="breadcrumb-item">商家 MID 報表</li>
                             <li class="breadcrumb-item active">訂單查詢</li>
                         </ol>
-                        <div class="page-title mb-4">
+                        <div class="page-title">
                             <h3>訂單查詢</h3>
                         </div>
 
@@ -1719,6 +1716,26 @@
                         </div>
                     </div>
                 </main>
+
+                <!-- Modal -->
+                <div class="modal modal-warning fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="logoutLabel"><i class="material-symbols-rounded">error</i></h2>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>確定登出</h4>
+                                <p>您是否確定要登出？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <a href="login.html" class="btn btn-primary flex-grow-1">登出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <footer>
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-center small">
@@ -1728,6 +1745,10 @@
                 </footer>
             </div>
         </div>
+
+        <!-- ↓ 全站所有 alert 皆 fade in 3秒後 fade out -->
+        <!-- ↓ 全站所有篩選器搜尋值不符條件時皆跳此 alert -->
+        <div class="alert alert-danger" role="alert">必填欄位未填寫或欄位填寫錯誤</div>
 
 
         <!-- jQuery -->

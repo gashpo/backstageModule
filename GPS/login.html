@@ -46,47 +46,46 @@
                                                 <div class="alert alert-danger alert-inline">您的帳號因連續3次登入失敗已被鎖定，請聯絡相關人員進行解鎖作業。</div>
                                                 <form>
                                                     <div class="mb-4">
-                                                        <label for="mid" class="form-label">MID 商家代碼</label>
+                                                        <label for="mid" class="form-label required">MID 商家代碼</label>
                                                         <input class="form-control error" id="mid" type="password" placeholder="請輸入 MID 商家代碼" required></input>
-                                                        <div class="d-flex justify-content-between mt-2">
-                                                            <small class="error-message">MID 商家代碼錯誤</small>
-                                                            <div class="form-check form-check-inline">
+                                                        <div class="d-flex justify-content-between">
+                                                            <small class="error-message">此 MID 商家代碼不存在</small>
+                                                            <div class="form-check form-check-inline mt-1">
                                                                 <input class="form-check-input" type="checkbox" id="rememberMid" value="rememberMid">
-                                                                
                                                                 <label class="form-check-label" for="rememberMid">記住 MID 商家代碼</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="mb-4">
-                                                        <label for="cid" class="form-label">CID 產品代碼 (選填)</label>
+                                                        <label for="cid" class="form-label">CID 產品代碼</label>
                                                         <input class="form-control error" id="cid" type="password" placeholder="請輸入 CID 產品代碼" required></input>
-                                                        <div class="d-flex justify-content-between mt-2">
-                                                            <small class="error-message">CID 產品代碼錯誤</small>
-                                                            <div class="form-check form-check-inline">
+                                                        <div class="d-flex justify-content-between">
+                                                            <small class="error-message">此 CID 產品代碼不存在</small>
+                                                            <div class="form-check form-check-inline mt-1">
                                                                 <input class="form-check-input" type="checkbox" id="rememberCid" value="rememberCid">
                                                                 <label class="form-check-label" for="rememberCid">記住 CID 產品代碼</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="mb-4">
-                                                        <label for="userID" class="form-label">帳號</label>
+                                                        <label for="userID" class="form-label required">帳號</label>
                                                         <input class="form-control error" id="userID" type="password" placeholder="請輸入帳號" required></input>
-                                                        <div class="d-flex justify-content-between mt-2">
-                                                            <small class="error-message">帳號錯誤</small>
-                                                            <div class="form-check form-check-inline">
+                                                        <div class="d-flex justify-content-between">
+                                                            <small class="error-message">此帳號不存在</small>
+                                                            <div class="form-check form-check-inline mt-1">
                                                                 <input class="form-check-input" type="checkbox" id="rememberUserID" value="rememberUserID">
-                                                                <label class="form-check-label" for="rememberUserID">記住 帳號</label>
+                                                                <label class="form-check-label" for="rememberUserID">記住帳號</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="mb-4">
-                                                        <label for="password" class="form-label">密碼</label>
+                                                        <label for="password" class="form-label required">密碼</label>
                                                         <div class="input-icon-btn">
                                                             <!-- 點擊時input type toggle 「text」和「password」，<i>標籤 toggle 「visibility」和「visibility_off」 -->
                                                             <input class="form-control error" id="password" type="password" placeholder="請輸入密碼" required></input>
                                                             <i class="material-symbols-rounded">visibility_off</i>
                                                         </div>
-                                                        <div class="d-flex mt-2">
+                                                        <div class="d-flex">
                                                             <small class="error-message">密碼錯誤</small>
                                                         </div>
                                                     </div>
@@ -119,7 +118,7 @@
                                 <p>為確保您的帳戶安全，系統要求您立即更新登入密碼。</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="index.html" class="btn btn-primary">立即更新</a>
+                                <a href="resetPassword.html" class="btn btn-primary">立即更新</a>
                             </div>
                         </div>
                     </div>
@@ -135,6 +134,8 @@
                 </footer>
             </div>
         </div>
+
+        
         
         <!-- Bootstrap 5.2.3 -->
         <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

@@ -34,26 +34,23 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm me-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">
-                <div>
-                    <img src="images/Logo_dark.svg">
-                    <span>Payment System</span>
-                </div>
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Logo_dark.svg">
+                <span>Payment System</span>
                 後台
             </a>
             <!-- Navbar-->
-            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-2 my-md-0 d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-0 d-flex align-items-center">
                 <li class="nav-item dropdown header-dropdown">
                     <a class="nav-link" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="me-1">admin</span>
                          <i class="material-symbols-rounded">person</i>
-                         <i class="material-symbols-rounded">arrow_drop_down</i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
                         <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
-                        <li class="dropdown-item"><a href="login.html">登出</a></li>
+                        <li class="dropdown-item"><a data-bs-toggle="modal" data-bs-target="#logout">登出</a></li>
                     </ul>
                 </li>
             </ul>
@@ -107,7 +104,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-4 mb-4">
+                            <div class="col-md-4 mb-4">
                                 <label for="permissionsName" class="form-label">群組名稱</label>
                                 <div class="dropdown-group">
                                     <button class="form-control dropdown-toggle" id="permissionsName" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
@@ -129,7 +126,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 mb-4">
+                            <div class="col-md-4 mb-4">
                                 <label for="enableState" class="form-label">啟用狀態</label>
                                 <div class="dropdown-group">
                                     <button class="form-control dropdown-toggle" id="enableState" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
@@ -159,7 +156,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 query-btn-group">
+                            <div class="col-md-4 query-btn-group">
                                 <button type="button" class="btn btn-secondary">
                                     <i class="material-symbols-rounded">search</i>
                                     查詢
@@ -548,6 +545,25 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="modal modal-warning fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="logoutLabel"><i class="material-symbols-rounded">error</i></h2>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>確定登出</h4>
+                                <p>您是否確定要登出？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <a href="login.html" class="btn btn-primary flex-grow-1">登出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
 
                 <footer>
                     <div class="container-fluid px-4">
