@@ -31,7 +31,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">
                 <div>
@@ -79,7 +79,7 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="2.1_userPermissions.html">帳號管理</a>
-                                    <a class="nav-link" href="2.2_groupManagement.html">群組管理</a>
+                                    <a class="nav-link" href="2.2_groupManagement.html">群組權限</a>
                                     <a class="nav-link" href="2.3_directoryManagement.html">目錄管理</a>
                                 </nav>
                             </div>
@@ -103,20 +103,20 @@
                             <div class="col-md-7 mb-4">
                                 <!-- 必填欄位須在 <label> 上增加 .required 套用 * 樣式 -->
                                 <label class="form-label required">交易狀態</label>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline me-3">
                                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                                     <label class="form-check-label" for="inlineCheckbox1">成功單</label>
                                 </div>
                                 <!-- 當 checkbox 異常時，可在<input>上套用 .error 增加紅框樣式 -->
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline me-3">
                                     <input class="form-check-input error" type="checkbox" id="inlineCheckbox2" value="option2">
                                     <label class="form-check-label" for="inlineCheckbox2">調退單</label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline me-3">
                                     <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
                                     <label class="form-check-label" for="inlineCheckbox3">銷帳</label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline me-3">
                                     <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4" disabled>
                                     <label class="form-check-label" for="inlineCheckbox4">未銷帳</label>
                                 </div>
@@ -517,11 +517,11 @@
                             </div>
                             <div class="col-md-7 mb-4">
                                 <label for="format" class="form-label">匯出報表格式</label>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline me-3">
                                     <input class="form-check-input" type="radio" name="formatOptions" id="formatOption1" value="formatOption1" checked>
                                     <label class="form-check-label" for="formatOption1">CSV</label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline me-3">
                                     <input class="form-check-input" type="radio" name="formatOptions" id="formatOption2" value="formatOption2">
                                     <label class="form-check-label" for="formatOption2">TXT</label>
                                 </div>

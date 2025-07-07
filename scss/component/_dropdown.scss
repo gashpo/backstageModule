@@ -1,19 +1,24 @@
 .dropdown-toggle {
+  position: relative;
   border: px(1) solid color(gray-300);
   background-color: color(gray-0) !important;
-  background-image: url("../../images/icon_keyboardArrowDown.svg");
-  background-size: px(16);
-  background-repeat: no-repeat;
-  background-position: right px(16) top 50%;
-  padding-right: px(40);
   color: color(gray-300);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: left;
+  padding-right: px(40);
 
   &::after {
-    display: none;
+    position: absolute;
+    top: 50%;
+    right: px(12);
+    transform: translate(0, -50%);
+    content: "\e313";
+    font-family: "Material Symbols Rounded";
+    border: none;
+    transition: transform 0.3s;
+    color: color(gray-600);
   }
 
   @include hover {
@@ -27,6 +32,10 @@
   &.show {
     border-color: color(gray-850);
     box-shadow: 0 0 px(1.6) 0 color(grayBlue-700);
+
+    &::after {
+      transform: translate(0, -50%) rotate(180deg);
+    }
   }
 
   &:focus {
@@ -35,6 +44,12 @@
     &.selected {
       color: color(gray-800);
     }
+  }
+
+  &.dropdown-ghost {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 

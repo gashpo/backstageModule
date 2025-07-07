@@ -1,17 +1,3 @@
-$Primary: color(Primary);
-$LightPrimary: color(LightPrimary);
-$DarkPrimary: color(DarkPrimary);
-$Primary-80: color(Primary-80);
-$Secondary: color(Secondary);
-$DarkSecondary: color(DarkSecondary);
-$gray-0: color(gray-0);
-$gray-30: color(gray-30);
-$gray-50: color(gray-50);
-$gray-100: color(gray-100);
-$gray-150: color(gray-150);
-$gray-700: color(gray-700);
-$gray-1000: color(gray-1000);
-
 .btn {
   box-sizing: border-box;
   display: inline-flex;
@@ -19,7 +5,7 @@ $gray-1000: color(gray-1000);
   justify-content: center;
   gap: px(4);
   padding: px(7) px(15);
-  @include rounded(8);
+  @include rounded(12);
   min-width: fit-content;
   word-break: keep-all;
   color: color(gray-700);
@@ -36,21 +22,22 @@ $gray-1000: color(gray-1000);
     border-color: transparent;
   }
 
-  &:disabled {
+  &:disabled,
+  &.btn-disabled {
     color: color(gray-0) !important;
     background-color: color(gray-150) !important;
     border: px(1) solid color(gray-150) !important;
+    pointer-events: none;
   }
 
   // Size
   &.btn-xs {
     padding: px(4) px(8);
-    @include rounded(6);
+    @include rounded(8);
     @include fontRWD(caption);
   }
   &.btn-lg {
     padding: px(12) px(16);
-    @include rounded(8);
     @include fontRWD(body1);
   }
 

@@ -72,6 +72,10 @@ textarea {
 .helper-text {
   color: color(gray-650);
   display: block;
+
+  a {
+    color: color(gray-650);
+  }
 }
 
 .error-message {
@@ -86,6 +90,14 @@ textarea {
 .form-check {
   color: color(gray-800);
   margin: 0;
+
+  &.form-check-inline {
+    margin-right: px(24);
+
+    .form-check-input ~ .valid-feedback {
+      margin-left: px(0);
+    }
+  }
 
   > * {
     cursor: pointer;

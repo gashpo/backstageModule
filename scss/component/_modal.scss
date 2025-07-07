@@ -1,0 +1,85 @@
+.modal {
+  .modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    max-width: px(560);
+
+    .modal-content {
+      .modal-header {
+        justify-content: center;
+        padding: px(16) px(32);
+        border: none;
+
+        h2 {
+          margin: 0;
+        }
+      }
+
+      .modal-body {
+        padding: px(0) px(28) px(24);
+      }
+
+      .modal-footer {
+        padding: px(0) px(32) px(16);
+        border: none;
+
+        button,
+        a {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
+  &.modal-success,
+  &.modal-error,
+  &.modal-warning {
+    .modal-dialog {
+      max-width: px(300);
+
+      .modal-content {
+        .modal-header {
+          padding: px(12);
+          color: color(gray-0);
+
+          h2 {
+            line-height: 1;
+
+            i {
+              font-size: px(32);
+            }
+          }
+        }
+
+        .modal-body {
+          padding: px(24) px(32);
+
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.modal-success,
+  &.modal-warning {
+    .modal-dialog {
+      .modal-content {
+        .modal-header {
+          background-color: color(Secondary);
+        }
+      }
+    }
+  }
+
+  &.modal-error {
+    .modal-content {
+      .modal-header {
+        background-color: color(Danger);
+      }
+    }
+  }
+}

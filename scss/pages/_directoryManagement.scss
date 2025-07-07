@@ -1,0 +1,162 @@
+.directory-content {
+  position: relative;
+  background-color: color(gray-100);
+  padding: px(32) px(8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: px(16);
+  margin-top: px(20);
+  color: color(gray-800);
+
+  i {
+    color: color(gray-500);
+  }
+
+  &.directory-disabled {
+    .directory-group {
+      background-color: color(gray-100);
+
+      &:last-child {
+        background-color: color(gray-100);
+        border: none;
+        color: color(gray-800);
+        cursor: default;
+        box-shadow: 0 0 px(12) color(gray-1000-12);
+
+        @include hover {
+          border-color: color(gray-800);
+        }
+      }
+
+      .nested-sortable {
+        .directory-child {
+          background-color: color(gray-100);
+
+          &:last-child {
+            border: px(1) solid color(gray-150);
+            color: color(gray-800);
+            cursor: default;
+
+            @include hover {
+              border-color: color(gray-150);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown-group {
+    position: absolute;
+    top: px(12);
+    right: px(12);
+
+    .dropdown-menu {
+      right: px(12) !important;
+    }
+  }
+
+  .directory-group {
+    padding: px(16);
+    width: px(400);
+    max-width: 100%;
+    position: relative;
+    gap: px(16);
+
+    &:last-child {
+      background-color: transparent;
+      border: px(1) dashed color(gray-500);
+      color: color(gray-500);
+      cursor: pointer;
+      box-shadow: none;
+
+      @include hover {
+        border-color: color(gray-800);
+      }
+    }
+
+    @include hover {
+      .directory-parent {
+        .directory-edit {
+          display: inline-flex;
+        }
+      }
+    }
+
+    .directory-parent {
+      display: flex;
+      align-items: center;
+      gap: px(8);
+
+      span {
+        flex-grow: 1;
+      }
+
+      .arrow {
+        margin-left: px(16);
+        cursor: pointer;
+        transition: transform 0.3s;
+
+        &.collapsed {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+
+    .nested-sortable {
+      flex-direction: column;
+      gap: px(12);
+      padding-left: px(32);
+      overflow: hidden;
+      max-height: 0;
+      margin-top: px(-16);
+      transition: max-height 0.3s, margin-top 0.3s;
+
+      .directory-child {
+        background-color: color(gray-0);
+        border: px(1) solid color(gray-150);
+        @include rounded(8);
+        display: flex;
+        align-items: center;
+        gap: px(8);
+        padding: px(12) px(16);
+
+        @include hover {
+          border-color: color(gray-1000);
+
+          .directory-edit {
+            display: inline-flex;
+          }
+        }
+
+        &:last-child {
+          border: px(1) dashed color(gray-150);
+          color: color(gray-500);
+          cursor: pointer;
+
+          @include hover {
+            border-color: color(gray-800);
+          }
+        }
+      }
+
+      &.show {
+        display: flex;
+        max-height: px(500);
+        margin-top: px(0);
+      }
+    }
+
+    .directory-edit {
+      cursor: pointer;
+      display: none;
+      font-size: px(20);
+    }
+  }
+
+  @include max-to(tablet) {
+    padding-top: px(60);
+  }
+}

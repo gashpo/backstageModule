@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>群組權限 | GASH Point Payent System 後台管理系統</title>
+        <meta name="description" content="GASH Point Payent System 後台管理系統" />
+        <meta name="keywords" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="GASH Point Payent System 後台管理系統" />
+        <meta property="og:image" content="images/og-image.jpg" />
+        <meta property="og:image:type" content="images/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <link rel="icon" type="image/png" href="images/favicon.svg" />
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.jpg" />
+
+        <!-- Font Awesome 6.3 -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google Material Symbols -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+        
+        <!-- Bootstrap 5.2 -->
+        <link href="../css/bootstrapStyles.css" rel="stylesheet" />
+
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">
+                <div>
+                    <img src="images/Logo_dark.svg">
+                    <span>Payment System</span>
+                </div>
+                後台
+            </a>
+            <!-- Navbar-->
+            <ul class="navbar-nav navbar-nav form-inline ms-auto me-0 my-2 my-md-0 d-flex align-items-center">
+                <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="me-1">admin</span>
+                         <i class="material-symbols-rounded">person</i>
+                         <i class="material-symbols-rounded">arrow_drop_down</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                        <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
+                        <li class="dropdown-item"><a href="login.html">登出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <i class="material-symbols-rounded">storefront</i>
+                                商家 MID 報表
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="1.1_orderInquiry.html">訂單查詢</a>
+                                    <a class="nav-link" href="1.2_financialDetailReport.html">帳務明細報表</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <i class="material-symbols-rounded">category</i>
+                                後台管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse show" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="2.1_userPermissions.html">帳號管理</a>
+                                    <a class="nav-link active" href="2.2_groupManagement.html">群組權限</a>
+                                    <a class="nav-link" href="2.3_directoryManagement.html">目錄管理</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mt-4">
+                            <li class="breadcrumb-item">GASH POINT Payment System 後台</li>
+                            <li class="breadcrumb-item">後台管理</li>
+                            <li class="breadcrumb-item active">群組權限</li>
+                        </ol>
+                        <div class="page-title mb-4">
+                            <h3>群組權限</h3>
+                            <a class="btn btn-secondary-flat" href="2.2_groupManagement.html">
+                                <i class="material-symbols-rounded">arrow_back</i>
+                                返回
+                            </a>
+                        </div>
+
+                        <!-- 僅擁有檢視權限時，所有欄位狀態改為readonly (checkbox不支援readonly，故使用disabled) -->
+                        <div class="card p-3">
+                            <div class="content-section">
+                                <h5>基本資料</h5>
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label for="groupID" class="form-label required">群組 ID</label>
+                                        <input class="form-control" id="groupID" type="text" value="0016" placeholder="請輸入群組 ID" required readonly>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <label for="groupName" class="form-label required">群組名稱</label>
+                                        <input class="form-control" id="groupName" type="groupName" placeholder="請輸入群組名稱" required></input>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <label for="enableState" class="form-label required">啟用狀態</label>
+                                        <div class="dropdown-group">
+                                            <button class="form-control dropdown-toggle" id="enableState" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                            <div class="dropdown-menu">
+                                                <div class="dropdown-container">
+                                                    <ul>
+                                                        <li class="dropdown-item">已啟用</li>
+                                                        <li class="dropdown-item">待啟用</li>
+                                                        <li class="dropdown-item">已停用</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <label for="remarks" class="form-label">備註</label>
+                                        <textarea id="remarks" class="form-control" placeholder="請輸入備註"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="content-section">
+                                <h5>權限設定 <span class="text-danger">*</span></h5>
+                                <div class="permissions-card">
+                                    <ul class="permissions-container">
+                                        <li>
+                                            <p class="permissions-title">商家 MID 管理</p>
+                                            <ul class="card card-flat permissions-group">
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions1-1" aria-expanded="false" aria-controls="permissions1-1">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions1-1-All" value="option1-1-All">
+                                                            <label class="form-check-label" for="permissions1-1-All">訂單查詢</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions1-1">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-add" value="option1-1-add">
+                                                                <label class="form-check-label" for="permissions1-1-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-edit" value="option1-1-edit">
+                                                                <label class="form-check-label" for="permissions1-1-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-delete" value="option1-1-delete">
+                                                                <label class="form-check-label" for="permissions1-1-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-view" value="option1-1-view">
+                                                                <label class="form-check-label" for="permissions1-1-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-1-download" value="option1-1-download">
+                                                                <label class="form-check-label" for="permissions1-1-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions1-2" aria-expanded="false" aria-controls="permissions1-2">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions1-2-All" value="option1-2-All">
+                                                            <label class="form-check-label" for="permissions1-2-All">帳務明細報表</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions1-2">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-add" value="option1-2-add">
+                                                                <label class="form-check-label" for="permissions1-2-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-edit" value="option1-2-edit">
+                                                                <label class="form-check-label" for="permissions1-2-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-delete" value="option1-2-delete">
+                                                                <label class="form-check-label" for="permissions1-2-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-view" value="option1-2-view">
+                                                                <label class="form-check-label" for="permissions1-2-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions1-2-download" value="option1-2-download">
+                                                                <label class="form-check-label" for="permissions1-2-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p class="permissions-title">後台管理</p>
+                                            <ul class="card card-flat permissions-group">
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-1" aria-expanded="false" aria-controls="permissions2-1">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-1-All" value="permissions2-1-All">
+                                                            <label class="form-check-label" for="permissions2-1-All">帳號管理</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-1">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-add" value="permissions2-1-add">
+                                                                <label class="form-check-label" for="permissions2-1-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-edit" value="permissions2-1-edit">
+                                                                <label class="form-check-label" for="permissions2-1-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-delete" value="permissions2-1-delete">
+                                                                <label class="form-check-label" for="permissions2-1-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-view" value="permissions2-1-view">
+                                                                <label class="form-check-label" for="permissions2-1-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-1-download" value="permissions2-1-download">
+                                                                <label class="form-check-label" for="permissions2-1-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-2" aria-expanded="false" aria-controls="permissions2-2">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-2-All" value="permissions2-2-All">
+                                                            <label class="form-check-label" for="permissions2-2-All">群組權限</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-2">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-add" value="permissions2-2-add">
+                                                                <label class="form-check-label" for="permissions2-2-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-edit" value="permissions2-2-edit">
+                                                                <label class="form-check-label" for="permissions2-2-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-delete" value="permissions2-2-delete">
+                                                                <label class="form-check-label" for="permissions2-2-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-view" value="permissions2-2-view">
+                                                                <label class="form-check-label" for="permissions2-2-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-2-download" value="permissions2-2-download">
+                                                                <label class="form-check-label" for="permissions2-2-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-3" aria-expanded="false" aria-controls="permissions2-3">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-3-All" value="permissions2-3-All">
+                                                            <label class="form-check-label" for="permissions2-3-All">目錄管理</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-3">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-add" value="permissions2-3-add">
+                                                                <label class="form-check-label" for="permissions2-3-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-edit" value="permissions2-3-edit">
+                                                                <label class="form-check-label" for="permissions2-3-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-delete" value="permissions2-3-delete">
+                                                                <label class="form-check-label" for="permissions2-3-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-view" value="permissions2-3-view">
+                                                                <label class="form-check-label" for="permissions2-3-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-download" value="permissions2-3-download">
+                                                                <label class="form-check-label" for="permissions2-3-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p class="permissions-title">父選單</p>
+                                            <ul class="card card-flat permissions-group">
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#item3-1" aria-expanded="false" aria-controls="item3-1">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="item3-1-All" value="item3-1-All">
+                                                            <label class="form-check-label" for="item3-1-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="item3-1">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-1-add" value="item3-1-add">
+                                                                <label class="form-check-label" for="item3-1-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-1-edit" value="item3-1-edit">
+                                                                <label class="form-check-label" for="item3-1-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-1-delete" value="item3-1-delete">
+                                                                <label class="form-check-label" for="item3-1-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-1-view" value="item3-1-view">
+                                                                <label class="form-check-label" for="item3-1-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-1-download" value="item3-1-download">
+                                                                <label class="form-check-label" for="item3-1-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#item3-2" aria-expanded="false" aria-controls="item3-2">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="item3-2-All" value="item3-2-All">
+                                                            <label class="form-check-label" for="item3-2-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="item3-2">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-2-add" value="item3-2-add">
+                                                                <label class="form-check-label" for="item3-2-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-2-edit" value="item3-2-edit">
+                                                                <label class="form-check-label" for="item3-2-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-2-delete" value="item3-2-delete">
+                                                                <label class="form-check-label" for="item3-2-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-2-view" value="item3-2-view">
+                                                                <label class="form-check-label" for="item3-2-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item3-2-download" value="item3-2-download">
+                                                                <label class="form-check-label" for="item3-2-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-3" aria-expanded="false" aria-controls="permissions2-3">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-3-All" value="permissions2-3-All">
+                                                            <label class="form-check-label" for="permissions2-3-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-3">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-add" value="permissions2-3-add">
+                                                                <label class="form-check-label" for="permissions2-3-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-edit" value="permissions2-3-edit">
+                                                                <label class="form-check-label" for="permissions2-3-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-delete" value="permissions2-3-delete">
+                                                                <label class="form-check-label" for="permissions2-3-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-view" value="permissions2-3-view">
+                                                                <label class="form-check-label" for="permissions2-3-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-download" value="permissions2-3-download">
+                                                                <label class="form-check-label" for="permissions2-3-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-4" aria-expanded="false" aria-controls="permissions2-4">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-4-All" value="permissions2-4-All">
+                                                            <label class="form-check-label" for="permissions2-4-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-4">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-add" value="permissions2-4-add">
+                                                                <label class="form-check-label" for="permissions2-4-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-edit" value="permissions2-4-edit">
+                                                                <label class="form-check-label" for="permissions2-4-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-delete" value="permissions2-4-delete">
+                                                                <label class="form-check-label" for="permissions2-4-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-view" value="permissions2-4-view">
+                                                                <label class="form-check-label" for="permissions2-4-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-download" value="permissions2-4-download">
+                                                                <label class="form-check-label" for="permissions2-4-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-5" aria-expanded="false" aria-controls="permissions2-5">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-5-All" value="permissions2-5-All">
+                                                            <label class="form-check-label" for="permissions2-5-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-5">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-add" value="permissions2-5-add">
+                                                                <label class="form-check-label" for="permissions2-5-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-edit" value="permissions2-5-edit">
+                                                                <label class="form-check-label" for="permissions2-5-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-delete" value="permissions2-5-delete">
+                                                                <label class="form-check-label" for="permissions2-5-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-view" value="permissions2-5-view">
+                                                                <label class="form-check-label" for="permissions2-5-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-download" value="permissions2-5-download">
+                                                                <label class="form-check-label" for="permissions2-5-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-6" aria-expanded="false" aria-controls="permissions2-6">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-6-All" value="permissions2-6-All">
+                                                            <label class="form-check-label" for="permissions2-6-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-6">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-add" value="permissions2-6-add">
+                                                                <label class="form-check-label" for="permissions2-6-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-edit" value="permissions2-6-edit">
+                                                                <label class="form-check-label" for="permissions2-6-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-delete" value="permissions2-6-delete">
+                                                                <label class="form-check-label" for="permissions2-6-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-view" value="permissions2-6-view">
+                                                                <label class="form-check-label" for="permissions2-6-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-download" value="permissions2-6-download">
+                                                                <label class="form-check-label" for="permissions2-6-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p class="permissions-title">父選單</p>
+                                            <ul class="card card-flat permissions-group">
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#item4-1" aria-expanded="false" aria-controls="item4-1">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="item4-1-All" value="item4-1-All">
+                                                            <label class="form-check-label" for="item4-1-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="item4-1">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-1-add" value="item4-1-add">
+                                                                <label class="form-check-label" for="item4-1-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-1-edit" value="item4-1-edit">
+                                                                <label class="form-check-label" for="item4-1-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-1-delete" value="item4-1-delete">
+                                                                <label class="form-check-label" for="item4-1-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-1-view" value="item4-1-view">
+                                                                <label class="form-check-label" for="item4-1-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-1-download" value="item4-1-download">
+                                                                <label class="form-check-label" for="item4-1-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#item4-2" aria-expanded="false" aria-controls="item4-2">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="item4-2-All" value="item4-2-All">
+                                                            <label class="form-check-label" for="item4-2-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="item4-2">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-2-add" value="item4-2-add">
+                                                                <label class="form-check-label" for="item4-2-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-2-edit" value="item4-2-edit">
+                                                                <label class="form-check-label" for="item4-2-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-2-delete" value="item4-2-delete">
+                                                                <label class="form-check-label" for="item4-2-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-2-view" value="item4-2-view">
+                                                                <label class="form-check-label" for="item4-2-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item4-2-download" value="item4-2-download">
+                                                                <label class="form-check-label" for="item4-2-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-3" aria-expanded="false" aria-controls="permissions2-3">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-3-All" value="permissions2-3-All">
+                                                            <label class="form-check-label" for="permissions2-3-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-3">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-add" value="permissions2-3-add">
+                                                                <label class="form-check-label" for="permissions2-3-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-edit" value="permissions2-3-edit">
+                                                                <label class="form-check-label" for="permissions2-3-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-delete" value="permissions2-3-delete">
+                                                                <label class="form-check-label" for="permissions2-3-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-view" value="permissions2-3-view">
+                                                                <label class="form-check-label" for="permissions2-3-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-download" value="permissions2-3-download">
+                                                                <label class="form-check-label" for="permissions2-3-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-4" aria-expanded="false" aria-controls="permissions2-4">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-4-All" value="permissions2-4-All">
+                                                            <label class="form-check-label" for="permissions2-4-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-4">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-add" value="permissions2-4-add">
+                                                                <label class="form-check-label" for="permissions2-4-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-edit" value="permissions2-4-edit">
+                                                                <label class="form-check-label" for="permissions2-4-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-delete" value="permissions2-4-delete">
+                                                                <label class="form-check-label" for="permissions2-4-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-view" value="permissions2-4-view">
+                                                                <label class="form-check-label" for="permissions2-4-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-download" value="permissions2-4-download">
+                                                                <label class="form-check-label" for="permissions2-4-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-5" aria-expanded="false" aria-controls="permissions2-5">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-5-All" value="permissions2-5-All">
+                                                            <label class="form-check-label" for="permissions2-5-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-5">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-add" value="permissions2-5-add">
+                                                                <label class="form-check-label" for="permissions2-5-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-edit" value="permissions2-5-edit">
+                                                                <label class="form-check-label" for="permissions2-5-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-delete" value="permissions2-5-delete">
+                                                                <label class="form-check-label" for="permissions2-5-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-view" value="permissions2-5-view">
+                                                                <label class="form-check-label" for="permissions2-5-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-download" value="permissions2-5-download">
+                                                                <label class="form-check-label" for="permissions2-5-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-6" aria-expanded="false" aria-controls="permissions2-6">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-6-All" value="permissions2-6-All">
+                                                            <label class="form-check-label" for="permissions2-6-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-6">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-add" value="permissions2-6-add">
+                                                                <label class="form-check-label" for="permissions2-6-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-edit" value="permissions2-6-edit">
+                                                                <label class="form-check-label" for="permissions2-6-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-delete" value="permissions2-6-delete">
+                                                                <label class="form-check-label" for="permissions2-6-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-view" value="permissions2-6-view">
+                                                                <label class="form-check-label" for="permissions2-6-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-download" value="permissions2-6-download">
+                                                                <label class="form-check-label" for="permissions2-6-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p class="permissions-title">父選單</p>
+                                            <ul class="card card-flat permissions-group">
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#item5-1" aria-expanded="false" aria-controls="item5-1">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="item5-1-All" value="item5-1-All">
+                                                            <label class="form-check-label" for="item5-1-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="item5-1">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-1-add" value="item5-1-add">
+                                                                <label class="form-check-label" for="item5-1-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-1-edit" value="item5-1-edit">
+                                                                <label class="form-check-label" for="item5-1-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-1-delete" value="item5-1-delete">
+                                                                <label class="form-check-label" for="item5-1-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-1-view" value="item5-1-view">
+                                                                <label class="form-check-label" for="item5-1-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-1-download" value="item5-1-download">
+                                                                <label class="form-check-label" for="item5-1-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#item5-2" aria-expanded="false" aria-controls="item5-2">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="item5-2-All" value="item5-2-All">
+                                                            <label class="form-check-label" for="item5-2-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="item5-2">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-2-add" value="item5-2-add">
+                                                                <label class="form-check-label" for="item5-2-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-2-edit" value="item5-2-edit">
+                                                                <label class="form-check-label" for="item5-2-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-2-delete" value="item5-2-delete">
+                                                                <label class="form-check-label" for="item5-2-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-2-view" value="item5-2-view">
+                                                                <label class="form-check-label" for="item5-2-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item5-2-download" value="item5-2-download">
+                                                                <label class="form-check-label" for="item5-2-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-3" aria-expanded="false" aria-controls="permissions2-3">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-3-All" value="permissions2-3-All">
+                                                            <label class="form-check-label" for="permissions2-3-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-3">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-add" value="permissions2-3-add">
+                                                                <label class="form-check-label" for="permissions2-3-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-edit" value="permissions2-3-edit">
+                                                                <label class="form-check-label" for="permissions2-3-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-delete" value="permissions2-3-delete">
+                                                                <label class="form-check-label" for="permissions2-3-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-view" value="permissions2-3-view">
+                                                                <label class="form-check-label" for="permissions2-3-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-download" value="permissions2-3-download">
+                                                                <label class="form-check-label" for="permissions2-3-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-4" aria-expanded="false" aria-controls="permissions2-4">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-4-All" value="permissions2-4-All">
+                                                            <label class="form-check-label" for="permissions2-4-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-4">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-add" value="permissions2-4-add">
+                                                                <label class="form-check-label" for="permissions2-4-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-edit" value="permissions2-4-edit">
+                                                                <label class="form-check-label" for="permissions2-4-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-delete" value="permissions2-4-delete">
+                                                                <label class="form-check-label" for="permissions2-4-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-view" value="permissions2-4-view">
+                                                                <label class="form-check-label" for="permissions2-4-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-download" value="permissions2-4-download">
+                                                                <label class="form-check-label" for="permissions2-4-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-5" aria-expanded="false" aria-controls="permissions2-5">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-5-All" value="permissions2-5-All">
+                                                            <label class="form-check-label" for="permissions2-5-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-5">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-add" value="permissions2-5-add">
+                                                                <label class="form-check-label" for="permissions2-5-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-edit" value="permissions2-5-edit">
+                                                                <label class="form-check-label" for="permissions2-5-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-delete" value="permissions2-5-delete">
+                                                                <label class="form-check-label" for="permissions2-5-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-view" value="permissions2-5-view">
+                                                                <label class="form-check-label" for="permissions2-5-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-download" value="permissions2-5-download">
+                                                                <label class="form-check-label" for="permissions2-5-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-6" aria-expanded="false" aria-controls="permissions2-6">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-6-All" value="permissions2-6-All">
+                                                            <label class="form-check-label" for="permissions2-6-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-6">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-add" value="permissions2-6-add">
+                                                                <label class="form-check-label" for="permissions2-6-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-edit" value="permissions2-6-edit">
+                                                                <label class="form-check-label" for="permissions2-6-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-delete" value="permissions2-6-delete">
+                                                                <label class="form-check-label" for="permissions2-6-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-view" value="permissions2-6-view">
+                                                                <label class="form-check-label" for="permissions2-6-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-download" value="permissions2-6-download">
+                                                                <label class="form-check-label" for="permissions2-6-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p class="permissions-title">父選單</p>
+                                            <ul class="card card-flat permissions-group">
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#item6-1" aria-expanded="false" aria-controls="item6-1">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="item6-1-All" value="item6-1-All">
+                                                            <label class="form-check-label" for="item6-1-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="item6-1">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-1-add" value="item6-1-add">
+                                                                <label class="form-check-label" for="item6-1-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-1-edit" value="item6-1-edit">
+                                                                <label class="form-check-label" for="item6-1-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-1-delete" value="item6-1-delete">
+                                                                <label class="form-check-label" for="item6-1-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-1-view" value="item6-1-view">
+                                                                <label class="form-check-label" for="item6-1-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-1-download" value="item6-1-download">
+                                                                <label class="form-check-label" for="item6-1-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#item6-2" aria-expanded="false" aria-controls="item6-2">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="item6-2-All" value="item6-2-All">
+                                                            <label class="form-check-label" for="item6-2-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="item6-2">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-2-add" value="item6-2-add">
+                                                                <label class="form-check-label" for="item6-2-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-2-edit" value="item6-2-edit">
+                                                                <label class="form-check-label" for="item6-2-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-2-delete" value="item6-2-delete">
+                                                                <label class="form-check-label" for="item6-2-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-2-view" value="item6-2-view">
+                                                                <label class="form-check-label" for="item6-2-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="item6-2-download" value="item6-2-download">
+                                                                <label class="form-check-label" for="item6-2-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-3" aria-expanded="false" aria-controls="permissions2-3">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-3-All" value="permissions2-3-All">
+                                                            <label class="form-check-label" for="permissions2-3-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-3">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-add" value="permissions2-3-add">
+                                                                <label class="form-check-label" for="permissions2-3-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-edit" value="permissions2-3-edit">
+                                                                <label class="form-check-label" for="permissions2-3-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-delete" value="permissions2-3-delete">
+                                                                <label class="form-check-label" for="permissions2-3-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-view" value="permissions2-3-view">
+                                                                <label class="form-check-label" for="permissions2-3-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-3-download" value="permissions2-3-download">
+                                                                <label class="form-check-label" for="permissions2-3-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-4" aria-expanded="false" aria-controls="permissions2-4">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-4-All" value="permissions2-4-All">
+                                                            <label class="form-check-label" for="permissions2-4-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-4">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-add" value="permissions2-4-add">
+                                                                <label class="form-check-label" for="permissions2-4-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-edit" value="permissions2-4-edit">
+                                                                <label class="form-check-label" for="permissions2-4-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-delete" value="permissions2-4-delete">
+                                                                <label class="form-check-label" for="permissions2-4-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-view" value="permissions2-4-view">
+                                                                <label class="form-check-label" for="permissions2-4-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-4-download" value="permissions2-4-download">
+                                                                <label class="form-check-label" for="permissions2-4-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-5" aria-expanded="false" aria-controls="permissions2-5">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-5-All" value="permissions2-5-All">
+                                                            <label class="form-check-label" for="permissions2-5-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-5">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-add" value="permissions2-5-add">
+                                                                <label class="form-check-label" for="permissions2-5-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-edit" value="permissions2-5-edit">
+                                                                <label class="form-check-label" for="permissions2-5-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-delete" value="permissions2-5-delete">
+                                                                <label class="form-check-label" for="permissions2-5-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-view" value="permissions2-5-view">
+                                                                <label class="form-check-label" for="permissions2-5-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-5-download" value="permissions2-5-download">
+                                                                <label class="form-check-label" for="permissions2-5-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="collapse-toggle">
+                                                        <i class="material-symbols-rounded collapsed" data-bs-toggle="collapse" data-bs-target="#permissions2-6" aria-expanded="false" aria-controls="permissions2-6">keyboard_arrow_down</i>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="permissions2-6-All" value="permissions2-6-All">
+                                                            <label class="form-check-label" for="permissions2-6-All">子選單</label>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="collapse" id="permissions2-6">
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-add" value="permissions2-6-add">
+                                                                <label class="form-check-label" for="permissions2-6-add">新增</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-edit" value="permissions2-6-edit">
+                                                                <label class="form-check-label" for="permissions2-6-edit">編輯</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-delete" value="permissions2-6-delete">
+                                                                <label class="form-check-label" for="permissions2-6-delete">刪除</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-view" value="permissions2-6-view">
+                                                                <label class="form-check-label" for="permissions2-6-view">檢視</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="permissions2-6-download" value="permissions2-6-download">
+                                                                <label class="form-check-label" for="permissions2-6-download">下載</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 新增時按鈕文案為「新增」，編輯時為「儲存」，檢視時不顯示按鈕 -->
+                            <div class="page-actions mt-4">
+                                <button type="button" class="btn btn-secondary-outline me-3">
+                                    清空重填
+                                </button>
+                                <button type="button" class="btn btn-primary" disabled>
+                                    新增
+                                </button>
+                                <small class="error-message"></small>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer>
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-center small">
+                            <copyright>© 2025 GASH POINT Co., Ltd. All right reserved</copyright>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- <div class="alert alert-danger" role="alert">A simple danger alert—check it out!</div> -->
+
+
+        <!-- jQuery -->
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap 5.2.3 -->
+        <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
