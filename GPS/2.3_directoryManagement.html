@@ -60,7 +60,7 @@
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <i class="material-symbols-rounded">storefront</i>
                                 商家 MID 報表
-                                <div class="sb-sidenav-collapse-arrow collapsed"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne">
                                 <nav class="sb-sidenav-menu-nested nav">
@@ -68,10 +68,10 @@
                                     <a class="nav-link" href="1.2_financialDetailReport.html">帳務明細報表</a>
                                 </nav>
                             </div>
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                                 <i class="material-symbols-rounded">category</i>
                                 後台管理
-                                <div class="sb-sidenav-collapse-arrow collapsed"><i class="fas fa-angle-down"></i></div>
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse show" id="collapsePages" aria-labelledby="headingTwo">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -147,6 +147,38 @@
                                 <div class="card directory-group drag-item">
                                     <div class="directory-parent">
                                         <span>Item 3</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ↓ 切換到已停用時，在 .directory-content 上增加 .directory-disabled，仍可編輯 & 拖曳，但不會有新增選單的按鈕 -->
+                            <div class="card card-flat directory-content list-group col nested-sortable directory-disabled">
+                                <div class="dropdown-group">
+                                    <button class="btn dropdown-toggle dropdown-ghost selected" id="queryType" type="button" data-bs-toggle="dropdown" aria-expanded="false">已停用</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">待啟用/已啟用</li>
+                                                <li class="dropdown-item active">已停用</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card directory-group drag-item">
+                                    <div class="directory-parent">
+                                        <span>Item 4</span>
+                                    </div>
+                                </div>
+                                <!-- 若子選單已停用，但父選單仍啟用中，需在選單外層 .directory-group 上增加一個 .directory-active -->
+                                <div class="card directory-group drag-item directory-active">
+                                    <div class="directory-parent">
+                                        <span>Item 5</span>
+                                        <i class="material-symbols-rounded arrow collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseGroup5" aria-expanded="false" aria-controls="collapseGroup5">keyboard_arrow_up</i>
+                                    </div>
+                                    <div class="list-group nested-sortable collapse" id="collapseGroup5">
+                                        <div class="list-group-item directory-child drag-item">
+                                            <span class="flex-grow-1">Item 5.1</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

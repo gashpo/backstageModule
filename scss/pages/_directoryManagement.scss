@@ -130,39 +130,39 @@
         }
       }
     }
+  }
 
-    &.directory-disabled {
-      .directory-group {
+  &.directory-disabled {
+    .directory-group {
+      background-color: color(gray-100);
+
+      &:last-child {
         background-color: color(gray-100);
+        border: none;
+        color: color(gray-800);
+        cursor: default;
+        box-shadow: 0 0 px(12) color(gray-1000-12);
 
-        &:last-child {
+        @include hover {
+          border-color: color(gray-800);
+        }
+      }
+
+      &.directory-active {
+        background-color: color(gray-0);
+      }
+
+      .nested-sortable {
+        .directory-child {
           background-color: color(gray-100);
-          border: none;
-          color: color(gray-800);
-          cursor: default;
-          box-shadow: 0 0 px(12) color(gray-1000-12);
 
-          @include hover {
-            border-color: color(gray-800);
-          }
-        }
+          &:last-child {
+            border: px(1) solid color(gray-150);
+            color: color(gray-800);
+            cursor: default;
 
-        &.directory-active {
-          background-color: color(gray-0);
-        }
-
-        .nested-sortable {
-          .directory-child {
-            background-color: color(gray-100);
-
-            &:last-child {
-              border: px(1) solid color(gray-150);
-              color: color(gray-800);
-              cursor: default;
-
-              @include hover {
-                border-color: color(gray-150);
-              }
+            @include hover {
+              border-color: color(gray-150);
             }
           }
         }

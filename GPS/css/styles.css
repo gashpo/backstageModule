@@ -1707,7 +1707,7 @@ body {
 .dropdown-toggle {
   position: relative;
   border: 0.0625rem solid #cccccc;
-  background-color: #ffffff !important;
+  background-color: #ffffff;
   color: #cccccc;
   overflow: hidden;
   white-space: nowrap;
@@ -1746,6 +1746,17 @@ body {
 }
 .dropdown-toggle:focus.selected {
   color: #545454;
+}
+.dropdown-toggle.readonly {
+  background-color: #f9f9f9;
+  border-color: #cccccc;
+  color: #545454;
+  pointer-events: none;
+}
+.dropdown-toggle:disabled {
+  background-color: #ededed;
+  border-color: #cccccc;
+  color: #8c8c8c;
 }
 .dropdown-toggle.dropdown-ghost {
   background-color: transparent !important;
@@ -1886,6 +1897,7 @@ textarea.form-control {
 .helper-text {
   color: #8c8c8c;
   display: block;
+  margin-top: 0.5rem;
 }
 .helper-text a {
   color: #8c8c8c;
@@ -2458,6 +2470,9 @@ footer copyright {
   background-color: #e5006e;
   color: #ffffff;
 }
+.sb-sidenav .sb-sidenav-menu .nav .nav-link.collapsed .sb-sidenav-collapse-arrow {
+  transform: rotate(180deg);
+}
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested {
   margin-left: 0;
 }
@@ -2676,10 +2691,10 @@ footer copyright {
     border-color: #545454;
   }
 }
-.directory-content.edit-mode.directory-disabled .directory-group {
+.directory-content.directory-disabled .directory-group {
   background-color: #ededed;
 }
-.directory-content.edit-mode.directory-disabled .directory-group:last-child {
+.directory-content.directory-disabled .directory-group:last-child {
   background-color: #ededed;
   border: none;
   color: #545454;
@@ -2687,23 +2702,23 @@ footer copyright {
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.12);
 }
 @media (hover: hover) {
-  .directory-content.edit-mode.directory-disabled .directory-group:last-child:hover {
+  .directory-content.directory-disabled .directory-group:last-child:hover {
     border-color: #545454;
   }
 }
-.directory-content.edit-mode.directory-disabled .directory-group.directory-active {
+.directory-content.directory-disabled .directory-group.directory-active {
   background-color: #ffffff;
 }
-.directory-content.edit-mode.directory-disabled .directory-group .nested-sortable .directory-child {
+.directory-content.directory-disabled .directory-group .nested-sortable .directory-child {
   background-color: #ededed;
 }
-.directory-content.edit-mode.directory-disabled .directory-group .nested-sortable .directory-child:last-child {
+.directory-content.directory-disabled .directory-group .nested-sortable .directory-child:last-child {
   border: 0.0625rem solid #e2e2e2;
   color: #545454;
   cursor: default;
 }
 @media (hover: hover) {
-  .directory-content.edit-mode.directory-disabled .directory-group .nested-sortable .directory-child:last-child:hover {
+  .directory-content.directory-disabled .directory-group .nested-sortable .directory-child:last-child:hover {
     border-color: #e2e2e2;
   }
 }

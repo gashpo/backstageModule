@@ -78,6 +78,12 @@
           background-color: color(Primary);
           color: color(gray-0);
         }
+
+        &.collapsed {
+          .sb-sidenav-collapse-arrow {
+            transform: rotate(180deg);
+          }
+        }
       }
 
       .sb-sidenav-menu-nested {
