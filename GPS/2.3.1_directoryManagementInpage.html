@@ -62,7 +62,7 @@
                                 商家 MID 報表
                                 <div class="sb-sidenav-collapse-arrow collapsed"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="1.1_orderInquiry.html">訂單查詢</a>
                                     <a class="nav-link" href="1.2_financialDetailReport.html">帳務明細報表</a>
@@ -73,7 +73,7 @@
                                 後台管理
                                 <div class="sb-sidenav-collapse-arrow collapsed"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse show" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse show" id="collapsePages" aria-labelledby="headingTwo">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="2.1_userPermissions.html">帳號管理</a>
                                     <a class="nav-link" href="2.2_groupManagement.html">群組權限</a>
@@ -190,11 +190,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- ↓ 內容若有變更（包含順序），「儲存」的按鈕才會變 Enabled -->
+                            <!-- ↓ 預設帶 disabled，內容若有變更（包含順序），「儲存」的按鈕才會亮燈 -->
                             <div class="mt-3"><button class="btn btn-primary" disabled>儲存</button></div>
                             
-                            <!-- ↓ 切換到已停用時，在 .directory-content 上增加 .directory-disabled，仍可編輯，但不會有新增的按鈕 -->
-                            <div class="card card-flat directory-content list-group col nested-sortable directory-disabled">
+                            <!-- ↓ 切換到已停用時，在 .directory-content 上增加 .directory-disabled，仍可編輯 & 拖曳，但不會有新增選單的按鈕 -->
+                            <div class="card card-flat directory-content edit-mode list-group col nested-sortable directory-disabled">
                                 <div class="dropdown-group">
                                     <button class="btn dropdown-toggle dropdown-ghost selected" id="queryType" type="button" data-bs-toggle="dropdown" aria-expanded="false">已停用</button>
                                     <div class="dropdown-menu">
@@ -213,7 +213,8 @@
                                         <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editParent">edit</i>
                                     </div>
                                 </div>
-                                <div class="card directory-group drag-item">
+                                    <!-- 若子選單已停用，但父選單仍啟用中，需在選單外層 .directory-group 上增加一個 .directory-active -->
+                                <div class="card directory-group drag-item directory-active">
                                     <div class="directory-parent">
                                         <i class="material-symbols-rounded handle">drag_indicator</i>
                                         <span>Item 5</span>
@@ -244,6 +245,7 @@
                             <div class="modal-body row">
                                 <div class="col-md-6 mb-4">
                                     <label for="addParentGroupID" class="form-label">ID</label>
+                                    <!-- 此欄位需帶 readonly，不可修改 -->
                                     <input class="form-control" id="addParentGroupID" type="text" value="151" readonly></input>
                                 </div>
                                 <div class="col-md-6 mb-4">
@@ -381,8 +383,8 @@
                             </div>
                             <div class="modal-footer d-flex px-4">
                                 <button type="button" class="btn btn-secondary-flat" data-bs-dismiss="modal">取消</button>
-                                <!-- ↓ 當任一必填欄位被清空時「儲存」按鈕需 disabled -->
-                                <button type="button" class="btn btn-primary">儲存</button>
+                                <!-- ↓ 當任一必填欄位被清空時「變更」按鈕需 disabled -->
+                                <button type="button" class="btn btn-primary">變更</button>
                             </div>
                         </div>
                     </div>
@@ -525,8 +527,8 @@
                             </div>
                             <div class="modal-footer d-flex px-4">
                                 <button type="button" class="btn btn-secondary-flat" data-bs-dismiss="modal">取消</button>
-                                <!-- ↓ 當任一必填欄位被清空時「儲存」按鈕需 disabled -->
-                                <button type="button" class="btn btn-primary">儲存</button>
+                                <!-- ↓ 當任一必填欄位被清空時「變更」按鈕需 disabled -->
+                                <button type="button" class="btn btn-primary">變更</button>
                             </div>
                         </div>
                     </div>

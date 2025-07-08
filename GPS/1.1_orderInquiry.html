@@ -61,12 +61,12 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMIDReport" aria-expanded="false" aria-controls="collapseMIDReport">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMIDReport" aria-expanded="true" aria-controls="collapseMIDReport">
                                 <i class="material-symbols-rounded">storefront</i>
                                 商家 MID 報表
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse show" id="collapseMIDReport" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse show" id="collapseMIDReport" aria-labelledby="headingOne">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link active" href="1.1_orderInquiry.html">訂單查詢</a>
                                     <a class="nav-link" href="1.2_financialDetailReport.html">帳務明細報表</a>
@@ -77,7 +77,7 @@
                                 後台管理
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseBackendManagement" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseBackendManagement" aria-labelledby="headingTwo">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="2.1_userPermissions.html">帳號管理</a>
                                     <a class="nav-link" href="2.2_groupManagement.html">群組權限</a>
@@ -119,8 +119,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="請輸入 GASH 交易單號" aria-label="Text input with dropdown button">
+                                    <input type="text" class="form-control" placeholder="請輸入關鍵字" aria-label="Text input with dropdown button">
                                 </div>
+                                <!-- helper-text 文案會依照下拉選單選到的項目而更改 -->
                                 <small class="helper-text">至少需輸入8碼</small>
                             </div>
                             <div class="col-md-4 mb-4">
@@ -288,15 +289,58 @@
                             <div class="col-md-4 mb-4">
                                 <label for="midSelect" class="form-label">MID 商家代碼</label>
                                 <div class="dropdown-group">
-                                    <button class="form-control dropdown-toggle selected" id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">M1000001 ----- GASH測試用(UAT).,LTD CO</button>
+                                    <button class="form-control dropdown-toggle selected" id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">M1000001：GASH測試用(UAT).,LTD CO</button>
                                     <div class="dropdown-menu">
+                                        <!-- <div class="dropdown-search">
+                                            <div class="input-icon-btn">
+                                                <input class="form-control" type="text" placeholder="請輸入關鍵字"></input>
+                                                <i class="material-symbols-rounded">search</i>
+                                            </div>
+                                        </div> -->
                                         <div class="dropdown-container">
                                             <ul>
-                                                <li class="dropdown-item active">M1000001 ----- GASH測試用(UAT).,LTD CO</li>
-                                                <li class="dropdown-item">M1000002 ----- GASH測試用(RD)</li>
-                                                <li class="dropdown-item">M1000003 ----- 隨身遊戲服份有限公司【已停用】</li>
-                                                <li class="dropdown-item">M1000004 ----- MID測試【已刪除】</li>
-                                                <li class="dropdown-item">M1000005 ----- test【已刪除】</li>
+                                                <li class="dropdown-item select-all-item">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cidSelectAll" value="optionAll">
+                                                        <label class="form-check-label" for="cidSelectAll">全部</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item" data-value="option1">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cidSelect1" value="option1" checked>
+                                                        <label class="form-check-label" for="cidSelect1">M1000001：GASH測試用(UAT).,LTD CO</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item" data-value="option2">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cidSelect2" value="option2">
+                                                        <label class="form-check-label" for="cidSelect2">M1000002：GASH測試用(RD)</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item" data-value="option3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cidSelect3" value="option3">
+                                                        <label class="form-check-label" for="cidSelect3">M1000003：隨身遊戲服份有限公司【已停用】</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item" data-value="option4">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cidSelect4" value="option4">
+                                                        <label class="form-check-label" for="cidSelect4">HK KKBOX</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item" data-value="option5">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cidSelect5" value="option5">
+                                                        <label class="form-check-label" for="cidSelect5">M1000004：MID測試【已刪除】</label>
+                                                    </div>
+                                                </li>
+                                                <li class="dropdown-item" data-value="option6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cidSelect6" value="option6">
+                                                        <label class="form-check-label" for="cidSelect6">M1000005：test【已刪除】</label>
+                                                    </div>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

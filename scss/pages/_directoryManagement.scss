@@ -24,40 +24,6 @@
     color: color(gray-500);
   }
 
-  &.directory-disabled {
-    .directory-group {
-      background-color: color(gray-100);
-
-      &:last-child {
-        background-color: color(gray-100);
-        border: none;
-        color: color(gray-800);
-        cursor: default;
-        box-shadow: 0 0 px(12) color(gray-1000-12);
-
-        @include hover {
-          border-color: color(gray-800);
-        }
-      }
-
-      .nested-sortable {
-        .directory-child {
-          background-color: color(gray-100);
-
-          &:last-child {
-            border: px(1) solid color(gray-150);
-            color: color(gray-800);
-            cursor: default;
-
-            @include hover {
-              border-color: color(gray-150);
-            }
-          }
-        }
-      }
-    }
-  }
-
   .directory-group {
     padding: px(16);
     width: px(400);
@@ -74,10 +40,14 @@
         flex-grow: 1;
       }
 
+      .directory-edit {
+        margin-right: px(16);
+      }
+
       .arrow {
-        margin-left: px(16);
         cursor: pointer;
         transition: transform 0.3s;
+        color: color(gray-1000);
 
         &.collapsed {
           transform: rotate(-180deg);
@@ -86,7 +56,7 @@
 
       @include hover {
         .directory-edit {
-          display: inline-flex;
+          visibility: visible;
         }
       }
     }
@@ -119,7 +89,7 @@
 
     .directory-edit {
       cursor: pointer;
-      display: none;
+      visibility: hidden;
       font-size: px(20);
     }
   }
@@ -144,7 +114,7 @@
             border-color: color(gray-1000);
 
             .directory-edit {
-              display: inline-flex;
+              visibility: visible;
             }
           }
 
@@ -155,6 +125,44 @@
 
             @include hover {
               border-color: color(gray-800);
+            }
+          }
+        }
+      }
+    }
+
+    &.directory-disabled {
+      .directory-group {
+        background-color: color(gray-100);
+
+        &:last-child {
+          background-color: color(gray-100);
+          border: none;
+          color: color(gray-800);
+          cursor: default;
+          box-shadow: 0 0 px(12) color(gray-1000-12);
+
+          @include hover {
+            border-color: color(gray-800);
+          }
+        }
+
+        &.directory-active {
+          background-color: color(gray-0);
+        }
+
+        .nested-sortable {
+          .directory-child {
+            background-color: color(gray-100);
+
+            &:last-child {
+              border: px(1) solid color(gray-150);
+              color: color(gray-800);
+              cursor: default;
+
+              @include hover {
+                border-color: color(gray-150);
+              }
             }
           }
         }

@@ -40,14 +40,14 @@
                             <div class="col-lg-9">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5 overflow-hidden">
                                     <div class="d-flex">
-                                        <div class="col-lg-5">
+                                        <div class="col-lg-5 col-12">
                                             <div class="card-header py-3 text-center color-grayBlue-500 bg-gray-0 font-body1-bold">使用者登入</div>
                                             <div class="card-body pb-4">
                                                 <div class="alert alert-danger alert-inline">您的帳號因連續3次登入失敗已被鎖定，請聯絡相關人員進行解鎖作業。</div>
                                                 <form>
                                                     <div class="mb-4">
                                                         <label for="mid" class="form-label required">MID 商家代碼</label>
-                                                        <input class="form-control error" id="mid" type="password" placeholder="請輸入 MID 商家代碼" required></input>
+                                                        <input class="form-control error" id="mid" type="text" placeholder="請輸入 MID 商家代碼" required></input>
                                                         <div class="d-flex justify-content-between">
                                                             <small class="error-message">此 MID 商家代碼不存在</small>
                                                             <div class="form-check form-check-inline mt-1">
@@ -58,7 +58,7 @@
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="cid" class="form-label">CID 產品代碼</label>
-                                                        <input class="form-control error" id="cid" type="password" placeholder="請輸入 CID 產品代碼" required></input>
+                                                        <input class="form-control error" id="cid" type="text" placeholder="請輸入 CID 產品代碼" required></input>
                                                         <div class="d-flex justify-content-between">
                                                             <small class="error-message">此 CID 產品代碼不存在</small>
                                                             <div class="form-check form-check-inline mt-1">
@@ -69,7 +69,7 @@
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="userID" class="form-label required">帳號</label>
-                                                        <input class="form-control error" id="userID" type="password" placeholder="請輸入帳號" required></input>
+                                                        <input class="form-control error" id="userID" type="text" placeholder="請輸入帳號" required></input>
                                                         <div class="d-flex justify-content-between">
                                                             <small class="error-message">此帳號不存在</small>
                                                             <div class="form-check form-check-inline mt-1">
@@ -90,6 +90,7 @@
                                                         </div>
                                                     </div>
                                                     <div>
+                                                        <!-- ↓ 預設帶入 disabled，當所有必填欄位都填寫後才亮燈 -->
                                                         <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#passwordRemind">登入</button>
                                                     </div>
                                                 </form>
