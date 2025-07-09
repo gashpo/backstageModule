@@ -51,6 +51,14 @@
   @include rounded(8, 8, 0, 0);
   overflow: hidden;
 
+  &.grabable {
+    cursor: grab;
+
+    &.active {
+      cursor: grabbing;
+    }
+  }
+
   .datatable-table {
     @include rounded(8, 8, 0, 0);
     width: 100%;

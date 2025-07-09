@@ -179,7 +179,7 @@ textarea {
 
     // 日期類input專用設定 (因應套件日期類input會生成一個隱藏的input)
     &:nth-last-child(2) {
-      &[type="date" max="9999-12-31"],
+      &[type="date"],
       &[type="month"],
       &[type="year"] {
         border-radius: px(0) px(8) px(8) px(0) !important;

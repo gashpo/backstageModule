@@ -2105,6 +2105,12 @@ ul li {
   border-radius: 0.5rem 0.5rem 0rem 0rem;
   overflow: hidden;
 }
+.datatable-container.grabable {
+  cursor: grab;
+}
+.datatable-container.grabable.active {
+  cursor: grabbing;
+}
 .datatable-container .datatable-table {
   border-radius: 0.5rem 0.5rem 0rem 0rem;
   width: 100%;
