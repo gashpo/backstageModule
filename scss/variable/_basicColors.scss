@@ -32,11 +32,10 @@ $colors: map-merge(
   $colors,
   (
     gray-0-0: rgba(color(gray-0), 0),
+    gray-0-3: rgba(color(gray-0), 0.03),
     gray-0-12: rgba(color(gray-0), 0.12),
     gray-0-14: rgba(color(gray-0), 0.14),
     gray-0-20: rgba(color(gray-0), 0.2),
-    gray-800-90: rgba(color(gray-800), 0.9),
-    gray-1000-0: rgba(color(gray-1000), 0),
     gray-1000-5: rgba(color(gray-1000), 0.05),
     gray-1000-12: rgba(color(gray-1000), 0.12),
     gray-1000-14: rgba(color(gray-1000), 0.14),
@@ -48,13 +47,8 @@ $colors: map-merge(
 $colors: map-merge(
   $colors,
   (
-    grayBlue-200: #ced4da,
     grayBlue-300: #c3ccdd,
-    grayBlue-400: #a2b0cb,
-    grayBlue-500: #8988a7,
-    grayBlue-700: #3e3151,
     grayBlue-800: #1f2f3c,
-    grayBlue-850: #322741,
     grayBlue-900: #16222b,
     grayBlue-950: #131d24,
   )
@@ -63,9 +57,6 @@ $colors: map-merge(
 $colors: map-merge(
   $colors,
   (
-    grayBlue-850-12: rgba(color(grayBlue-850), 0.12),
-    grayBlue-850-14: rgba(color(grayBlue-850), 0.14),
-    grayBlue-850-20: rgba(color(grayBlue-850), 0.2),
     grayBlue-950-80: rgba(color(grayBlue-950), 0.8),
   )
 );
@@ -136,31 +127,35 @@ $colors: map-merge(
 $colors: map-merge(
   $colors,
   (
-    blue-100: #ccefff,
-    blue-500: #00aeff,
-    blue-900: #16222b,
+    blue-50: #f1f3f5,
+    blue-100: #d3d8f1,
+    blue-200: #a7b1e4,
+    blue-300: #7b8ad6,
+    blue-400: #4f63c9,
+    blue-500: #233cbb,
+    blue-600: #1c3096,
+    blue-700: #152470,
+    blue-800: #0e184b,
+    blue-900: #070c25,
+  )
+);
+// 藍 透明度
+$colors: map-merge(
+  $colors,
+  (
+    blue-500-12: rgba(color(blue-500), 0.12),
+    blue-500-14: rgba(color(blue-500), 0.14),
+    blue-500-20: rgba(color(blue-500), 0.2),
+    blue-500-80: rgba(color(blue-500), 0.8),
   )
 );
 
-// Master Merchant
+// 紫
 $colors: map-merge(
   $colors,
   (
-    masterMerchant-100: #f0f5fa,
-    masterMerchant-200: #e3f0fa,
-    masterMerchant-300: #a9bdcb,
-    masterMerchant-400: #008bf2,
-    masterMerchant-500: #006bbb,
-    masterMerchant-800: #353b50,
-  )
-);
-// Master Merchant 透明度
-$colors: map-merge(
-  $colors,
-  (
-    masterMerchant-400-12: rgba(color(masterMerchant-400), 0.12),
-    masterMerchant-400-14: rgba(color(masterMerchant-400), 0.14),
-    masterMerchant-400-20: rgba(color(masterMerchant-400), 0.2),
+    purple-400: #8786a8,
+    purple-500: #696892,
   )
 );
 
@@ -184,25 +179,6 @@ $colors: map-merge(
     GASH-500-12: rgba(color(GASH-500), 0.12),
     GASH-500-14: rgba(color(GASH-500), 0.14),
     GASH-500-20: rgba(color(GASH-500), 0.2),
-  )
-);
-
-// bg! Green
-$colors: map-merge(
-  $colors,
-  (
-    bfGreen-100: #d1f3e2,
-    bfGreen-400: #1bd87b,
-    bfGreen-450: #19ca73,
-    bfGreen-500: #18c16e,
-  )
-);
-// bg! Green 透明度
-$colors: map-merge(
-  $colors,
-  (
-    bfGreen-400-12: rgba(color(bfGreen-400), 0.12),
-    bfGreen-400-14: rgba(color(bfGreen-400), 0.14),
-    bfGreen-400-20: rgba(color(bfGreen-400), 0.2),
+    GASH-500-80: rgba(color(GASH-500), 0.8),
   )
 );

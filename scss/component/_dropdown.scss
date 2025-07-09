@@ -30,8 +30,7 @@
   }
 
   &.show {
-    border-color: color(gray-850);
-    box-shadow: 0 0 px(1.6) 0 color(grayBlue-700);
+    border-color: color(gray-800);
 
     &::after {
       transform: translate(0, -50%) rotate(180deg);

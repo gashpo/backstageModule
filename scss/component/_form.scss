@@ -3,7 +3,7 @@
   align-items: center;
   gap: px(4);
   @include fontRWD(body2);
-  color: color(grayBlue-500);
+  color: color(purple-400);
 
   &.required {
     &::after {
@@ -31,8 +31,7 @@
   border: px(1) solid color(gray-300);
 
   &:focus {
-    border-color: color(gray-850);
-    box-shadow: 0 0 px(1.6) 0 color(grayBlue-700);
+    border-color: color(gray-800);
   }
 
   &.error {

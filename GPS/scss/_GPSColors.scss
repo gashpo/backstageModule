@@ -1,4 +1,4 @@
-@import "basicColors";
+@import "../../scss/variable/basicColors";
 
 // 專案色彩
 // 主色系
@@ -6,7 +6,7 @@ $colors: map-merge(
   $colors,
   (
     Primary: color(GASH-500),
-    LightPrimary: color(GASH-100),
+    LightPrimary: color(GASH-50),
     DarkPrimary: color(GASH-600),
     Primary-12: rgba(color(GASH-500), 0.12),
     Primary-14: rgba(color(GASH-500), 0.14),
@@ -43,11 +43,12 @@ $colors: map-merge(
     Danger-20: rgba(color(red-500), 0.2),
     Warning: color(yellow-500),
     LightWarning: color(yellow-100),
-    Info: color(blue-500),
-    LightInfo: color(blue-100),
+    Info: color(gray-800),
+    LightInfo: color(gray-100),
   )
 );
 
+// Auto Generate Class Name
 @each $name, $value in $colors {
   .color-#{$name} {
     color: $value;

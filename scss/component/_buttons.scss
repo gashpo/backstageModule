@@ -74,8 +74,8 @@
     border: px(1) solid color(Primary);
 
     @include hover {
-      background-color: color(Primary-80);
-      border: px(1) solid color(Primary-80);
+      background-color: color(DarkPrimary);
+      border: px(1) solid color(DarkPrimary);
     }
   }
   &.btn-primary-outline {
@@ -153,8 +153,8 @@
     border-color: transparent !important;
 
     @include hover {
-      color: color(Secondary);
-      background-color: color(grayBlue-850-12);
+      color: color(DarkSecondary);
+      background-color: color(gray-100);
     }
   }
   &.btn-secondary-light {
