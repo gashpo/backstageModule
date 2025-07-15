@@ -1,0 +1,85 @@
+.sb-topnav {
+  padding: px(16);
+
+  .navbar-brand {
+    padding: px(4) 0;
+
+    img {
+      max-height: px(24);
+    }
+  }
+
+  .nav-link {
+    &.notification {
+      position: relative;
+      margin-right: px(20);
+      padding: 0;
+
+      i {
+        @include rounded(100);
+        padding: px(8);
+        font-size: px(20);
+        border: px(1) solid color(gray-150);
+        color: color(Secondary);
+      }
+
+      .badge {
+        position: absolute;
+        top: px(-6);
+        right: px(-6);
+        width: px(20);
+        height: px(20);
+        border: px(2) solid color(gray-0);
+        background-color: color(Danger);
+        color: color(gray-0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include fontRWD(caption);
+        @include rounded(100);
+      }
+    }
+
+    &.username {
+      color: color(Secondary);
+      padding: 0;
+    }
+  }
+
+  .notification,
+  .navbar-nav {
+    .nav-item {
+      height: auto;
+    }
+  }
+
+  @include max-to(mobile) {
+    .navbar-brand {
+      img {
+        max-height: px(20);
+      }
+    }
+
+    .nav-link {
+      i.arrow {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.sb-sidenav {
+  padding-top: px(98) !important;
+
+  .sb-sidenav-menu {
+    .nav {
+      .nav-link {
+        color: color(gray-800);
+
+        .sb-sidenav-collapse-arrow {
+          color: color(gray-800);
+        }
+      }
+    }
+  }
+}

@@ -29,6 +29,7 @@
 .form-control {
   height: px(40);
   border: px(1) solid color(gray-300);
+  @include rounded(8);
 
   &:focus {
     border-color: color(gray-800);

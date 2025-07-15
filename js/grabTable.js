@@ -5,6 +5,11 @@ $(document).ready(function () {
     $slider.each(function () {
       const el = this;
 
+      // 取得對應的 table
+      const $table = $(el).closest(".grabTable").find("table");
+      const hasFixFirst = $table.hasClass("fix-firstline");
+      const hasFixLast = $table.hasClass("fix-lastline");
+
       // 判斷是否出現橫向捲軸（內容超過可視寬度）
       if (el.scrollWidth > el.clientWidth) {
         $(el).addClass("grabable");

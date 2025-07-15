@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FunOne Pay 後台管理系統</title>
+        <meta name="description" content="FunOne Pay 後台管理系統" />
+        <meta name="keywords" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="FunOne Pay 後台管理系統" />
+        <meta property="og:image" content="images/og-image.jpg" />
+        <meta property="og:image:type" content="images/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <link rel="icon" type="image/png" href="images/favicon.svg" />
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.jpg" />
+
+        <!-- Font Awesome 6.3 -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google Material Symbols -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+        
+        <!-- Bootstrap 5.2 -->
+        <link href="../css/bootstrapStyles.css" rel="stylesheet" />
+        <link href="../css/tamplateColor.css" rel="stylesheet" />
+
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-light bg-gray-0">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm me-3" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Brand-->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Logo_light.svg">
+                後台
+            </a>
+            <!-- Navbar-->
+            <ul class="navbar-nav form-inline ms-auto me-0 my-0 d-flex align-items-center">
+                <!-- ↓ 先預留通知欄位，Phase 1 沒有要做 -->
+                <!-- <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link notification" id="notifyDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="material-symbols-rounded">notifications</i>
+                        <span class="badge">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notifyDropdown">
+                        <li class="dropdown-item">
+                            <a href="#">
+                                Notification
+                                <span class="subtitle">2025-08-12</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item read">
+                            <a href="#">
+                                Notification
+                                <span class="subtitle">2025-08-12</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
+                <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link username" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="material-symbols-rounded headshot">person</i>
+                        <span class="me-1 d-md-inline d-none">User Name</span>
+                        <i class="material-symbols-rounded arrow">keyboard_arrow_down</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                        <li class="dropdown-item userinfo">
+                            <i class="material-symbols-rounded headshot">person</i>
+                            <div>
+                                User Name
+                                <span class="subtitle">User Account</span>
+                            </div>
+                        </li>
+                        <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
+                        <li class="dropdown-item"><a data-bs-toggle="modal" data-bs-target="#logout" href="javascript:void(0);">登出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion navbar-light bg-gray-0" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTransactionManagement" aria-expanded="false" aria-controls="collapseTransactionManagement">
+                                <i class="material-symbols-rounded">receipt_long</i>
+                                交易管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseTransactionManagement" aria-labelledby="headingOne">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="1.1_transactionRecords.html">交易紀錄查詢</a>
+                                    <a class="nav-link" href="1.2_dailyTransactions.html">每日交易查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePayoutManagement" aria-expanded="false" aria-controls="collapsePayoutManagement">
+                                <i class="material-symbols-rounded">request_quote</i>
+                                商家請款管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePayoutManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="2.1_payoutRequest.html">商家請款申請</a>
+                                    <a class="nav-link" href="2.2_payoutRecords.html">商家請款查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDisbursementManagement" aria-expanded="false" aria-controls="collapseDisbursementManagement">
+                                <i class="material-symbols-rounded">account_balance</i>
+                                撥款管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseDisbursementManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="3.1_disbursementResults.html">撥款結果查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePermissionsManagement" aria-expanded="false" aria-controls="collapsePermissionsManagement">
+                                <i class="material-symbols-rounded">manage_accounts</i>
+                                帳號權限管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePermissionsManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="4.1_userPermissions.html">帳號管理</a>
+                                    <a class="nav-link" href="4.2_groupManagement.html">群組權限</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link" href="page-loading.html">
+                                <i class="material-symbols-rounded">progress_activity</i>
+                                Loading 畫面 Demo
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main class="index-container">
+                    <img src="images/Logo_dark.svg">
+                </main>
+
+                <!-- Modal -->
+                <div class="modal modal-warning fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="logoutLabel"><i class="material-symbols-rounded">error</i></h2>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>確定登出</h4>
+                                <p>您是否確定要登出？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <a href="login.html" class="btn btn-primary flex-grow-1">登出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <footer>
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-center small">
+                            <copyright>© 2025 GASH POINT Co., Ltd. All right reserved</copyright>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="page-loading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <span>Loading...</span>
+        </div>
+        
+
+
+        <!-- jQuery -->
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap 5.2.3 -->
+        <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <!-- Sidebar Toggle -->
+        <script src="../js/sidebarToggle.js"></script>
+        <!-- Datatable -->
+        <script src="../js/simple-datatables.js"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
+        <!-- Tooltip -->
+        <script src="../js/tooltip.js"></script>
+    </body>
+</html>

@@ -3,6 +3,15 @@
   color: color(gray-0);
   padding: px(8) px(16);
 
+  > .btn-link {
+    padding: 0;
+
+    svg {
+      height: px(20);
+      width: px(20);
+    }
+  }
+
   .btn-link {
     min-width: auto;
   }
@@ -31,7 +40,6 @@
   }
 
   .navbar-nav {
-    cursor: pointer;
     color: color(gray-300);
 
     .nav-item {
@@ -43,6 +51,15 @@
       display: flex;
       align-items: center;
     }
+  }
+
+  .headshot {
+    background-color: color(Primary);
+    color: color(gray-0);
+    margin-right: px(8);
+    @include rounded(100);
+    padding: px(8);
+    font-size: px(20);
   }
 
   &.navbar-light {
@@ -62,12 +79,8 @@
   }
 
   @include max-to(mobile) {
-    padding: px(8);
-
-    .navbar-brand {
-      span {
-        display: none;
-      }
+    .headshot {
+      margin-right: px(4);
     }
   }
 }
@@ -150,13 +163,27 @@
       flex-direction: column;
       @include rounded(0);
 
+      &.userinfo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: px(12);
+        pointer-events: none;
+        cursor: default;
+
+        i {
+          flex-grow: 0;
+          padding: px(8);
+        }
+      }
+
       a {
         padding: px(12);
-        color: color(gray-600);
+        color: color(Secondary);
         text-decoration: none;
       }
 
-      .notification-time {
+      .subtitle {
         @include fontRWD(caption);
         color: color(gray-300);
         display: block;
@@ -176,10 +203,22 @@
       }
 
       &.read {
-        background-color: color(gray-100);
+        background-color: color(gray-50);
 
         a {
-          color: color(gray-600) !important;
+          color: color(gray-300) !important;
+        }
+      }
+    }
+  }
+
+  @include max-to(mobile) {
+    .dropdown-menu {
+      .dropdown-item {
+        &.userinfo {
+          .headshot {
+            margin-right: px(8);
+          }
         }
       }
     }

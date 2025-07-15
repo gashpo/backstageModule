@@ -8,6 +8,7 @@
   text-overflow: ellipsis;
   text-align: left;
   padding-right: px(40);
+  @include rounded(8);
 
   &::after {
     position: absolute;
