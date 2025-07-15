@@ -11,7 +11,7 @@
 
       small {
         display: block;
-        @include fontRWD(caption);
+        @include fontRWD(body2);
         color: color(gray-600);
       }
     }
@@ -44,8 +44,16 @@
   }
 
   .page-actions {
+    margin-top: px(20);
+
     button {
       min-width: px(100);
+    }
+  }
+
+  @include max-to(mobile) {
+    .page-actions {
+      margin-top: 0;
     }
   }
 }

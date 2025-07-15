@@ -30,7 +30,6 @@
     }
   }
 
-  .notification,
   .navbar-nav {
     cursor: pointer;
     color: color(gray-300);
@@ -43,6 +42,22 @@
     .nav-link {
       display: flex;
       align-items: center;
+    }
+  }
+
+  &.navbar-light {
+    border: px(1) solid color(gray-150);
+
+    .navbar-brand,
+    .nav-link {
+      color: color(gray-500);
+    }
+  }
+
+  &.navbar-dark {
+    .navbar-brand,
+    .nav-link {
+      color: color(gray-300);
     }
   }
 
@@ -62,21 +77,11 @@
     .nav {
       .nav-link {
         gap: px(8);
-        color: color(grayBlue-300);
         padding: px(8) px(24);
         @include fontRWD(body1);
 
         i {
           font-size: px(20);
-        }
-
-        .sb-sidenav-collapse-arrow {
-          color: color(grayBlue-300);
-        }
-
-        &.active {
-          background-color: color(Primary);
-          color: color(gray-0);
         }
 
         &.collapsed {
@@ -95,6 +100,44 @@
       }
     }
   }
+
+  &.navbar-light {
+    .sb-sidenav-menu {
+      .nav {
+        .nav-link {
+          color: color(gray-800);
+
+          .sb-sidenav-collapse-arrow {
+            color: color(gray-800);
+          }
+
+          &.active {
+            background-color: color(LightPrimary);
+            color: color(Primary);
+          }
+        }
+      }
+    }
+  }
+
+  &.navbar-dark {
+    .sb-sidenav-menu {
+      .nav {
+        .nav-link {
+          color: color(grayBlue-300);
+
+          .sb-sidenav-collapse-arrow {
+            color: color(grayBlue-300);
+          }
+
+          &.active {
+            background-color: color(Primary);
+            color: color(gray-0);
+          }
+        }
+      }
+    }
+  }
 }
 
 .header-dropdown {
@@ -106,17 +149,17 @@
       display: flex;
       flex-direction: column;
       @include rounded(0);
-      color: color(gray-800);
 
       a {
         padding: px(12);
-        color: color(gray-800);
+        color: color(gray-600);
         text-decoration: none;
       }
 
       .notification-time {
         @include fontRWD(caption);
         color: color(gray-300);
+        display: block;
       }
 
       + .dropdown-item {
@@ -134,7 +177,10 @@
 
       &.read {
         background-color: color(gray-100);
-        color: color(gray-800) !important;
+
+        a {
+          color: color(gray-600) !important;
+        }
       }
     }
   }

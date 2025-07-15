@@ -1,6 +1,10 @@
+.breadcrumb {
+  margin-bottom: px(16);
+}
+
 .breadcrumb-item {
-  color: color(gray-700);
-  @include fontRWD(body2);
+  color: color(gray-500) !important;
+  @include fontRWD(caption);
   padding-right: px(2);
   padding-left: px(0) !important;
   display: flex;

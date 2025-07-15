@@ -1,4 +1,5 @@
 .login-image {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,4 +7,15 @@
   background-image: url("../images/loginImage.jpg");
   background-size: cover;
   background-position: center;
+
+  img {
+    position: absolute;
+    top: px(20);
+    right: px(68);
+    width: px(160);
+  }
+
+  @include max-to(mobile) {
+    display: none;
+  }
 }

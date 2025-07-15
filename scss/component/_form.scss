@@ -109,6 +109,12 @@ textarea {
   &.form-check-inline {
     margin-right: px(24);
 
+    .form-check-label {
+      display: flex;
+      align-items: center;
+      gap: px(4);
+    }
+
     &:last-child {
       margin-right: 0;
     }

@@ -105,6 +105,13 @@
           @include fontRWD(body1);
           color: color(gray-700);
           background-color: color(gray-0);
+
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: px(8);
+          }
         }
 
         &:nth-child(odd) {
@@ -252,4 +259,14 @@
   @include hover {
     color: color(DarkSecondary);
   }
+}
+
+.table-guideline {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  gap: px(4);
+  color: color(gray-700);
+  margin-bottom: px(12);
 }

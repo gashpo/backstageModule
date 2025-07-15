@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>帳號管理 | GASH Point Payent System 後台管理系統</title>
+        <title>新增帳號 | GASH Point Payent System 後台管理系統</title>
         <meta name="description" content="GASH Point Payent System 後台管理系統" />
         <meta name="keywords" content="" />
         <meta property="og:url" content="" />
@@ -29,7 +29,7 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-blue-900">
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm me-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Brand-->
@@ -54,7 +54,7 @@
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <nav class="sb-sidenav accordion navbar-dark bg-blue-900" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -91,10 +91,10 @@
                             <li class="breadcrumb-item">GASH POINT Payment System 後台</li>
                             <li class="breadcrumb-item">後台管理</li>
                             <li class="breadcrumb-item">帳號管理</li>
-                            <li class="breadcrumb-item active">編輯帳號管理</li>
+                            <li class="breadcrumb-item active">新增帳號</li>
                         </ol>
                         <div class="page-title">
-                            <h3>編輯帳號管理</h3>
+                            <h3>新增帳號</h3>
                             <a class="btn btn-secondary-flat" data-bs-toggle="modal" data-bs-target="#unchangeRemind">
                                 <i class="material-symbols-rounded">arrow_back</i>
                                 返回
@@ -158,10 +158,11 @@
                                             <input type="text" class="form-control" placeholder="0912345678">
                                         </div>
                                     </div>
+                                    <!-- Email 欄位需判斷格式，若格式不符則顯示錯誤樣式，並增加 error message -->
                                     <div class="col-md-3 mb-4">
                                         <label for="email" class="form-label">Email</label>
-                                        <input id="email" type="text" class="form-control" placeholder="請輸入Email">
-                                        <small class="helper-text">請輸入正確Email</small>
+                                        <input id="email" type="text" class="form-control error" placeholder="請輸入Email">
+                                        <small class="error-message">請輸入正確Email</small>
                                     </div>
                                     <div class="col-md-4 mb-4">
                                         <label for="lockState" class="form-label required">鎖定狀態</label>
@@ -587,7 +588,8 @@
         <script src="../js/jquery-3.6.0.min.js"></script>
         <!-- Bootstrap 5.2.3 -->
         <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="../js/scripts.js"></script>
+        <!-- Sidebar Toggle -->
+        <script src="../js/sidebarToggle.js"></script>
         <!-- Tooltip -->
         <script src="../js/tooltip.js"></script>
     </body>

@@ -29,7 +29,7 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-blue-900">
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm me-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Brand-->
@@ -54,7 +54,7 @@
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <nav class="sb-sidenav accordion navbar-dark bg-blue-900" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -101,7 +101,7 @@
                             </a>
                         </div>
 
-                        <!-- 僅擁有檢視權限時，所有欄位狀態改為readonly (checkbox不支援readonly，故使用disabled) -->
+                        <!-- ↓ 檢視模式時，所有欄位狀態改為readonly (checkbox不支援readonly，故使用disabled) -->
                         <div class="card p-3">
                             <div class="content-section">
                                 <h5>基本資料</h5>
@@ -1363,7 +1363,7 @@
                                 </div>
                             </div>
                             <!-- 新增時按鈕文案為「新增」，編輯時為「儲存」，檢視時不顯示按鈕 -->
-                            <div class="page-actions mt-4">
+                            <div class="page-actions">
                                 <button type="button" class="btn btn-secondary-outline me-3">
                                     清空重填
                                 </button>
@@ -1429,6 +1429,7 @@
         <script src="../js/jquery-3.6.0.min.js"></script>
         <!-- Bootstrap 5.2.3 -->
         <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="../js/scripts.js"></script>
+        <!-- Sidebar Toggle -->
+        <script src="../js/sidebarToggle.js"></script>
     </body>
 </html>

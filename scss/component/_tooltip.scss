@@ -8,6 +8,7 @@
     text-align: left;
     max-width: px(240);
     color: color(gray-150);
+    @include rounded(8);
 
     li {
       padding: 0;

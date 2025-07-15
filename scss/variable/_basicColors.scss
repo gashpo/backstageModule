@@ -182,3 +182,31 @@ $colors: map-merge(
     GASH-500-80: rgba(color(GASH-500), 0.8),
   )
 );
+
+// FunOne
+$colors: map-merge(
+  $colors,
+  (
+    FunOne-20: #f8f7ff,
+    FunOne-50: #f0e5fd,
+    FunOne-100: #e0ccfc,
+    FunOne-200: #c199f8,
+    FunOne-300: #a366f5,
+    FunOne-400: #8433f1,
+    FunOne-500: #6500ee,
+    FunOne-600: #5100be,
+    FunOne-700: #3d008f,
+    FunOne-800: #28005f,
+    FunOne-900: #140030,
+  )
+);
+// FunOne 透明度
+$colors: map-merge(
+  $colors,
+  (
+    FunOne-500-12: rgba(color(FunOne-500), 0.12),
+    FunOne-500-14: rgba(color(FunOne-500), 0.14),
+    FunOne-500-20: rgba(color(FunOne-500), 0.2),
+    FunOne-500-80: rgba(color(FunOne-500), 0.8),
+  )
+);
