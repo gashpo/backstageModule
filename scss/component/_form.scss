@@ -62,6 +62,7 @@
 textarea {
   &.form-control {
     min-height: px(140);
+    resize: none;
   }
 }
 

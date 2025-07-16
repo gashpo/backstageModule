@@ -1920,6 +1920,7 @@ body {
 
 textarea.form-control {
   min-height: 8.75rem;
+  resize: none;
 }
 
 .input-icon-btn {
@@ -2105,7 +2106,7 @@ ul li {
   margin-bottom: 0;
 }
 .modal.modal-success .modal-dialog .modal-content .modal-header, .modal.modal-warning .modal-dialog .modal-content .modal-header {
-  background-color: #1f2f3c;
+  background-color: #000000;
 }
 .modal.modal-error .modal-content .modal-header {
   background-color: #ba121e;
@@ -2664,7 +2665,7 @@ footer copyright {
 .login-image img {
   position: absolute;
   top: 1.25rem;
-  right: 4.25rem;
+  right: 1.25rem;
   width: 10rem;
 }
 @media (max-width: 767px) {
