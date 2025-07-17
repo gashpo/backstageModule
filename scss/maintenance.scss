@@ -1,0 +1,60 @@
+@import "variable/basicColors";
+@import "variable/breakpoints";
+@import "variable/sizing";
+@import "variable/typography";
+@import "layout/settings";
+
+.other-pages {
+  margin: 0;
+
+  .announcement {
+    width: px(960);
+    max-width: calc(100dvw - px(40));
+    min-height: calc(100dvh - px(74));
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      color: color(gray-800);
+      margin: px(20) 0;
+    }
+
+    p {
+      color: color(gray-600);
+    }
+
+    img {
+      width: px(400);
+    }
+  }
+
+  footer {
+    padding: px(40) px(20) px(16);
+    @include fontRWD(caption);
+    text-align: center;
+    color: color(gray-500);
+  }
+
+  @include max-to(tablet) {
+    .announcement {
+      flex-direction: column-reverse;
+      justify-content: center;
+      gap: px(16);
+
+      h3 {
+        @include fontRWD(h4);
+      }
+
+      p {
+        @include fontRWD(body2);
+      }
+
+      img {
+        width: px(250);
+        max-width: calc(100svw - px(40));
+      }
+    }
+  }
+}

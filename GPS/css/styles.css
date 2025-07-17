@@ -1507,7 +1507,7 @@ body {
   .btn:hover {
     color: #727171;
     background-color: #fcfcfc;
-    border-color: transparent;
+    border-color: #ededed;
   }
 }
 .btn:disabled, .btn.btn-disabled {
@@ -2419,18 +2419,63 @@ ul li {
   }
 }
 
-.index-container {
+.index-container,
+.error-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
   height: 100%;
   width: 100%;
+}
+
+.index-container {
+  flex-direction: column;
+  gap: 0.75rem;
   color: #cccccc;
 }
 .index-container img {
   max-width: calc(100svw - 5rem);
+}
+
+.error-container {
+  padding: 1.25rem;
+  gap: 4.5rem;
+}
+.error-container .error-desc {
+  color: #919191;
+}
+.error-container .error-desc h1 {
+  color: #545454;
+}
+.error-container .error-desc ul {
+  margin: 1.25rem 0;
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+.error-container .error-desc ul li {
+  padding: 0;
+}
+@media (max-width: 767px) {
+  .error-container .error-desc h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 130%;
+  }
+}
+@media (max-width: 767px) and (max-width: 991px) {
+  .error-container .error-desc h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 130%;
+  }
+}
+@media (max-width: 767px) {
+  .error-container .error-desc .btn {
+    width: 100%;
+  }
+  .error-container img {
+    display: none;
+  }
 }
 
 footer {

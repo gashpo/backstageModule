@@ -19,7 +19,7 @@
   @include hover {
     color: color(gray-700);
     background-color: color(gray-30);
-    border-color: transparent;
+    border-color: color(gray-100);
   }
 
   &:disabled,
