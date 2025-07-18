@@ -1938,7 +1938,7 @@ textarea.form-control {
 .helper-text {
   color: #8c8c8c;
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 .helper-text a {
   color: #8c8c8c;
@@ -2059,6 +2059,9 @@ ul li {
   z-index: 2000;
 }
 
+.modal {
+  background-color: rgba(19, 29, 36, 0.8);
+}
 .modal .modal-dialog {
   position: fixed;
   top: 50%;
