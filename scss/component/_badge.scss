@@ -5,6 +5,7 @@
   @include fontRWD(body2);
   color: color(gray-800);
   background-color: color(gray-100);
+  width: fit-content;
 
   &.badge-danger {
     color: color(Danger);
@@ -24,5 +25,10 @@
   &.badge-success {
     color: color(Success);
     background-color: color(LightSuccess);
+  }
+
+  &.badge-purple {
+    color: color(FunOne-500);
+    background-color: color(FunOne-50);
   }
 }

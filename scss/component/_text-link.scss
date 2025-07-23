@@ -1,0 +1,17 @@
+.text-link {
+  color: color(Primary);
+  text-decoration: underline;
+  @include fontRWD(body2);
+
+  &.text-link-xs {
+    @include fontRWD(caption);
+  }
+
+  &.text-link-md {
+    @include fontRWD(body1);
+  }
+
+  @include hover {
+    color: color(DarkPrimary);
+  }
+}

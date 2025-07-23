@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>每日交易查詢 | FunOne Pay 後台管理系統</title>
+        <meta name="description" content="FunOne Pay 後台管理系統" />
+        <meta name="keywords" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="FunOne Pay 後台管理系統" />
+        <meta property="og:image" content="images/og-image.jpg" />
+        <meta property="og:image:type" content="images/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <link rel="icon" type="image/png" href="images/favicon.svg" />
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.jpg" />
+
+        <!-- Font Awesome 6.3 -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        
+        <!-- Google Material Symbols -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap" />
+
+        <!-- Datatables -->
+        <link rel="stylesheet" href="../css/dataTables.css" />
+
+        <!-- Bootstrap 5.2 -->
+        <link href="../css/bootstrapStyles.css" rel="stylesheet" />
+
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- <link rel="stylesheet" href="css/multiSelect.css"> -->
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-light bg-gray-0">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm me-3" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Brand-->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Logo_light.svg">
+                後台
+            </a>
+            <!-- Navbar-->
+            <ul class="navbar-nav form-inline ms-auto me-0 my-0 d-flex align-items-center">
+                <!-- ↓ 先預留通知欄位，Phase 1 沒有要做 -->
+                <!-- <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link notification" id="notifyDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="material-symbols-rounded">notifications</i>
+                        <span class="badge">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notifyDropdown">
+                        <li class="dropdown-item">
+                            <a href="#">
+                                Notification
+                                <span class="subtitle">2025-08-12</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item read">
+                            <a href="#">
+                                Notification
+                                <span class="subtitle">2025-08-12</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
+                <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link username" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="material-symbols-rounded headshot">person</i>
+                        <span class="me-1 d-md-inline d-none">User Name</span>
+                        <i class="material-symbols-rounded arrow">keyboard_arrow_down</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                        <li class="dropdown-item userinfo">
+                            <i class="material-symbols-rounded headshot">person</i>
+                            <div>
+                                User Name
+                                <span class="subtitle">User Account</span>
+                            </div>
+                        </li>
+                        <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
+                        <li class="dropdown-item"><a data-bs-toggle="modal" data-bs-target="#logout" href="javascript:void(0);">登出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion navbar-light bg-gray-0" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTransactionManagement" aria-expanded="true" aria-controls="collapseTransactionManagement">
+                                <i class="material-symbols-rounded">receipt_long</i>
+                                交易管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse show" id="collapseTransactionManagement" aria-labelledby="headingOne">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="1.1_transactionRecords.html">交易紀錄查詢</a>
+                                    <a class="nav-link active" href="1.2_dailyTransactions.html">每日交易查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePayoutManagement" aria-expanded="false" aria-controls="collapsePayoutManagement">
+                                <i class="material-symbols-rounded">request_quote</i>
+                                商家請款管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePayoutManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <!-- <a class="nav-link" href="2.1_payoutRequest.html">商家請款申請</a> -->
+                                    <a class="nav-link" href="2.2_requestInquiry.html">商家請款查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDisbursementManagement" aria-expanded="false" aria-controls="collapseDisbursementManagement">
+                                <i class="material-symbols-rounded">account_balance</i>
+                                撥款管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseDisbursementManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="3.1_disbursementStatus.html">撥款結果查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePermissionsManagement" aria-expanded="false" aria-controls="collapsePermissionsManagement">
+                                <i class="material-symbols-rounded">manage_accounts</i>
+                                帳號權限管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePermissionsManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="4.1_userPermissions.html">帳號管理</a>
+                                    <a class="nav-link" href="4.2_groupManagement.html">群組權限</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mt-4">
+                            <li class="breadcrumb-item">FunOne Pay 後台</li>
+                            <li class="breadcrumb-item">交易管理</li>
+                            <li class="breadcrumb-item active">每日交易查詢</li>
+                        </ol>
+                        <div class="page-title">
+                            <h3>每日交易查詢</h3>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <!-- ↓ 營運模式預設為空值；商家模式預設為該商家「商家ID」，且不可變更 (btn狀態為readonly)。此處demo商家模式 -->
+                                <label for="midSelect" class="form-label required">商家 ID</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle selected" readonly id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">M1000001：GASH測試用(UAT).,LTD CO</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">M1000001：GASH測試用(UAT).,LTD CO</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="cidSelect" class="form-label">商家次 ID</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle" id="cidSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">CID 001</li>
+                                                <li class="dropdown-item">CID 002</li>
+                                                <li class="dropdown-item">CID 003</li>
+                                                <li class="dropdown-item">CID 004</li>
+                                                <li class="dropdown-item">CID 005</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="transactionDate" class="form-label required">交易日期</label>
+                                <div class="input-group">
+                                    <input id="transactionDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="StartDate">
+                                    <span class="input-group-text">~</span>
+                                    <input id="endDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="EndDate">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <button type="button" class="btn btn-secondary">
+                                    <i class="material-symbols-rounded">search</i>
+                                    搜尋
+                                </button>
+                                <button type="button" class="btn btn-secondary-flat ms-3">
+                                    <i class="material-symbols-rounded">delete</i>
+                                    清除
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card p-3">
+                            <table id="dailyTransactions" class="dataTable fix-first-twoline">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2"></th>
+                                        <th rowspan="2">交易日期</th>
+                                        <th colspan="2">已完成 - 已付款</th>
+                                        <th colspan="2">已完成 - 已退款</th>
+                                        <th colspan="2">已完成 - 合計</th>
+                                        <th colspan="2">已請款 - 已付款</th>
+                                        <th colspan="2">已請款 - 已退款</th>
+                                        <th colspan="2">已請款 - 合計</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="no-fix">交易筆數</th>
+                                        <th class="no-fix">交易金額</th>
+                                        <th>交易筆數</th>
+                                        <th>交易金額</th>
+                                        <th>交易筆數</th>
+                                        <th>交易金額</th>
+                                        <th>交易筆數</th>
+                                        <th>交易金額</th>
+                                        <th>交易筆數</th>
+                                        <th>交易金額</th>
+                                        <th>交易筆數</th>
+                                        <th>交易金額</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2025/05/03</td>
+                                        <td>120</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Danger">-$300</span></td>
+                                        <td><b>121</b></td>
+                                        <td><b>$12,200</b></td>
+                                        <td>120</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Danger">-$300</span></td>
+                                        <td><b>121</b></td>
+                                        <td><b>$12,200</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>2025/05/02</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Danger">-$600</span></td>
+                                        <td><b>72</b></td>
+                                        <td><b>$14,400</b></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Danger">-$600</span></td>
+                                        <td><b>72</b></td>
+                                        <td><b>$14,400</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>2025/05/01</td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Danger">-$900</span></td>
+                                        <td><b>51</b></td>
+                                        <td><b>$8,900</b></td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Danger">-$900</span></td>
+                                        <td><b>51</b></td>
+                                        <td><b>$8,900</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>2025/05/01</td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Danger">-$300</span></td>
+                                        <td><b>51</b></td>
+                                        <td><b>$8,900</b></td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Danger">-$300</span></td>
+                                        <td><b>51</b></td>
+                                        <td><b>$8,900</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>2025/05/02</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Danger">-$600</span></td>
+                                        <td><b>72</b></td>
+                                        <td><b>$14,400</b></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Danger">-$600</span></td>
+                                        <td><b>72</b></td>
+                                        <td><b>$14,400</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- Modal -->
+                <div class="modal modal-warning fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="logoutLabel"><i class="material-symbols-rounded">error</i></h2>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>確定登出</h4>
+                                <p>您是否確定要登出？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <a href="login.html" class="btn btn-primary flex-grow-1">登出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal modal-warning fade" id="refund" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="refundLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="refundLabel"><i class="material-symbols-rounded">error</i></h2>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>確認退款申請</h4>
+                                <p>您確定要申請退款嗎？退款申請提交後將無法取消或修改。</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary flex-grow-1">確認退款</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="disputed" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="disputedLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>爭議款狀態</h4>
+                            </div>
+                            <div class="modal-body d-flex flex-column gap-3">
+                                <div class="form-check">
+                                    <input checked class="form-check-input" type="radio" name="formatOptions" id="formatOption1" value="formatOption1">
+                                    <label class="form-check-label" for="formatOption1">已成功 (爭議處理中)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formatOptions" id="formatOption2" value="formatOption2">
+                                    <label class="form-check-label" for="formatOption2">已成功 (爭議審核中)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formatOptions" id="formatOption3" value="formatOption3">
+                                    <label class="form-check-label" for="formatOption3">已成功 (裁定爭議款)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formatOptions" id="formatOption4" value="formatOption2">
+                                    <label class="form-check-label" for="formatOption4">已成功 (裁定非爭議款)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formatOptions" id="formatOption5" value="formatOption2">
+                                    <label class="form-check-label" for="formatOption5">已成功 (爭議仲裁中)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formatOptions" id="formatOption6" value="formatOption2">
+                                    <label class="form-check-label" for="formatOption6">已成功 (仲裁爭議款)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="formatOptions" id="formatOption7" value="formatOption2">
+                                    <label class="form-check-label" for="formatOption7">已成功 (仲裁非爭議款)</label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary flex-grow-1">變更狀態</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="disputedLog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="disputedLogLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>爭議歷程</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="disputed-log">
+                                    <ul>
+                                        <li class="log-item">
+                                            <div class="date">2025/04/30</div>
+                                            <div class="status">已成功(仲裁非爭議款)</div>
+                                        </li>
+                                        <li class="log-item">
+                                            <div class="date">2025/04/28</div>
+                                            <div class="status">已成功(爭議仲裁中)</div>
+                                        </li>
+                                        <li class="log-item">
+                                            <div class="date">2025/04/28</div>
+                                            <div class="status">已成功(裁定爭議款)</div>
+                                        </li>
+                                        <li class="log-item">
+                                            <div class="date">2025/04/20</div>
+                                            <div class="status">已成功(爭議審核中)</div>
+                                        </li>
+                                        <li class="log-item">
+                                            <div class="date">2025/04/16</div>
+                                            <div class="status">已成功(爭議處理中)</div>
+                                        </li>
+                                        <li class="log-item">
+                                            <div class="date">2025/04/15</div>
+                                            <div class="status">已成功(爭議審核中)</div>
+                                        </li>
+                                        <li class="log-item">
+                                            <div class="date">2025/04/13</div>
+                                            <div class="status">已成功(爭議處理中)</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <footer>
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-center small">
+                            <copyright>© 2025 GASH POINT Co., Ltd. All right reserved</copyright>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        <!-- jQuery -->
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap 5.2.3 -->
+        <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <!-- Sidebar Toggle -->
+        <script src="../js/sidebarToggle.js"></script>
+        <!-- Tooltip -->
+        <script src="../js/tooltip.js"></script>
+        <!-- Datatables -->
+        <script src="../js/dataTables.js"></script>
+        <script src="../js/table.js"></script>
+    </body>
+</html>

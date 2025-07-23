@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>撥款結果查詢 | FunOne Pay 後台管理系統</title>
+        <meta name="description" content="FunOne Pay 後台管理系統" />
+        <meta name="keywords" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:locale" content="zh_TW" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="FunOne Pay 後台管理系統" />
+        <meta property="og:image" content="images/og-image.jpg" />
+        <meta property="og:image:type" content="images/jpeg" />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <link rel="icon" type="image/png" href="images/favicon.svg" />
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.jpg" />
+
+        <!-- Font Awesome 6.3 -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        
+        <!-- Google Material Symbols -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap" />
+
+        <!-- Datatables -->
+        <link rel="stylesheet" href="../css/dataTables.css" />
+
+        <!-- Bootstrap 5.2 -->
+        <link href="../css/bootstrapStyles.css" rel="stylesheet" />
+
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- <link rel="stylesheet" href="css/multiSelect.css"> -->
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-light bg-gray-0">
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm me-3" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Brand-->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Logo_light.svg">
+                後台
+            </a>
+            <!-- Navbar-->
+            <ul class="navbar-nav form-inline ms-auto me-0 my-0 d-flex align-items-center">
+                <!-- ↓ 先預留通知欄位，Phase 1 沒有要做 -->
+                <!-- <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link notification" id="notifyDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="material-symbols-rounded">notifications</i>
+                        <span class="badge">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notifyDropdown">
+                        <li class="dropdown-item">
+                            <a href="#">
+                                Notification
+                                <span class="subtitle">2025-08-12</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item read">
+                            <a href="#">
+                                Notification
+                                <span class="subtitle">2025-08-12</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
+                <li class="nav-item dropdown header-dropdown">
+                    <a class="nav-link username" id="accountDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="material-symbols-rounded headshot">person</i>
+                        <span class="me-1 d-md-inline d-none">User Name</span>
+                        <i class="material-symbols-rounded arrow">keyboard_arrow_down</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                        <li class="dropdown-item userinfo">
+                            <i class="material-symbols-rounded headshot">person</i>
+                            <div>
+                                User Name
+                                <span class="subtitle">User Account</span>
+                            </div>
+                        </li>
+                        <li class="dropdown-item"><a href="changePassword.html">變更密碼</a></li>
+                        <li class="dropdown-item"><a data-bs-toggle="modal" data-bs-target="#logout" href="javascript:void(0);">登出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion navbar-light bg-gray-0" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTransactionManagement" aria-expanded="false" aria-controls="collapseTransactionManagement">
+                                <i class="material-symbols-rounded">receipt_long</i>
+                                交易管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseTransactionManagement" aria-labelledby="headingOne">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="1.1_transactionRecords.html">交易紀錄查詢</a>
+                                    <a class="nav-link" href="1.2_dailyTransactions.html">每日交易查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePayoutManagement" aria-expanded="false" aria-controls="collapsePayoutManagement">
+                                <i class="material-symbols-rounded">request_quote</i>
+                                商家請款管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePayoutManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <!-- <a class="nav-link" href="2.1_payoutRequest.html">商家請款申請</a> -->
+                                    <a class="nav-link" href="2.2_requestInquiry.html">商家請款查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDisbursementManagement" aria-expanded="true" aria-controls="collapseDisbursementManagement">
+                                <i class="material-symbols-rounded">account_balance</i>
+                                撥款管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse show" id="collapseDisbursementManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link active" href="3.1_disbursementStatus.html">撥款結果查詢</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePermissionsManagement" aria-expanded="false" aria-controls="collapsePermissionsManagement">
+                                <i class="material-symbols-rounded">manage_accounts</i>
+                                帳號權限管理
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePermissionsManagement" aria-labelledby="headingTwo">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="4.1_userPermissions.html">帳號管理</a>
+                                    <a class="nav-link" href="4.2_groupManagement.html">群組權限</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mt-4">
+                            <li class="breadcrumb-item">FunOne Pay 後台</li>
+                            <li class="breadcrumb-item">撥款管理</li>
+                            <li class="breadcrumb-item active">撥款結果查詢</li>
+                        </ol>
+                        <div class="page-title">
+                            <h3>撥款結果查詢</h3>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <!-- ↓ 營運模式預設為空值；商家模式預設為該商家「商家ID」，且不可變更 (btn狀態為readonly)。此處demo商家模式 -->
+                                <label for="midSelect" class="form-label required">商家 ID</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle selected" readonly id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">M1000001：GASH測試用(UAT).,LTD CO</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">M1000001：GASH測試用(UAT).,LTD CO</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="cidSelect" class="form-label">商家次 ID</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle" id="cidSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">CID 001</li>
+                                                <li class="dropdown-item">CID 002</li>
+                                                <li class="dropdown-item">CID 003</li>
+                                                <li class="dropdown-item">CID 004</li>
+                                                <li class="dropdown-item">CID 005</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="applicationWay" class="form-label">請款方式</label>
+                                <div class="dropdown-group">
+                                    <button class="form-control dropdown-toggle selected" id="applicationWay" type="text" data-bs-toggle="dropdown" aria-expanded="false">全部</button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <li class="dropdown-item">全部</li>
+                                                <li class="dropdown-item">自動請款</li>
+                                                <li class="dropdown-item">手動請款</li>
+                                                <li class="dropdown-item">強制自動請款</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="estimatedPayoutDate" class="form-label">預計撥款日</label>
+                                <div class="input-group">
+                                    <input id="estimatedPayoutDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="StartDate">
+                                    <span class="input-group-text">~</span>
+                                    <input id="endDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="EndDate">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4 query-btn-group">
+                                <button type="button" class="btn btn-secondary">
+                                    <i class="material-symbols-rounded">search</i>
+                                    搜尋
+                                </button>
+                                <button type="button" class="btn btn-secondary-flat ms-3">
+                                    <i class="material-symbols-rounded">delete</i>
+                                    清除
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card p-3">
+                            <table id="disbursementStatus" class="dataTable fix-firstline">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2"></th>
+                                        <th rowspan="2">商家 ID</th>
+                                        <th rowspan="2">商家次 ID</th>
+                                        <th rowspan="2">預計撥款日</th>
+                                        <th rowspan="2">實際撥款日</th>
+                                        <th colspan="2">已付款</th>
+                                        <th colspan="2">已退款 (含爭議款)</th>
+                                        <th colspan="2">合計</th>
+                                        <th colspan="2">折扣合計</th>
+                                        <th rowspan="2">結算金額</th>
+                                        <th rowspan="2">平台手續費</th>
+                                        <th rowspan="2">請款金額</th>
+                                        <th rowspan="2">撥款金額</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="no-fix">交易筆數</th>
+                                        <th>交易金額</th>
+                                        <th>交易筆數</th>
+                                        <th>交易金額</th>
+                                        <th>交易筆數</th>
+                                        <th>交易金額</th>
+                                        <th>交易筆數</th>
+                                        <th>交易金額</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>FOPA69696969</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/31</td>
+                                        <td>2019/12/31</td>
+                                        <td>85</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>86</td>
+                                        <td><span class="color-Success">$12,200</span></td>
+                                        <td>120</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>FOPA88888888</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Success">$600</span></td>
+                                        <td>72</td>
+                                        <td><span class="color-Success">$14,400</span></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>FOPA77777777</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>51</td>
+                                        <td><span class="color-Success">$8,900</span></td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>FOPA55555555</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>FOPA44444444</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>151</td>
+                                        <td><span class="color-Success">$8,300</span></td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>FOPA33333333</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/31</td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>63</td>
+                                        <td><span class="color-Success">$10,700</span></td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>FOPA22222222</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/30</td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>88</td>
+                                        <td><span class="color-Success">$9,300</span></td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>FOPA11111111</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/27</td>
+                                        <td>2019/12/30</td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>FOPA33333333</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/31</td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>63</td>
+                                        <td><span class="color-Success">$10,700</span></td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>FOPA22222222</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/30</td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>88</td>
+                                        <td><span class="color-Success">$9,300</span></td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>FOPA11111111</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/27</td>
+                                        <td>2019/12/30</td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>FOPA69696969</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/31</td>
+                                        <td>2019/12/31</td>
+                                        <td>85</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>86</td>
+                                        <td><span class="color-Success">$12,200</span></td>
+                                        <td>120</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>FOPA88888888</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Success">$600</span></td>
+                                        <td>72</td>
+                                        <td><span class="color-Success">$14,400</span></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>FOPA77777777</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>51</td>
+                                        <td><span class="color-Success">$8,900</span></td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>FOPA55555555</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>FOPA44444444</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>151</td>
+                                        <td><span class="color-Success">$8,300</span></td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>21</td>
+                                        <td>FOPA77777777</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>51</td>
+                                        <td><span class="color-Success">$8,900</span></td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>22</td>
+                                        <td>FOPA55555555</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                    </tr>
+                                    <tr>
+                                        <td>23</td>
+                                        <td>FOPA69696969</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/31</td>
+                                        <td>2019/12/31</td>
+                                        <td>85</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>86</td>
+                                        <td><span class="color-Success">$12,200</span></td>
+                                        <td>120</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>FOPA88888888</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Success">$600</span></td>
+                                        <td>72</td>
+                                        <td><span class="color-Success">$14,400</span></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>25</td>
+                                        <td>FOPA44444444</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>151</td>
+                                        <td><span class="color-Success">$8,300</span></td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>26</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>27</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>28</td>
+                                        <td>FOPA33333333</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/31</td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>63</td>
+                                        <td><span class="color-Success">$10,700</span></td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>29</td>
+                                        <td>FOPA22222222</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/30</td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>88</td>
+                                        <td><span class="color-Success">$9,300</span></td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30</td>
+                                        <td>FOPA11111111</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/27</td>
+                                        <td>2019/12/30</td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>31</td>
+                                        <td>FOPA88888888</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Success">$600</span></td>
+                                        <td>72</td>
+                                        <td><span class="color-Success">$14,400</span></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>FOPA44444444</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>151</td>
+                                        <td><span class="color-Success">$8,300</span></td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>33</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>34</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>35</td>
+                                        <td>FOPA11111111</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/27</td>
+                                        <td>2019/12/30</td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>36</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>37</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>38</td>
+                                        <td>FOPA11111111</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/27</td>
+                                        <td>2019/12/30</td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>39</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>41</td>
+                                        <td>FOPA33333333</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/31</td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>63</td>
+                                        <td><span class="color-Success">$10,700</span></td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>42</td>
+                                        <td>FOPA22222222</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/30</td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>88</td>
+                                        <td><span class="color-Success">$9,300</span></td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td>43</td>
+                                        <td>FOPA11111111</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/27</td>
+                                        <td>2019/12/30</td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>44</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>45</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>46</td>
+                                        <td>FOPA69696969</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/31</td>
+                                        <td>2019/12/31</td>
+                                        <td>85</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>86</td>
+                                        <td><span class="color-Success">$12,200</span></td>
+                                        <td>120</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>47</td>
+                                        <td>FOPA88888888</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Success">$600</span></td>
+                                        <td>72</td>
+                                        <td><span class="color-Success">$14,400</span></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>48</td>
+                                        <td>FOPA77777777</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>51</td>
+                                        <td><span class="color-Success">$8,900</span></td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>49</td>
+                                        <td>FOPA55555555</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                    </tr>
+                                    <tr>
+                                        <td>50</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>51</td>
+                                        <td>FOPA33333333</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/31</td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>63</td>
+                                        <td><span class="color-Success">$10,700</span></td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>52</td>
+                                        <td>FOPA22222222</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/30</td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>88</td>
+                                        <td><span class="color-Success">$9,300</span></td>
+                                        <td>87</td>
+                                        <td><span class="color-Success">$9,600</span></td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td>53</td>
+                                        <td>FOPA11111111</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/27</td>
+                                        <td>2019/12/30</td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>57</td>
+                                        <td><span class="color-Success">$13,000</span></td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                        <td>1,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>54</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>55</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>56</td>
+                                        <td>FOPA69696969</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/31</td>
+                                        <td>2019/12/31</td>
+                                        <td>85</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>86</td>
+                                        <td><span class="color-Success">$12,200</span></td>
+                                        <td>120</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>57</td>
+                                        <td>FOPA88888888</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Success">$600</span></td>
+                                        <td>72</td>
+                                        <td><span class="color-Success">$14,400</span></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>58</td>
+                                        <td>FOPA77777777</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>51</td>
+                                        <td><span class="color-Success">$8,900</span></td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>59</td>
+                                        <td>FOPA55555555</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                    </tr>
+                                    <tr>
+                                        <td>60</td>
+                                        <td>FOPA44444444</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>151</td>
+                                        <td><span class="color-Success">$8,300</span></td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>61</td>
+                                        <td>FOPA77777777</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>51</td>
+                                        <td><span class="color-Success">$8,900</span></td>
+                                        <td>50</td>
+                                        <td><span class="color-Success">$9,200</span></td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>62</td>
+                                        <td>FOPA55555555</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>0</td>
+                                        <td><span class="color-Success">0</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>43</td>
+                                        <td><span class="color-Success">$11,800</span></td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                        <td>390</td>
+                                    </tr>
+                                    <tr>
+                                        <td>63</td>
+                                        <td>FOPA69696969</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/31</td>
+                                        <td>2019/12/31</td>
+                                        <td>85</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>86</td>
+                                        <td><span class="color-Success">$12,200</span></td>
+                                        <td>120</td>
+                                        <td><span class="color-Success">$12,500</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                    <tr>
+                                        <td>64</td>
+                                        <td>FOPA88888888</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/30</td>
+                                        <td>2019/12/31</td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>2</td>
+                                        <td><span class="color-Success">$600</span></td>
+                                        <td>72</td>
+                                        <td><span class="color-Success">$14,400</span></td>
+                                        <td>70</td>
+                                        <td><span class="color-Success">$15,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>65</td>
+                                        <td>FOPA44444444</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/29</td>
+                                        <td>2019/12/30</td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>151</td>
+                                        <td><span class="color-Success">$8,300</span></td>
+                                        <td>150</td>
+                                        <td><span class="color-Success">$8,600</span></td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                        <td>2,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>66</td>
+                                        <td>FOPA98765432</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/26</td>
+                                        <td>2019/12/29</td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$15,300</span></td>
+                                        <td>99</td>
+                                        <td><span class="color-Success">$15,600</span></td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>67</td>
+                                        <td>FOPA12345678</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/25</td>
+                                        <td>2019/12/30</td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>101</td>
+                                        <td><span class="color-Success">$13,700</span></td>
+                                        <td>100</td>
+                                        <td><span class="color-Success">$14,000</span></td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                        <td>1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>68</td>
+                                        <td>FOPA33333333</td>
+                                        <td>Xincity168168</td>
+                                        <td>2019/12/28</td>
+                                        <td>2019/12/31</td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>1</td>
+                                        <td><span class="color-Success">$300</span></td>
+                                        <td>63</td>
+                                        <td><span class="color-Success">$10,700</span></td>
+                                        <td>62</td>
+                                        <td><span class="color-Success">$11,000</span></td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                        <td>299</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- Modal -->
+                <div class="modal modal-warning fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 id="logoutLabel"><i class="material-symbols-rounded">error</i></h2>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>確定登出</h4>
+                                <p>您是否確定要登出？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary-flat flex-grow-1" data-bs-dismiss="modal">取消</button>
+                                <a href="login.html" class="btn btn-primary flex-grow-1">登出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <footer>
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-center small">
+                            <copyright>© 2025 GASH POINT Co., Ltd. All right reserved</copyright>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        <!-- jQuery -->
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap 5.2.3 -->
+        <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <!-- Sidebar Toggle -->
+        <script src="../js/sidebarToggle.js"></script>
+        <!-- Tooltip -->
+        <script src="../js/tooltip.js"></script>
+        <!-- Grab Table -->
+        <script src="../js/grabTable2.js"></script>
+        <!-- Datatables -->
+        <script src="../js/dataTables.js"></script>
+        <script src="../js/table.js"></script>
+    </body>
+</html>

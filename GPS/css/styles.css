@@ -1428,6 +1428,7 @@ body {
   line-height: 150%;
   color: #545454;
   background-color: #ededed;
+  width: fit-content;
 }
 @media (max-width: 991px) {
   .badge {
@@ -1451,6 +1452,10 @@ body {
 .badge.badge-success {
   color: #559220;
   background-color: #e0f5cd;
+}
+.badge.badge-purple {
+  color: #6500ee;
+  background-color: #f0e5fd;
 }
 
 .breadcrumb {
@@ -1484,6 +1489,11 @@ body {
 }
 .breadcrumb-item:last-child::after {
   display: none;
+}
+
+button {
+  border: none;
+  background: none;
 }
 
 .btn {
@@ -2057,7 +2067,14 @@ ul li {
   left: 50%;
   transform: translate(-50%, -50%) !important;
   max-width: 35rem;
-  min-width: 18.75rem;
+  min-width: 25rem;
+}
+.modal .modal-dialog .btn-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 .modal .modal-dialog .modal-content .modal-header {
   justify-content: center;
@@ -2103,40 +2120,11 @@ ul li {
 .modal.modal-error .modal-content .modal-header {
   background-color: #ba121e;
 }
-
-.inner-table {
-  width: 100%;
-  border: 0.0625rem solid #e2e2e2;
-  color: #727171;
-}
-.inner-table thead {
-  background-color: #f9f9f9;
-}
-.inner-table thead tr th {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 150%;
-}
-@media (max-width: 991px) {
-  .inner-table thead tr th {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 150%;
+@media (max-width: 767px) {
+  .modal .modal-dialog {
+    max-width: calc(100svw - 2.5rem);
+    min-width: 18.75rem;
   }
-}
-.inner-table thead tr th,
-.inner-table thead tr td,
-.inner-table tbody tr th,
-.inner-table tbody tr td {
-  text-align: center;
-  padding: 0.75rem;
-}
-
-.innertable-container {
-  overflow-x: auto;
-}
-.innertable-container table thead tr th {
-  white-space: nowrap;
 }
 
 .datatable-container {
@@ -2196,6 +2184,7 @@ ul li {
   line-height: 150%;
   color: #727171;
   background-color: #ffffff;
+  vertical-align: middle;
 }
 @media (max-width: 991px) {
   .datatable-container .datatable-table tbody > tr > td {
@@ -2209,6 +2198,9 @@ ul li {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+}
+.datatable-container .datatable-table tbody > tr > td:last-child {
+  text-align: left;
 }
 .datatable-container .datatable-table tbody > tr:nth-child(odd) {
   background-color: #f9f9f9;
@@ -2315,6 +2307,227 @@ ul li {
   }
 }
 
+div.dt-container {
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  overflow: hidden;
+}
+div.dt-container .dt-scroll-body {
+  border: none !important;
+}
+div.dt-container .dt-layout-row {
+  margin: 0 !important;
+}
+div.dt-container .dt-layout-row:has(.dt-layout-end) {
+  background-color: #ededed;
+  padding: 1rem;
+}
+div.dt-container .dt-paging .ellipsis {
+  opacity: 0.3;
+}
+div.dt-container .dt-paging .ellipsis + .dt-paging-button {
+  margin-left: 0;
+}
+div.dt-container .dt-paging .dt-paging-button {
+  padding: 0.5rem;
+  border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
+  background: #ffffff;
+  color: #727171;
+  margin-left: 0.25rem;
+  border: none !important;
+}
+@media (hover: hover) {
+  div.dt-container .dt-paging .dt-paging-button:hover {
+    background: none;
+    background-color: #e2e2e2;
+    color: #727171 !important;
+  }
+}
+div.dt-container .dt-paging .dt-paging-button.current {
+  background-color: #131d24;
+  color: #ffffff !important;
+  pointer-events: none;
+}
+div.dt-container .dt-paging .dt-paging-button.disabled {
+  opacity: 0.3;
+}
+div.dt-container .dt-paging .dt-paging-button:active {
+  background: none;
+  background-color: #e2e2e2;
+  color: #727171 !important;
+  box-shadow: none;
+}
+div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging .dt-paging-button.previous, div.dt-container .dt-paging .dt-paging-button.next, div.dt-container .dt-paging .dt-paging-button.last {
+  color: #000000 !important;
+  background-color: transparent !important;
+}
+@media (hover: hover) {
+  div.dt-container .dt-paging .dt-paging-button.first:hover, div.dt-container .dt-paging .dt-paging-button.previous:hover, div.dt-container .dt-paging .dt-paging-button.next:hover, div.dt-container .dt-paging .dt-paging-button.last:hover {
+    color: #000000 !important;
+  }
+}
+
+.dataTable > thead > tr,
+.dataTable > tbody > tr {
+  position: relative;
+}
+.dataTable > thead > tr > th,
+.dataTable > thead > tr > td,
+.dataTable > tbody > tr > th,
+.dataTable > tbody > tr > td {
+  padding: 0.75rem;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+.dataTable > thead > tr > th .btn-xs,
+.dataTable > thead > tr > td .btn-xs,
+.dataTable > tbody > tr > th .btn-xs,
+.dataTable > tbody > tr > td .btn-xs {
+  min-width: auto;
+}
+.dataTable > thead > tr > th.no-fix,
+.dataTable > thead > tr > td.no-fix,
+.dataTable > tbody > tr > th.no-fix,
+.dataTable > tbody > tr > td.no-fix {
+  position: relative;
+  z-index: 0 !important;
+}
+.dataTable > thead > tr > th.no-fix::before,
+.dataTable > thead > tr > td.no-fix::before,
+.dataTable > tbody > tr > th.no-fix::before,
+.dataTable > tbody > tr > td.no-fix::before {
+  display: none;
+}
+.dataTable > thead > tr > th {
+  background-color: #ededed;
+  color: #919191;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 150%;
+  border: 0.0625rem solid #cccccc;
+}
+@media (max-width: 991px) {
+  .dataTable > thead > tr > th {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+.dataTable > thead > tr > th[colspan="2"] {
+  background-color: #e2e2e2;
+}
+.dataTable > thead > tr > th .dt-column-header .dt-column-order {
+  display: none;
+}
+.dataTable > thead > tr > th:first-child {
+  border-left: none;
+}
+.dataTable > thead > tr > th:last-child {
+  border-right: none;
+}
+.dataTable > thead > tr:first-child > th {
+  border-top: none;
+}
+.dataTable > tbody > tr:nth-child(odd) > td {
+  background-color: #f9f9f9;
+}
+.dataTable > tbody > tr:nth-child(even) > td {
+  background-color: #ffffff;
+}
+.dataTable > tbody > tr > td {
+  border: 0.0625rem solid #dddddd;
+}
+.dataTable > tbody > tr > td.dt-empty {
+  background: #ffffff;
+  box-shadow: none;
+}
+.dataTable > tbody > tr > td.dt-empty div {
+  min-height: 29.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #727171;
+}
+.dataTable > tbody > tr > td:first-child {
+  border-left: none;
+}
+.dataTable > tbody > tr > td:last-child {
+  border-right: none;
+}
+.dataTable > tbody > tr:last-child > td {
+  border-bottom: none;
+}
+.dataTable.fix-firstline thead > tr > th:first-child,
+.dataTable.fix-firstline thead > tr > td:first-child,
+.dataTable.fix-firstline tbody > tr > th:first-child,
+.dataTable.fix-firstline tbody > tr > td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+.dataTable.fix-firstline thead > tr > th:first-child::before,
+.dataTable.fix-firstline thead > tr > td:first-child::before,
+.dataTable.fix-firstline tbody > tr > th:first-child::before,
+.dataTable.fix-firstline tbody > tr > td:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 0.375rem;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
+}
+.dataTable.fix-first-twoline thead > tr > th:first-child,
+.dataTable.fix-first-twoline thead > tr > td:first-child,
+.dataTable.fix-first-twoline tbody > tr > th:first-child,
+.dataTable.fix-first-twoline tbody > tr > td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+.dataTable.fix-first-twoline thead > tr > th:nth-child(2),
+.dataTable.fix-first-twoline thead > tr > td:nth-child(2),
+.dataTable.fix-first-twoline tbody > tr > th:nth-child(2),
+.dataTable.fix-first-twoline tbody > tr > td:nth-child(2) {
+  position: sticky;
+  left: 1.875rem;
+  z-index: 1;
+}
+.dataTable.fix-first-twoline thead > tr > th:nth-child(2)::before,
+.dataTable.fix-first-twoline thead > tr > td:nth-child(2)::before,
+.dataTable.fix-first-twoline tbody > tr > th:nth-child(2)::before,
+.dataTable.fix-first-twoline tbody > tr > td:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 0.375rem;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
+}
+.dataTable.fix-lastline thead > tr > th:last-child,
+.dataTable.fix-lastline thead > tr > td:last-child,
+.dataTable.fix-lastline tbody > tr > th:last-child,
+.dataTable.fix-lastline tbody > tr > td:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 1;
+}
+.dataTable.fix-lastline thead > tr > th:last-child::before,
+.dataTable.fix-lastline thead > tr > td:last-child::before,
+.dataTable.fix-lastline tbody > tr > th:last-child::before,
+.dataTable.fix-lastline tbody > tr > td:last-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 0.375rem;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
+}
+
 .table-guideline {
   display: flex;
   width: 100%;
@@ -2323,6 +2536,85 @@ ul li {
   gap: 0.25rem;
   color: #727171;
   margin-bottom: 0.75rem;
+}
+
+.inner-table {
+  width: 100%;
+  border: 0.0625rem solid #e2e2e2;
+  color: #727171;
+}
+.inner-table thead {
+  background-color: #f9f9f9;
+}
+.inner-table thead tr th {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media (max-width: 991px) {
+  .inner-table thead tr th {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+.inner-table thead tr th,
+.inner-table thead tr td,
+.inner-table tbody tr th,
+.inner-table tbody tr td {
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.innertable-container {
+  overflow-x: auto;
+}
+.innertable-container table thead tr th {
+  white-space: nowrap;
+}
+
+.text-link {
+  color: #e5006e;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media (max-width: 991px) {
+  .text-link {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+.text-link.text-link-xs {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media (max-width: 991px) {
+  .text-link.text-link-xs {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+.text-link.text-link-md {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media (max-width: 991px) {
+  .text-link.text-link-md {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+@media (hover: hover) {
+  .text-link:hover {
+    color: #b70058;
+  }
 }
 
 .custom-tooltip {

@@ -1,0 +1,62 @@
+.disputed-log {
+  margin: 0 px(32) 0 px(24);
+  max-height: px(374);
+  overflow-y: auto;
+  padding-left: px(8);
+
+  ul {
+    border-left: px(1) solid color(gray-150);
+    position: relative;
+    padding-left: px(20);
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: px(-1);
+      width: px(2);
+      height: px(4);
+      background-color: color(gray-0);
+    }
+
+    .log-item {
+      position: relative;
+      padding: 0;
+
+      .date {
+        color: color(gray-500);
+        @include fontRWD(caption);
+      }
+
+      .status {
+        color: color(gray-800);
+      }
+
+      + .log-item {
+        margin-top: px(32);
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: px(4);
+        left: px(-24);
+        width: px(8);
+        height: px(8);
+        border: px(4) solid color(Primary);
+        @include rounded(8);
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: px(-28);
+        width: px(16);
+        height: px(16);
+        background-color: color(Primary-20);
+        @include rounded(8);
+      }
+    }
+  }
+}

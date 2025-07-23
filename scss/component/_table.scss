@@ -1,52 +1,4 @@
-.inner-table {
-  width: 100%;
-  border: px(1) solid color(gray-150);
-  color: color(gray-700);
-
-  thead {
-    background-color: color(gray-50);
-
-    tr {
-      th {
-        @include fontRWD(body1);
-      }
-    }
-  }
-
-  tbody {
-    tr {
-      td {
-      }
-    }
-  }
-
-  thead,
-  tbody {
-    tr {
-      th,
-      td {
-        text-align: center;
-        padding: px(12);
-      }
-    }
-  }
-}
-
-.innertable-container {
-  overflow-x: auto;
-
-  table {
-    thead {
-      tr {
-        th {
-          white-space: nowrap;
-        }
-      }
-    }
-  }
-}
-
-// datatables 套件
+// simple datatables 套件
 .datatable-container {
   @include rounded(8, 8, 0, 0);
   overflow: hidden;
@@ -105,12 +57,17 @@
           @include fontRWD(body1);
           color: color(gray-700);
           background-color: color(gray-0);
+          vertical-align: middle;
 
           span {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: px(8);
+          }
+
+          &:last-child {
+            text-align: left;
           }
         }
 
@@ -261,6 +218,319 @@
   }
 }
 
+// datatables 套件
+div.dt-container {
+  @include rounded(8);
+  overflow: hidden;
+
+  // .dt-layout-table {
+  //   .dt-layout-cell {
+  //     .dt-scroll {
+  //       .dt-scroll-head {
+  //         .dt-scroll-headInner {
+  //           .dataTable {
+  //             thead {
+  //               tr {
+  //                 th {
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+
+  //       .dt-scroll-body {
+  //         .dataTable {
+  //           tbody {
+  //             tr {
+  //               td {
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  .dt-scroll-body {
+    border: none !important;
+  }
+
+  .dt-layout-row {
+    margin: 0 !important;
+
+    &:has(.dt-layout-end) {
+      background-color: color(gray-100);
+      padding: px(16);
+    }
+  }
+
+  .dt-paging {
+    .ellipsis {
+      opacity: 0.3;
+
+      + .dt-paging-button {
+        margin-left: 0;
+      }
+    }
+
+    .dt-paging-button {
+      padding: px(8);
+      @include rounded(4);
+      background: color(gray-0);
+      color: color(gray-700);
+      margin-left: px(4);
+      border: none !important;
+
+      @include hover {
+        background: none;
+        background-color: color(gray-150);
+        color: color(gray-700) !important;
+      }
+
+      &.current {
+        background-color: color(DarkSecondary);
+        color: color(gray-0) !important;
+        pointer-events: none;
+      }
+
+      &.disabled {
+        opacity: 0.3;
+      }
+
+      &:active {
+        background: none;
+        background-color: color(gray-150);
+        color: color(gray-700) !important;
+        box-shadow: none;
+      }
+
+      &.first,
+      &.previous,
+      &.next,
+      &.last {
+        color: color(gray-1000) !important;
+        background-color: transparent !important;
+
+        @include hover {
+          color: color(gray-1000) !important;
+        }
+      }
+    }
+  }
+}
+
+.dataTable {
+  > thead,
+  > tbody {
+    > tr {
+      position: relative;
+
+      > th,
+      > td {
+        padding: px(12);
+        vertical-align: middle;
+        text-align: center;
+        border: none;
+        word-break: keep-all;
+        white-space: nowrap;
+
+        .btn-xs {
+          min-width: auto;
+        }
+
+        &.no-fix {
+          position: relative;
+          z-index: 0 !important;
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  > thead {
+    > tr {
+      > th {
+        background-color: color(gray-100);
+        color: color(gray-600);
+        @include fontRWD(body2);
+        border: px(1) solid color(gray-300);
+
+        &[colspan="2"] {
+          background-color: color(gray-150);
+        }
+
+        .dt-column-header {
+          .dt-column-order {
+            display: none;
+          }
+        }
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+
+      &:first-child {
+        > th {
+          border-top: none;
+        }
+      }
+    }
+  }
+
+  > tbody {
+    > tr {
+      &:nth-child(odd) {
+        > td {
+          background-color: color(gray-50);
+        }
+      }
+
+      &:nth-child(even) {
+        > td {
+          background-color: color(gray-0);
+        }
+      }
+
+      > td {
+        border: px(1) solid color(gray-200);
+
+        &.dt-empty {
+          background: color(gray-0);
+          box-shadow: none;
+
+          div {
+            min-height: px(470);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: color(gray-700);
+          }
+        }
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+
+      &:last-child {
+        > td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  &.fix-firstline {
+    thead,
+    tbody {
+      > tr {
+        > th,
+        > td {
+          &:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 1;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 100%;
+              width: px(6);
+              background: linear-gradient(
+                to right,
+                color(gray-1000-12) 0%,
+                transparent 100%
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.fix-first-twoline {
+    thead,
+    tbody {
+      > tr {
+        > th,
+        > td {
+          &:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 1;
+          }
+
+          &:nth-child(2) {
+            position: sticky;
+            left: px(30);
+            z-index: 1;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 100%;
+              width: px(6);
+              background: linear-gradient(
+                to right,
+                color(gray-1000-12) 0%,
+                transparent 100%
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.fix-lastline {
+    thead,
+    tbody {
+      > tr {
+        > th,
+        > td {
+          &:last-child {
+            position: sticky;
+            right: 0;
+            z-index: 1;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 100%;
+              width: px(6);
+              background: linear-gradient(
+                to left,
+                color(gray-1000-12) 0%,
+                transparent 100%
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .table-guideline {
   display: flex;
   width: 100%;
@@ -269,4 +539,53 @@
   gap: px(4);
   color: color(gray-700);
   margin-bottom: px(12);
+}
+
+// 內頁表格
+.inner-table {
+  width: 100%;
+  border: px(1) solid color(gray-150);
+  color: color(gray-700);
+
+  thead {
+    background-color: color(gray-50);
+
+    tr {
+      th {
+        @include fontRWD(body1);
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+      }
+    }
+  }
+
+  thead,
+  tbody {
+    tr {
+      th,
+      td {
+        text-align: center;
+        padding: px(12);
+      }
+    }
+  }
+}
+
+.innertable-container {
+  overflow-x: auto;
+
+  table {
+    thead {
+      tr {
+        th {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
 }
