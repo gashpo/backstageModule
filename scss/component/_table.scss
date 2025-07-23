@@ -266,6 +266,16 @@ div.dt-container {
     }
   }
 
+  .dt-length {
+    select {
+      margin: 0 px(12);
+      background-color: color(gray-0);
+      color: color(gray-550);
+      @include rounded(6);
+      padding: px(8) px(16);
+    }
+  }
+
   .dt-paging {
     .ellipsis {
       opacity: 0.3;

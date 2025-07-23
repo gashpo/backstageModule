@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 
         <!-- Datatables -->
-        <link href="../css/simple-datatables.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../css/dataTables.css" />
 
         <!-- Bootstrap 5.2 -->
         <link href="../css/bootstrapStyles.css" rel="stylesheet" />
@@ -169,364 +169,362 @@
                         </div>
 
                         <div class="card p-3">
-                            <div class="table-container grabTable">
-                                <table id="datatablesSimple" class="text-center fix-lastline">
-                                    <thead>
-                                        <tr>
-                                            <th>MID 商家代碼</th>
-                                            <th>群組 ID</th>
-                                            <th>群組名稱</th>
-                                            <th>啟用狀態</th>
-                                            <th>啟用日期</th>
-                                            <th>建立日期</th>
-                                            <th>更新日期</th>
-                                            <th>動作</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>M1000001</td>
-                                            <td>0001</td>
-                                            <td>系統管理人員</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/05/30</td>
-                                            <td>2024/05/30</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000002</td>
-                                            <td>0002</td>
-                                            <td>財務人員</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2025/04/23</td>
-                                            <td>2025/04/23</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000003</td>
-                                            <td>0003</td>
-                                            <td>帳務人員</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/09/18</td>
-                                            <td>2024/09/18</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000004</td>
-                                            <td>0004</td>
-                                            <td>業務人員</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/09/18</td>
-                                            <td>2024/09/18</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000005</td>
-                                            <td>0005</td>
-                                            <td>行銷人員</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/07/05</td>
-                                            <td>2024/07/05</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000006</td>
-                                            <td>0006</td>
-                                            <td>金流研發部</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2025/03/25</td>
-                                            <td>2025/03/25</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000007</td>
-                                            <td>0007</td>
-                                            <td>營運部</td>
-                                            <td><span class="badge badge-warning">待啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/10/30</td>
-                                            <td>2024/10/30</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000008</td>
-                                            <td>0008</td>
-                                            <td>QA Team</td>
-                                            <td><span class="badge badge-danger">已停用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/07/11</td>
-                                            <td>2024/07/11</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000009</td>
-                                            <td>0009</td>
-                                            <td>PA 維運群組</td>
-                                            <td><span class="badge badge-danger">已停用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/09/20</td>
-                                            <td>2024/09/20</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000010</td>
-                                            <td>0010</td>
-                                            <td>風管人員</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/10/22</td>
-                                            <td>2024/10/22</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000011</td>
-                                            <td>0011</td>
-                                            <td>QA Team</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/10/22</td>
-                                            <td>2024/10/22</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000012</td>
-                                            <td>0012</td>
-                                            <td>營運部</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/07/11</td>
-                                            <td>2024/07/11</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000013</td>
-                                            <td>0013</td>
-                                            <td>金流研發部</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2025/03/25</td>
-                                            <td>2025/03/25</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000014</td>
-                                            <td>0014</td>
-                                            <td>金流研發部</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/07/11</td>
-                                            <td>2024/07/11</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000015</td>
-                                            <td>0015</td>
-                                            <td>金流研發部</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2025/03/25</td>
-                                            <td>2025/03/25</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000016</td>
-                                            <td>0016</td>
-                                            <td>金流研發部</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/09/18</td>
-                                            <td>2024/09/18</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>M1000017</td>
-                                            <td>0017</td>
-                                            <td>金流研發部</td>
-                                            <td><span class="badge badge-success">已啟用</span></td>
-                                            <td>2030/12/31</td>
-                                            <td>2024/09/18</td>
-                                            <td>2024/09/18</td>
-                                            <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
-                                                    <i class="material-symbols-rounded">edit</i>
-                                                </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
-                                                    <i class="material-symbols-rounded">visibility</i>
-                                                </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <table id="orderInquiry" class="dataTable fix-firstline fix-lastline">
+                                <thead>
+                                    <tr>
+                                        <th>MID 商家代碼</th>
+                                        <th>群組 ID</th>
+                                        <th>群組名稱</th>
+                                        <th>啟用狀態</th>
+                                        <th>啟用日期</th>
+                                        <th>建立日期</th>
+                                        <th>更新日期</th>
+                                        <th>動作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>M1000001</td>
+                                        <td>0001</td>
+                                        <td>系統管理人員</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/05/30</td>
+                                        <td>2024/05/30</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000002</td>
+                                        <td>0002</td>
+                                        <td>財務人員</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2025/04/23</td>
+                                        <td>2025/04/23</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000003</td>
+                                        <td>0003</td>
+                                        <td>帳務人員</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/09/18</td>
+                                        <td>2024/09/18</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000004</td>
+                                        <td>0004</td>
+                                        <td>業務人員</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/09/18</td>
+                                        <td>2024/09/18</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000005</td>
+                                        <td>0005</td>
+                                        <td>行銷人員</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/07/05</td>
+                                        <td>2024/07/05</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000006</td>
+                                        <td>0006</td>
+                                        <td>金流研發部</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2025/03/25</td>
+                                        <td>2025/03/25</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000007</td>
+                                        <td>0007</td>
+                                        <td>營運部</td>
+                                        <td><span class="badge badge-warning">待啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/10/30</td>
+                                        <td>2024/10/30</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000008</td>
+                                        <td>0008</td>
+                                        <td>QA Team</td>
+                                        <td><span class="badge badge-danger">已停用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/07/11</td>
+                                        <td>2024/07/11</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000009</td>
+                                        <td>0009</td>
+                                        <td>PA 維運群組</td>
+                                        <td><span class="badge badge-danger">已停用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/09/20</td>
+                                        <td>2024/09/20</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000010</td>
+                                        <td>0010</td>
+                                        <td>風管人員</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/10/22</td>
+                                        <td>2024/10/22</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000011</td>
+                                        <td>0011</td>
+                                        <td>QA Team</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/10/22</td>
+                                        <td>2024/10/22</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000012</td>
+                                        <td>0012</td>
+                                        <td>營運部</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/07/11</td>
+                                        <td>2024/07/11</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000013</td>
+                                        <td>0013</td>
+                                        <td>金流研發部</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2025/03/25</td>
+                                        <td>2025/03/25</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000014</td>
+                                        <td>0014</td>
+                                        <td>金流研發部</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/07/11</td>
+                                        <td>2024/07/11</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000015</td>
+                                        <td>0015</td>
+                                        <td>金流研發部</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2025/03/25</td>
+                                        <td>2025/03/25</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000016</td>
+                                        <td>0016</td>
+                                        <td>金流研發部</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/09/18</td>
+                                        <td>2024/09/18</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>M1000017</td>
+                                        <td>0017</td>
+                                        <td>金流研發部</td>
+                                        <td><span class="badge badge-success">已啟用</span></td>
+                                        <td>2030/12/31</td>
+                                        <td>2024/09/18</td>
+                                        <td>2024/09/18</td>
+                                        <td>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <i class="material-symbols-rounded">edit</i>
+                                            </a>
+                                            <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <i class="material-symbols-rounded">visibility</i>
+                                            </a>
+                                            <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
+                                                <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </main>
@@ -587,12 +585,10 @@
         <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <!-- Sidebar Toggle -->
         <script src="../js/sidebarToggle.js"></script>
-        <!-- Datatable -->
-        <script src="../js/simple-datatables.js"></script>
-        <script src="../js/datatables-simple-demo.js"></script>
         <!-- Tooltip -->
         <script src="../js/tooltip.js"></script>
-        <!-- Grab Table -->
-        <script src="../js/grabTable.js"></script>
+        <!-- Datatables -->
+        <script src="../js/dataTables.js"></script>
+        <script src="js/table.js"></script>
     </body>
 </html>
