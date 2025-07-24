@@ -184,6 +184,7 @@
                             <div class="col-md-4 mb-4">
                                 <label for="transactionDate" class="form-label required">交易日期</label>
                                 <div class="input-group">
+                                    <!-- 預設為當日，type="date"的input無法用value屬性給預設值，故需另外使用js控制 -->
                                     <input id="transactionDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="StartDate">
                                     <span class="input-group-text">~</span>
                                     <input id="endDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="EndDate">

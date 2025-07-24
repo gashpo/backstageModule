@@ -184,6 +184,7 @@
                             <div class="col-md-4 mb-4">
                                 <label for="applicationDate" class="form-label required">請款申請日</label>
                                 <div class="input-group">
+                                    <!-- 預設為當日，type="date"的input無法用value屬性給預設值，故需另外使用js控制 -->
                                     <input id="applicationDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="StartDate">
                                     <span class="input-group-text">~</span>
                                     <input id="endDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="EndDate">
@@ -237,61 +238,19 @@
                                                 <li class="dropdown-item">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" id="transactionState1" value="option1" checked>
-                                                        <label class="form-check-label" for="transactionState1">已成功</label>
+                                                        <label class="form-check-label" for="transactionState1">已請款</label>
                                                     </div>
                                                 </li>
                                                 <li class="dropdown-item">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" id="transactionState2" value="option2" checked>
-                                                        <label class="form-check-label" for="transactionState2">已成功(爭議處理中)</label>
+                                                        <label class="form-check-label" for="transactionState2">已撥款</label>
                                                     </div>
                                                 </li>
                                                 <li class="dropdown-item">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" id="transactionState3" value="option3" checked>
-                                                        <label class="form-check-label" for="transactionState3">已成功(爭議審核中)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState4" value="option4" checked>
-                                                        <label class="form-check-label" for="transactionState4">已成功(裁定爭議款)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState5" value="option5" checked>
-                                                        <label class="form-check-label" for="transactionState5">已成功(裁定非爭議款)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState6" value="option6" checked>
-                                                        <label class="form-check-label" for="transactionState6">已成功(爭議仲裁中)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState7" value="option7" checked>
-                                                        <label class="form-check-label" for="transactionState7">已成功(仲裁爭議款)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState8" value="option8" checked>
-                                                        <label class="form-check-label" for="transactionState8">已成功(仲裁非爭議款)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState9" value="option9" checked>
-                                                        <label class="form-check-label" for="transactionState9">已退款</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState10" value="option10" checked>
-                                                        <label class="form-check-label" for="transactionState10">已失敗</label>
+                                                        <label class="form-check-label" for="transactionState3">請款失敗</label>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -312,7 +271,7 @@
                         </div>
 
                         <div class="card p-3">
-                            <table id="transactionRecords" class="dataTable fix-firstline">
+                            <table id="requestInquiry" class="dataTable fix-firstline">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -325,7 +284,7 @@
                                         <th>商家 ID</th>
                                         <th>商家次 ID</th>
                                         <th>請款金額</th>
-                                        <th>預計撥款日</th>
+                                        <th>預計撥款日 <i class="material-symbols-rounded" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="遇國定假日則順延">info</i></th>
                                     </tr>
                                 </thead>
                                 <tbody>

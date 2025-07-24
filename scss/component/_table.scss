@@ -370,14 +370,22 @@ div.dt-container {
         @include fontRWD(body2);
         border: px(1) solid color(gray-300);
 
+        .dt-column-title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          i {
+            font-size: px(18);
+          }
+        }
+
         &[colspan="2"] {
           background-color: color(gray-150);
         }
 
-        .dt-column-header {
-          .dt-column-order {
-            display: none;
-          }
+        .dt-column-order {
+          display: none;
         }
 
         &:first-child {
@@ -386,6 +394,10 @@ div.dt-container {
 
         &:last-child {
           border-right: none;
+        }
+
+        &:not(:first-child) {
+          min-width: px(150);
         }
       }
 

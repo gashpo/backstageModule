@@ -191,7 +191,6 @@
                                                 <li class="dropdown-item">全部</li>
                                                 <li class="dropdown-item">自動請款</li>
                                                 <li class="dropdown-item">手動請款</li>
-                                                <li class="dropdown-item">強制自動請款</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -200,6 +199,7 @@
                             <div class="col-md-4 mb-4">
                                 <label for="estimatedPayoutDate" class="form-label">預計撥款日</label>
                                 <div class="input-group">
+                                    <!-- 預設為當日，type="date"的input無法用value屬性給預設值，故需另外使用js控制 -->
                                     <input id="estimatedPayoutDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="StartDate">
                                     <span class="input-group-text">~</span>
                                     <input id="endDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="EndDate">
@@ -231,7 +231,7 @@
                                         <th colspan="2">合計</th>
                                         <th colspan="2">折扣合計</th>
                                         <th rowspan="2">結算金額</th>
-                                        <th rowspan="2">平台手續費</th>
+                                        <th colspan="2">平台手續費</th>
                                         <th rowspan="2">請款金額</th>
                                         <th rowspan="2">撥款金額</th>
                                     </tr>
@@ -244,6 +244,8 @@
                                         <th>交易金額</th>
                                         <th>交易筆數</th>
                                         <th>交易金額</th>
+                                        <th>手續費</th>
+                                        <th>其他</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -263,6 +265,7 @@
                                         <td><span class="color-Success">$12,500</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -282,6 +285,7 @@
                                         <td><span class="color-Success">$15,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -301,6 +305,7 @@
                                         <td><span class="color-Success">$9,200</span></td>
                                         <td>500</td>
                                         <td>500</td>
+                                        <td>0</td>
                                         <td>500</td>
                                         <td>500</td>
                                     </tr>
@@ -320,6 +325,7 @@
                                         <td><span class="color-Success">$11,800</span></td>
                                         <td>390</td>
                                         <td>390</td>
+                                        <td>0</td>
                                         <td>390</td>
                                         <td>390</td>
                                     </tr>
@@ -339,6 +345,7 @@
                                         <td><span class="color-Success">$8,600</span></td>
                                         <td>2,200</td>
                                         <td>2,200</td>
+                                        <td>0</td>
                                         <td>2,200</td>
                                         <td>2,200</td>
                                     </tr>
@@ -358,6 +365,7 @@
                                         <td><span class="color-Success">$11,000</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -377,6 +385,7 @@
                                         <td><span class="color-Success">$9,600</span></td>
                                         <td>100</td>
                                         <td>100</td>
+                                        <td>0</td>
                                         <td>100</td>
                                         <td>100</td>
                                     </tr>
@@ -396,6 +405,7 @@
                                         <td><span class="color-Success">$13,000</span></td>
                                         <td>1,200</td>
                                         <td>1,200</td>
+                                        <td>0</td>
                                         <td>1,200</td>
                                         <td>1,200</td>
                                     </tr>
@@ -415,6 +425,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -434,6 +445,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -453,6 +465,7 @@
                                         <td><span class="color-Success">$11,000</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -472,6 +485,7 @@
                                         <td><span class="color-Success">$9,600</span></td>
                                         <td>100</td>
                                         <td>100</td>
+                                        <td>0</td>
                                         <td>100</td>
                                         <td>100</td>
                                     </tr>
@@ -491,6 +505,7 @@
                                         <td><span class="color-Success">$13,000</span></td>
                                         <td>1,200</td>
                                         <td>1,200</td>
+                                        <td>0</td>
                                         <td>1,200</td>
                                         <td>1,200</td>
                                     </tr>
@@ -510,6 +525,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -529,6 +545,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -548,6 +565,7 @@
                                         <td><span class="color-Success">$12,500</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -567,6 +585,7 @@
                                         <td><span class="color-Success">$15,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -586,6 +605,7 @@
                                         <td><span class="color-Success">$9,200</span></td>
                                         <td>500</td>
                                         <td>500</td>
+                                        <td>0</td>
                                         <td>500</td>
                                         <td>500</td>
                                     </tr>
@@ -605,6 +625,7 @@
                                         <td><span class="color-Success">$11,800</span></td>
                                         <td>390</td>
                                         <td>390</td>
+                                        <td>0</td>
                                         <td>390</td>
                                         <td>390</td>
                                     </tr>
@@ -624,6 +645,7 @@
                                         <td><span class="color-Success">$8,600</span></td>
                                         <td>2,200</td>
                                         <td>2,200</td>
+                                        <td>0</td>
                                         <td>2,200</td>
                                         <td>2,200</td>
                                     </tr>
@@ -643,6 +665,7 @@
                                         <td><span class="color-Success">$9,200</span></td>
                                         <td>500</td>
                                         <td>500</td>
+                                        <td>0</td>
                                         <td>500</td>
                                         <td>500</td>
                                     </tr>
@@ -662,6 +685,7 @@
                                         <td><span class="color-Success">$11,800</span></td>
                                         <td>390</td>
                                         <td>390</td>
+                                        <td>0</td>
                                         <td>390</td>
                                         <td>390</td>
                                     </tr>
@@ -681,6 +705,7 @@
                                         <td><span class="color-Success">$12,500</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -700,6 +725,7 @@
                                         <td><span class="color-Success">$15,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -719,6 +745,7 @@
                                         <td><span class="color-Success">$8,600</span></td>
                                         <td>2,200</td>
                                         <td>2,200</td>
+                                        <td>0</td>
                                         <td>2,200</td>
                                         <td>2,200</td>
                                     </tr>
@@ -738,6 +765,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -757,6 +785,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -776,6 +805,7 @@
                                         <td><span class="color-Success">$11,000</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -795,6 +825,7 @@
                                         <td><span class="color-Success">$9,600</span></td>
                                         <td>100</td>
                                         <td>100</td>
+                                        <td>0</td>
                                         <td>100</td>
                                         <td>100</td>
                                     </tr>
@@ -814,6 +845,7 @@
                                         <td><span class="color-Success">$13,000</span></td>
                                         <td>1,200</td>
                                         <td>1,200</td>
+                                        <td>0</td>
                                         <td>1,200</td>
                                         <td>1,200</td>
                                     </tr>
@@ -833,6 +865,7 @@
                                         <td><span class="color-Success">$15,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -852,6 +885,7 @@
                                         <td><span class="color-Success">$8,600</span></td>
                                         <td>2,200</td>
                                         <td>2,200</td>
+                                        <td>0</td>
                                         <td>2,200</td>
                                         <td>2,200</td>
                                     </tr>
@@ -871,6 +905,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -890,6 +925,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -909,6 +945,7 @@
                                         <td><span class="color-Success">$13,000</span></td>
                                         <td>1,200</td>
                                         <td>1,200</td>
+                                        <td>0</td>
                                         <td>1,200</td>
                                         <td>1,200</td>
                                     </tr>
@@ -928,6 +965,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -947,6 +985,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -966,6 +1005,7 @@
                                         <td><span class="color-Success">$13,000</span></td>
                                         <td>1,200</td>
                                         <td>1,200</td>
+                                        <td>0</td>
                                         <td>1,200</td>
                                         <td>1,200</td>
                                     </tr>
@@ -985,6 +1025,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -1004,6 +1045,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -1023,6 +1065,7 @@
                                         <td><span class="color-Success">$11,000</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -1042,6 +1085,7 @@
                                         <td><span class="color-Success">$9,600</span></td>
                                         <td>100</td>
                                         <td>100</td>
+                                        <td>0</td>
                                         <td>100</td>
                                         <td>100</td>
                                     </tr>
@@ -1061,6 +1105,7 @@
                                         <td><span class="color-Success">$13,000</span></td>
                                         <td>1,200</td>
                                         <td>1,200</td>
+                                        <td>0</td>
                                         <td>1,200</td>
                                         <td>1,200</td>
                                     </tr>
@@ -1080,6 +1125,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -1099,6 +1145,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -1118,6 +1165,7 @@
                                         <td><span class="color-Success">$12,500</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -1137,6 +1185,7 @@
                                         <td><span class="color-Success">$15,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -1156,6 +1205,7 @@
                                         <td><span class="color-Success">$9,200</span></td>
                                         <td>500</td>
                                         <td>500</td>
+                                        <td>0</td>
                                         <td>500</td>
                                         <td>500</td>
                                     </tr>
@@ -1175,6 +1225,7 @@
                                         <td><span class="color-Success">$11,800</span></td>
                                         <td>390</td>
                                         <td>390</td>
+                                        <td>0</td>
                                         <td>390</td>
                                         <td>390</td>
                                     </tr>
@@ -1194,6 +1245,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -1213,6 +1265,7 @@
                                         <td><span class="color-Success">$11,000</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -1232,6 +1285,7 @@
                                         <td><span class="color-Success">$9,600</span></td>
                                         <td>100</td>
                                         <td>100</td>
+                                        <td>0</td>
                                         <td>100</td>
                                         <td>100</td>
                                     </tr>
@@ -1251,6 +1305,7 @@
                                         <td><span class="color-Success">$13,000</span></td>
                                         <td>1,200</td>
                                         <td>1,200</td>
+                                        <td>0</td>
                                         <td>1,200</td>
                                         <td>1,200</td>
                                     </tr>
@@ -1270,6 +1325,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -1289,6 +1345,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -1308,6 +1365,7 @@
                                         <td><span class="color-Success">$12,500</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -1327,6 +1385,7 @@
                                         <td><span class="color-Success">$15,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -1346,6 +1405,7 @@
                                         <td><span class="color-Success">$9,200</span></td>
                                         <td>500</td>
                                         <td>500</td>
+                                        <td>0</td>
                                         <td>500</td>
                                         <td>500</td>
                                     </tr>
@@ -1365,6 +1425,7 @@
                                         <td><span class="color-Success">$11,800</span></td>
                                         <td>390</td>
                                         <td>390</td>
+                                        <td>0</td>
                                         <td>390</td>
                                         <td>390</td>
                                     </tr>
@@ -1384,6 +1445,7 @@
                                         <td><span class="color-Success">$8,600</span></td>
                                         <td>2,200</td>
                                         <td>2,200</td>
+                                        <td>0</td>
                                         <td>2,200</td>
                                         <td>2,200</td>
                                     </tr>
@@ -1403,6 +1465,7 @@
                                         <td><span class="color-Success">$9,200</span></td>
                                         <td>500</td>
                                         <td>500</td>
+                                        <td>0</td>
                                         <td>500</td>
                                         <td>500</td>
                                     </tr>
@@ -1422,6 +1485,7 @@
                                         <td><span class="color-Success">$11,800</span></td>
                                         <td>390</td>
                                         <td>390</td>
+                                        <td>0</td>
                                         <td>390</td>
                                         <td>390</td>
                                     </tr>
@@ -1441,6 +1505,7 @@
                                         <td><span class="color-Success">$12,500</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
@@ -1460,6 +1525,7 @@
                                         <td><span class="color-Success">$15,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -1479,6 +1545,7 @@
                                         <td><span class="color-Success">$8,600</span></td>
                                         <td>2,200</td>
                                         <td>2,200</td>
+                                        <td>0</td>
                                         <td>2,200</td>
                                         <td>2,200</td>
                                     </tr>
@@ -1498,6 +1565,7 @@
                                         <td><span class="color-Success">$15,600</span></td>
                                         <td>499</td>
                                         <td>499</td>
+                                        <td>0</td>
                                         <td>499</td>
                                         <td>499</td>
                                     </tr>
@@ -1517,6 +1585,7 @@
                                         <td><span class="color-Success">$14,000</span></td>
                                         <td>1,000</td>
                                         <td>1,000</td>
+                                        <td>0</td>
                                         <td>1,000</td>
                                         <td>1,000</td>
                                     </tr>
@@ -1536,6 +1605,7 @@
                                         <td><span class="color-Success">$11,000</span></td>
                                         <td>299</td>
                                         <td>299</td>
+                                        <td>0</td>
                                         <td>299</td>
                                         <td>299</td>
                                     </tr>
