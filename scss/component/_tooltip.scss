@@ -18,10 +18,11 @@
     }
   }
 
-  .tooltip-arrow {
-    &::before {
-      border-right-color: color(gray-800) !important;
-      border-left-color: color(gray-800) !important;
+  [data-popper-placement^="bottom"] {
+    .tooltip-arrow {
+      &::before {
+        border-bottom-color: color(gray-800) !important;
+      }
     }
   }
 }

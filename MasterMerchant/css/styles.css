@@ -2676,9 +2676,8 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
     line-height: 150%;
   }
 }
-.custom-tooltip .tooltip-arrow::before {
-  border-right-color: #545454 !important;
-  border-left-color: #545454 !important;
+.custom-tooltip [data-popper-placement^=bottom] .tooltip-arrow::before {
+  border-bottom-color: #545454 !important;
 }
 
 .container-fluid .page-title {
