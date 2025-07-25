@@ -2398,7 +2398,7 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
 .dataTable > thead > tr > td.no-fix,
 .dataTable > tbody > tr > th.no-fix,
 .dataTable > tbody > tr > td.no-fix {
-  position: relative;
+  position: relative !important;
   z-index: 0 !important;
 }
 .dataTable > thead > tr > th.no-fix::before,
