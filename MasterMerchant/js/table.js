@@ -1,6 +1,5 @@
 $(".dataTable").DataTable({
   scrollX: true,
-  columnDefs: [{ targets: "_all", orderable: false }],
   order: [],
   pageLength: 50,
   layout: {
