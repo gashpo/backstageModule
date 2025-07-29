@@ -1845,6 +1845,7 @@ button {
   margin: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .dropdown-menu .dropdown-container ul .dropdown-item.form-check .form-check-input {
   margin-left: 0;
