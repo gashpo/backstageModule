@@ -2587,6 +2587,7 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
 
 .innertable-container {
   overflow-x: auto;
+  margin-top: 0.25rem;
 }
 .innertable-container table thead tr th {
   white-space: nowrap;
