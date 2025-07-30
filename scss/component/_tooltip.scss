@@ -1,4 +1,4 @@
-.custom-tooltip {
+.tooltip {
   color: color(gray-0);
   opacity: 0.9;
 
@@ -17,11 +17,37 @@
       @include fontRWD(body2);
     }
   }
+}
 
-  [data-popper-placement^="bottom"] {
+.bs-tooltip-auto {
+  &[data-popper-placement^="top"] {
+    .tooltip-arrow {
+      &::before {
+        border-top-color: color(gray-800) !important;
+      }
+    }
+  }
+
+  &[data-popper-placement^="right"] {
+    .tooltip-arrow {
+      &::before {
+        border-right-color: color(gray-800) !important;
+      }
+    }
+  }
+
+  &[data-popper-placement^="bottom"] {
     .tooltip-arrow {
       &::before {
         border-bottom-color: color(gray-800) !important;
+      }
+    }
+  }
+
+  &[data-popper-placement^="left"] {
+    .tooltip-arrow {
+      &::before {
+        border-left-color: color(gray-800) !important;
       }
     }
   }

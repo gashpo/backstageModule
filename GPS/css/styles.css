@@ -2637,11 +2637,11 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
   }
 }
 
-.custom-tooltip {
+.tooltip {
   color: #ffffff;
   opacity: 0.9;
 }
-.custom-tooltip .tooltip-inner {
+.tooltip .tooltip-inner {
   background-color: #545454;
   padding: 0.5rem 1rem;
   text-align: left;
@@ -2649,7 +2649,7 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
   color: #e2e2e2;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
-.custom-tooltip .tooltip-inner li {
+.tooltip .tooltip-inner li {
   padding: 0;
   margin-left: 1.5rem;
   list-style-type: disc;
@@ -2658,14 +2658,24 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
   line-height: 150%;
 }
 @media (max-width: 991px) {
-  .custom-tooltip .tooltip-inner li {
+  .tooltip .tooltip-inner li {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 150%;
   }
 }
-.custom-tooltip [data-popper-placement^=bottom] .tooltip-arrow::before {
+
+.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
+  border-top-color: #545454 !important;
+}
+.bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
+  border-right-color: #545454 !important;
+}
+.bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
   border-bottom-color: #545454 !important;
+}
+.bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
+  border-left-color: #545454 !important;
 }
 
 .container-fluid .page-title {
