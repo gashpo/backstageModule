@@ -529,7 +529,7 @@
                             </div>
                             <div class="col-md-7 mb-4">
                                 <label for="paType" class="form-label">PA 類別</label>
-                                <button class="form-control dropdown-toggle" id="paType" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
+                                <button class="form-control dropdown-toggle multi-select" id="paType" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
                                 <div class="dropdown-menu">
                                     <div class="dropdown-search">
                                         <div class="input-icon-btn">
@@ -539,20 +539,96 @@
                                     </div>
                                     <div class="dropdown-container">
                                         <ul>
-                                            <li class="dropdown-item">銀行</li>
-                                            <li class="dropdown-item">金融</li>
-                                            <li class="dropdown-item">小額付費</li>
-                                            <li class="dropdown-item">PayPal轉嫁(Transfer)</li>
-                                            <li class="dropdown-item">信用卡</li>
-                                            <li class="dropdown-item">異業轉點(GASHPCP)</li>
-                                            <li class="dropdown-item">國際支付</li>
-                                            <li class="dropdown-item">樂點行動支付</li>
-                                            <li class="dropdown-item">PINHALL</li>
-                                            <li class="dropdown-item">高險</li>
-                                            <li class="dropdown-item">東南亞支付</li>
-                                            <li class="dropdown-item">電信類</li>
-                                            <li class="dropdown-item">次電商</li>
-                                            <li class="dropdown-item">樂點卡錢包</li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paTypeAll" value="optionAll">
+                                                    <label class="form-check-label" for="paTypeAll">全部</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType1" value="option1">
+                                                    <label class="form-check-label" for="paType1">銀行</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType2" value="option2">
+                                                    <label class="form-check-label" for="paType2">金融</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType3" value="option3">
+                                                    <label class="form-check-label" for="paType3">小額付費</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType4" value="option4">
+                                                    <label class="form-check-label" for="paType4">PayPal轉嫁(Transfer)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType5" value="option5">
+                                                    <label class="form-check-label" for="paType5">信用卡</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType6" value="option6">
+                                                    <label class="form-check-label" for="paType6">異業轉點(GASHPCP)</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType7" value="option7">
+                                                    <label class="form-check-label" for="paType7">國際支付</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType8" value="option8">
+                                                    <label class="form-check-label" for="paType8">樂點行動支付</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType9" value="option9">
+                                                    <label class="form-check-label" for="paType9">PINHALL</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType10" value="option10">
+                                                    <label class="form-check-label" for="paType10">高險</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType11" value="option11">
+                                                    <label class="form-check-label" for="paType11">東南亞支付</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType12" value="option12">
+                                                    <label class="form-check-label" for="paType12">電信類</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType13" value="option13">
+                                                    <label class="form-check-label" for="paType13">次電商</label>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paType14" value="option14">
+                                                    <label class="form-check-label" for="paType14">樂點卡錢包</label>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
