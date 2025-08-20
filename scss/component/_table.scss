@@ -353,6 +353,7 @@ div.dt-container {
         &.no-fix {
           position: relative !important;
           z-index: 0 !important;
+          left: auto !important;
 
           &::before {
             display: none;

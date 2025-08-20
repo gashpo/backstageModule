@@ -2412,6 +2412,7 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
 .dataTable > tbody > tr > td.no-fix {
   position: relative !important;
   z-index: 0 !important;
+  left: auto !important;
 }
 .dataTable > thead > tr > th.no-fix::before,
 .dataTable > thead > tr > td.no-fix::before,
