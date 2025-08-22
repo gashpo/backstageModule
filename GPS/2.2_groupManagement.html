@@ -110,18 +110,20 @@
                                     <button class="form-control dropdown-toggle" id="permissionsName" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-container">
-                                            <ul>
-                                                <li class="dropdown-item">系統管理人員</li>
-                                                <li class="dropdown-item">PA 維運群組</li>
-                                                <li class="dropdown-item">QA Team</li>
-                                                <li class="dropdown-item">金流研發部</li>
-                                                <li class="dropdown-item">行銷人員</li>
-                                                <li class="dropdown-item">業務人員</li>
-                                                <li class="dropdown-item">帳務人員</li>
-                                                <li class="dropdown-item">財務人員</li>
-                                                <li class="dropdown-item">風管人員</li>
-                                                <li class="dropdown-item">營運部</li>
-                                            </ul>
+                                            <div>
+                                                <ul>
+                                                    <li class="dropdown-item" title="系統管理人員"><span>系統管理人員</span></li>
+                                                    <li class="dropdown-item" title="PA 維運群組"><span>PA 維運群組</span></li>
+                                                    <li class="dropdown-item" title="QA Team"><span>QA Team</span></li>
+                                                    <li class="dropdown-item" title="金流研發部"><span>金流研發部</span></li>
+                                                    <li class="dropdown-item" title="行銷人員"><span>行銷人員</span></li>
+                                                    <li class="dropdown-item" title="業務人員"><span>業務人員</span></li>
+                                                    <li class="dropdown-item" title="帳務人員"><span>帳務人員</span></li>
+                                                    <li class="dropdown-item" title="財務人員"><span>財務人員</span></li>
+                                                    <li class="dropdown-item" title="風管人員"><span>風管人員</span></li>
+                                                    <li class="dropdown-item" title="營運部"><span>營運部</span></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -132,26 +134,28 @@
                                     <button class="form-control dropdown-toggle" id="enableState" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-container">
-                                            <ul>
-                                                <li class="dropdown-item" data-value="enableState1">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="enableState1" value="enableState1">
-                                                        <label class="form-check-label" for="enableState1">已啟用</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item" data-value="enableState2">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="enableState2" value="enableState2">
-                                                        <label class="form-check-label" for="enableState2">待啟用</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item" data-value="enableState3">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="enableState3" value="enableState2">
-                                                        <label class="form-check-label" for="enableState2">已停用</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                            <div>
+                                                <ul>
+                                                    <li class="dropdown-item" data-value="enableState1">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="enableState1" value="enableState1">
+                                                            <label class="form-check-label" for="enableState1" title="已啟用">已啟用</label>
+                                                        </div>
+                                                    </li>
+                                                    <li class="dropdown-item" data-value="enableState2">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="enableState2" value="enableState2">
+                                                            <label class="form-check-label" for="enableState2" title="待啟用">待啟用</label>
+                                                        </div>
+                                                    </li>
+                                                    <li class="dropdown-item" data-value="enableState3">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" id="enableState3" value="enableState3">
+                                                            <label class="form-check-label" for="enableState3" title="已停用">已停用</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -193,14 +197,14 @@
                                             <td>2024/05/30</td>
                                             <td>2024/05/30</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -213,14 +217,14 @@
                                             <td>2025/04/23</td>
                                             <td>2025/04/23</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -233,14 +237,14 @@
                                             <td>2024/09/18</td>
                                             <td>2024/09/18</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -253,14 +257,14 @@
                                             <td>2024/09/18</td>
                                             <td>2024/09/18</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -273,14 +277,14 @@
                                             <td>2024/07/05</td>
                                             <td>2024/07/05</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -293,14 +297,14 @@
                                             <td>2025/03/25</td>
                                             <td>2025/03/25</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -313,14 +317,14 @@
                                             <td>2024/10/30</td>
                                             <td>2024/10/30</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -333,14 +337,14 @@
                                             <td>2024/07/11</td>
                                             <td>2024/07/11</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -353,14 +357,14 @@
                                             <td>2024/09/20</td>
                                             <td>2024/09/20</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -373,14 +377,14 @@
                                             <td>2024/10/22</td>
                                             <td>2024/10/22</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -393,14 +397,14 @@
                                             <td>2024/10/22</td>
                                             <td>2024/10/22</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -413,14 +417,14 @@
                                             <td>2024/07/11</td>
                                             <td>2024/07/11</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -433,14 +437,14 @@
                                             <td>2025/03/25</td>
                                             <td>2025/03/25</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -453,14 +457,14 @@
                                             <td>2024/07/11</td>
                                             <td>2024/07/11</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -473,14 +477,14 @@
                                             <td>2025/03/25</td>
                                             <td>2025/03/25</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -493,14 +497,14 @@
                                             <td>2024/09/18</td>
                                             <td>2024/09/18</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -513,14 +517,14 @@
                                             <td>2024/09/18</td>
                                             <td>2024/09/18</td>
                                             <td>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="編輯">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="編輯">
                                                     <i class="material-symbols-rounded">edit</i>
                                                 </a>
-                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="檢視">
+                                                <a href="2.2.1_groupManagementInpage.html" class="btn btn-secondary-flat btn-xs" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="檢視">
                                                     <i class="material-symbols-rounded">visibility</i>
                                                 </a>
-                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup">
-                                                    <i class="material-symbols-rounded" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip1" data-bs-html="true" data-bs-title="刪除">delete</i>
+                                                <button class="btn btn-secondary-flat btn-xs" data-bs-toggle="modal" data-bs-target="#deleteGroup" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="刪除">
+                                                    <i class="material-symbols-rounded">delete</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -589,6 +593,13 @@
         <script src="../js/sidebarToggle.js"></script>
         <!-- Tooltip -->
         <script src="../js/tooltip.js"></script>
+        <script>
+            $(function () {
+                $('[data-bs-title]').each(function () {
+                    new bootstrap.Tooltip(this);
+                });
+            });
+        </script>
         <!-- Datatables -->
         <script src="../js/dataTables.js"></script>
         <script src="js/table.js"></script>
