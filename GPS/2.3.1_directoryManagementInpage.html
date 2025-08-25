@@ -201,10 +201,12 @@
                                     <button class="btn dropdown-toggle dropdown-ghost selected" id="queryType" type="button" data-bs-toggle="dropdown" aria-expanded="false">已停用</button>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-container">
-                                            <ul>
-                                                <li class="dropdown-item">待啟用/已啟用</li>
-                                                <li class="dropdown-item active">已停用</li>
-                                            </ul>
+                                            <div>
+                                                <ul>
+                                                    <li class="dropdown-item">待啟用/已啟用</li>
+                                                    <li class="dropdown-item active">已停用</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -215,7 +217,7 @@
                                         <i class="material-symbols-rounded directory-edit" data-bs-toggle="modal" data-bs-target="#editParent">edit</i>
                                     </div>
                                 </div>
-                                    <!-- 若子選單已停用，但父選單仍啟用中，需在選單外層 .directory-group 上增加一個 .directory-active -->
+                                <!-- 若子選單已停用，但父選單仍啟用中，需在選單外層 .directory-group 上增加一個 .directory-active -->
                                 <div class="card directory-group drag-item directory-active">
                                     <div class="directory-parent">
                                         <i class="material-symbols-rounded handle">drag_indicator</i>

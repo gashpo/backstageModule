@@ -1825,13 +1825,14 @@ button {
   width: 100%;
 }
 .dropdown-menu .dropdown-container > div {
+  flex: 1;
+  width: 100%;
+}
+.dropdown-menu .dropdown-container > div ul {
+  max-width: 100%;
   max-height: 24.5rem;
   overflow-y: auto;
   overflow-x: hidden;
-  flex: 1;
-  align-self: stretch;
-}
-.dropdown-menu .dropdown-container > div ul {
   height: 100%;
   padding-right: 0.75rem;
 }
@@ -1847,12 +1848,16 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 100%;
 }
 .dropdown-menu .dropdown-container > div ul .dropdown-item span {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.dropdown-menu .dropdown-container > div ul .dropdown-item span.material-symbols-rounded {
+  width: auto;
 }
 .dropdown-menu .dropdown-container > div ul .dropdown-item .form-check {
   width: 100%;
@@ -1878,8 +1883,9 @@ button {
 }
 .dropdown-menu .dropdown-container > div + div {
   border-left: 0.0625rem solid #e2e2e2;
-  padding: 0 0.75rem;
+  padding-left: 0.75rem;
   margin-left: 0.75rem;
+  max-width: 15rem;
 }
 
 .form-label {

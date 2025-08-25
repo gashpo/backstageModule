@@ -88,13 +88,14 @@
     width: 100%;
 
     > div {
-      max-height: px(392);
-      overflow-y: auto;
-      overflow-x: hidden;
       flex: 1;
-      align-self: stretch;
+      width: 100%;
 
       ul {
+        max-width: 100%;
+        max-height: px(392);
+        overflow-y: auto;
+        overflow-x: hidden;
         height: 100%;
         padding-right: px(12);
 
@@ -111,6 +112,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          max-width: 100%;
 
           span {
             width: 100%;
@@ -152,8 +154,9 @@
 
       + div {
         border-left: px(1) solid color(gray-150);
-        padding: 0 px(12);
+        padding-left: px(12);
         margin-left: px(12);
+        max-width: px(240);
       }
     }
   }
