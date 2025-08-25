@@ -117,6 +117,10 @@
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+
+            &.material-symbols-rounded {
+              width: auto;
+            }
           }
 
           .form-check {
