@@ -1816,6 +1816,7 @@ button {
 
 .dropdown-menu {
   padding: 0.5rem 0.25rem;
+  max-width: 25rem;
   background-color: #ffffff;
   border: none;
   box-shadow: 0 0 0.75rem 0 rgba(0, 0, 0, 0.12);
@@ -1829,7 +1830,6 @@ button {
 .dropdown-menu .dropdown-container {
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   max-height: 25rem;
-  max-width: 25rem;
   padding: 0.25rem;
   display: flex;
   width: 100%;
