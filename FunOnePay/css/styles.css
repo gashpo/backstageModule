@@ -1834,22 +1834,25 @@ button {
   display: flex;
   width: 100%;
 }
-.dropdown-menu .dropdown-container > div {
+.dropdown-menu .dropdown-container .view-window {
   flex: 1;
   width: 100%;
 }
-.dropdown-menu .dropdown-container > div ul {
+.dropdown-menu .dropdown-container .view-window .virtual-container {
+  width: 100%;
+}
+.dropdown-menu .dropdown-container .view-window .virtual-container ul {
   max-width: 100%;
+  height: 100%;
+  padding-right: 0.75rem;
   max-height: 24.5rem;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 100%;
-  padding-right: 0.75rem;
 }
-.dropdown-menu .dropdown-container > div ul:last-child {
+.dropdown-menu .dropdown-container .view-window .virtual-container ul:last-child {
   padding-right: 0;
 }
-.dropdown-menu .dropdown-container > div ul .dropdown-item {
+.dropdown-menu .dropdown-container .view-window .virtual-container ul .dropdown-item {
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
@@ -1860,38 +1863,38 @@ button {
   justify-content: space-between;
   max-width: 100%;
 }
-.dropdown-menu .dropdown-container > div ul .dropdown-item span {
+.dropdown-menu .dropdown-container .view-window .virtual-container ul .dropdown-item span {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.dropdown-menu .dropdown-container > div ul .dropdown-item span.material-symbols-rounded {
+.dropdown-menu .dropdown-container .view-window .virtual-container ul .dropdown-item span.material-symbols-rounded {
   width: auto;
 }
-.dropdown-menu .dropdown-container > div ul .dropdown-item .form-check {
+.dropdown-menu .dropdown-container .view-window .virtual-container ul .dropdown-item .form-check {
   width: 100%;
   padding-left: 0;
 }
-.dropdown-menu .dropdown-container > div ul .dropdown-item .form-check .form-check-input {
+.dropdown-menu .dropdown-container .view-window .virtual-container ul .dropdown-item .form-check .form-check-input {
   margin-left: 0;
   margin-right: 0.5rem;
 }
-.dropdown-menu .dropdown-container > div ul .dropdown-item .form-check .form-check-label {
+.dropdown-menu .dropdown-container .view-window .virtual-container ul .dropdown-item .form-check .form-check-label {
   width: calc(100% - 1.5rem);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 @media (hover: hover) {
-  .dropdown-menu .dropdown-container > div ul .dropdown-item:hover {
+  .dropdown-menu .dropdown-container .view-window .virtual-container ul .dropdown-item:hover {
     background-color: #f9f9f9;
   }
 }
-.dropdown-menu .dropdown-container > div ul .dropdown-item.active {
+.dropdown-menu .dropdown-container .view-window .virtual-container ul .dropdown-item.active {
   background-color: #ededed;
 }
-.dropdown-menu .dropdown-container > div + div {
+.dropdown-menu .dropdown-container .view-window + .view-window {
   border-left: 0.0625rem solid #e2e2e2;
   padding-left: 0.75rem;
   margin-left: 0.75rem;
