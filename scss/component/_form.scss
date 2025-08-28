@@ -79,10 +79,15 @@ textarea {
   }
 }
 
-.helper-text {
-  color: color(gray-650);
+.helper-text,
+.error-message {
   display: block;
   margin-top: px(4);
+  @include fontRWD(body2);
+}
+
+.helper-text {
+  color: color(gray-650);
 
   a {
     color: color(gray-650);
@@ -91,8 +96,6 @@ textarea {
 
 .error-message {
   color: color(Danger);
-  display: block;
-  margin-top: px(4);
 }
 
 .query-btn-group {

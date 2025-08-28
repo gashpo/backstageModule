@@ -149,6 +149,13 @@
           }
         }
       }
+
+      .sb-sidenav-menu-nested {
+        .nav-link {
+          background-color: rgba(color(gray-0), 0.03);
+          box-shadow: 0 px(-1) 0 0 rgba(color(gray-1000), 0.25);
+        }
+      }
     }
   }
 }
