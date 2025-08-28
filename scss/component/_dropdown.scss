@@ -90,12 +90,12 @@
     .view-window {
       flex: 1;
       width: 100%;
+      max-height: px(392);
+      overflow-y: auto;
+      overflow-x: hidden;
 
       .virtual-container {
         width: 100%;
-        max-height: px(392);
-        overflow-y: auto;
-        overflow-x: hidden;
 
         ul {
           max-width: 100%;

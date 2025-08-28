@@ -195,13 +195,17 @@
                                             <button class="form-control dropdown-toggle" id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
                                             <div class="dropdown-menu">
                                                 <div class="dropdown-container">
-                                                    <ul>
-                                                        <li class="dropdown-item">M1000001：GASH測試用(UAT).,LTD CO</li>
-                                                        <li class="dropdown-item">M1000002：GASH測試用(RD)</li>
-                                                        <li class="dropdown-item">M1000003：隨身遊戲服份有限公司【已停用】</li>
-                                                        <li class="dropdown-item">M1000004：MID測試【已刪除】</li>
-                                                        <li class="dropdown-item">M1000005：test【已刪除】</li>
-                                                    </ul>
+                                                    <div class="view-window">
+                                                        <div class="virtual-container">
+                                                            <ul>
+                                                                <li class="dropdown-item">M1000001：GASH測試用(UAT).,LTD CO</li>
+                                                                <li class="dropdown-item">M1000002：GASH測試用(RD)</li>
+                                                                <li class="dropdown-item">M1000003：隨身遊戲服份有限公司【已停用】</li>
+                                                                <li class="dropdown-item">M1000004：MID測試【已刪除】</li>
+                                                                <li class="dropdown-item">M1000005：test【已刪除】</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -216,13 +220,17 @@
                                             <button class="form-control dropdown-toggle" id="cidSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
                                             <div class="dropdown-menu">
                                                 <div class="dropdown-container">
-                                                    <ul>
-                                                        <li class="dropdown-item">CID001</li>
-                                                        <li class="dropdown-item">CID002</li>
-                                                        <li class="dropdown-item">CID003</li>
-                                                        <li class="dropdown-item">CID004</li>
-                                                        <li class="dropdown-item">CID005</li>
-                                                    </ul>
+                                                    <div class="view-window">
+                                                        <div class="virtual-container">
+                                                            <ul>
+                                                                <li class="dropdown-item">CID001</li>
+                                                                <li class="dropdown-item">CID002</li>
+                                                                <li class="dropdown-item">CID003</li>
+                                                                <li class="dropdown-item">CID004</li>
+                                                                <li class="dropdown-item">CID005</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,10 +241,14 @@
                                             <button class="form-control dropdown-toggle selected" id="lockState" type="text" data-bs-toggle="dropdown" aria-expanded="false">未鎖定</button>
                                             <div class="dropdown-menu">
                                                 <div class="dropdown-container">
-                                                    <ul>
-                                                        <li class="dropdown-item active">未鎖定</li>
-                                                        <li class="dropdown-item">已鎖定</li>
-                                                    </ul>
+                                                    <div class="view-window">
+                                                        <div class="virtual-container">
+                                                            <ul>
+                                                                <li class="dropdown-item active">未鎖定</li>
+                                                                <li class="dropdown-item">已鎖定</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -247,11 +259,15 @@
                                             <button class="form-control dropdown-toggle selected" id="enableState" type="text" data-bs-toggle="dropdown" aria-expanded="false">已啟用</button>
                                             <div class="dropdown-menu">
                                                 <div class="dropdown-container">
-                                                    <ul>
-                                                        <li class="dropdown-item active">已啟用</li>
-                                                        <li class="dropdown-item">待啟用</li>
-                                                        <li class="dropdown-item">已停用</li>
-                                                    </ul>
+                                                    <div class="view-window">
+                                                        <div class="virtual-container">
+                                                            <ul>
+                                                                <li class="dropdown-item active">已啟用</li>
+                                                                <li class="dropdown-item">待啟用</li>
+                                                                <li class="dropdown-item">已停用</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -282,78 +298,86 @@
                                                     </div>
                                                 </div>
                                                 <div class="dropdown-container">
-                                                    <ul>
-                                                        <li class="dropdown-item">
-                                                            使用者名稱
-                                                            <i class="material-symbols-rounded">arrow_right</i>
-                                                        </li>
-                                                        <li class="dropdown-item active">
-                                                            群組名稱
-                                                            <i class="material-symbols-rounded">arrow_right</i>
-                                                        </li>
-                                                    </ul>
-                                                    <ul>
-                                                        <li class="dropdown-item" data-value="permissions1">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply1" value="permissions1">
-                                                                <label class="form-check-label" for="fastApply1">系統管理人員</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="permissions2">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply2" value="permissions2" checked>
-                                                                <label class="form-check-label" for="fastApply2">風控人員</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="permissions3">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply3" value="permissions3">
-                                                                <label class="form-check-label" for="fastApply3">帳務人員</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="permissions4">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply4" value="permissions4">
-                                                                <label class="form-check-label" for="fastApply4">業務人員</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="permissions5">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply5" value="option5">
-                                                                <label class="form-check-label" for="fastApply5">行銷人員</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="option6">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply6" value="option6" checked>
-                                                                <label class="form-check-label" for="fastApply6">客服人員</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="option7">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply7" value="option7">
-                                                                <label class="form-check-label" for="fastApply7">營運部</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="option8">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply8" value="option8">
-                                                                <label class="form-check-label" for="fastApply8">QA Team</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="option9">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply9" value="option9">
-                                                                <label class="form-check-label" for="fastApply9">委外客服_專員</label>
-                                                            </div>
-                                                        </li>
-                                                        <li class="dropdown-item" data-value="option10">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="fastApply10" value="option10">
-                                                                <label class="form-check-label" for="fastApply10">樂點卡客服</label>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                                    <div class="view-window">
+                                                        <div class="virtual-container">
+                                                            <ul>
+                                                                <li class="dropdown-item">
+                                                                    使用者名稱
+                                                                    <i class="material-symbols-rounded">arrow_right</i>
+                                                                </li>
+                                                                <li class="dropdown-item active">
+                                                                    群組名稱
+                                                                    <i class="material-symbols-rounded">arrow_right</i>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="view-window">
+                                                        <div class="virtual-container">
+                                                            <ul>
+                                                                <li class="dropdown-item" data-value="permissions1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply1" value="permissions1">
+                                                                        <label class="form-check-label" for="fastApply1">系統管理人員</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="permissions2">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply2" value="permissions2" checked>
+                                                                        <label class="form-check-label" for="fastApply2">風控人員</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="permissions3">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply3" value="permissions3">
+                                                                        <label class="form-check-label" for="fastApply3">帳務人員</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="permissions4">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply4" value="permissions4">
+                                                                        <label class="form-check-label" for="fastApply4">業務人員</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="permissions5">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply5" value="option5">
+                                                                        <label class="form-check-label" for="fastApply5">行銷人員</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="option6">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply6" value="option6" checked>
+                                                                        <label class="form-check-label" for="fastApply6">客服人員</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="option7">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply7" value="option7">
+                                                                        <label class="form-check-label" for="fastApply7">營運部</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="option8">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply8" value="option8">
+                                                                        <label class="form-check-label" for="fastApply8">QA Team</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="option9">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply9" value="option9">
+                                                                        <label class="form-check-label" for="fastApply9">委外客服_專員</label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dropdown-item" data-value="option10">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" id="fastApply10" value="option10">
+                                                                        <label class="form-check-label" for="fastApply10">樂點卡客服</label>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

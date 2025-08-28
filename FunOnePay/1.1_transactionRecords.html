@@ -157,9 +157,13 @@
                                     <button class="form-control dropdown-toggle selected" readonly id="midSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">M1000001：GASH測試用(UAT).,LTD CO</button>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-container">
-                                            <ul>
-                                                <li class="dropdown-item">M1000001：GASH測試用(UAT).,LTD CO</li>
-                                            </ul>
+                                            <div class="view-window">
+                                                <div class="virtual-container">
+                                                    <ul>
+                                                        <li class="dropdown-item">M1000001：GASH測試用(UAT).,LTD CO</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -170,13 +174,17 @@
                                     <button class="form-control dropdown-toggle" id="cidSelect" type="text" data-bs-toggle="dropdown" aria-expanded="false">請選擇</button>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-container">
-                                            <ul>
-                                                <li class="dropdown-item">CID 001</li>
-                                                <li class="dropdown-item">CID 002</li>
-                                                <li class="dropdown-item">CID 003</li>
-                                                <li class="dropdown-item">CID 004</li>
-                                                <li class="dropdown-item">CID 005</li>
-                                            </ul>
+                                            <div class="view-window">
+                                                <div class="virtual-container">
+                                                    <ul>
+                                                        <li class="dropdown-item">CID 001</li>
+                                                        <li class="dropdown-item">CID 002</li>
+                                                        <li class="dropdown-item">CID 003</li>
+                                                        <li class="dropdown-item">CID 004</li>
+                                                        <li class="dropdown-item">CID 005</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -187,10 +195,14 @@
                                     <button class="form-control dropdown-toggle selected" id="paymentType" type="text" data-bs-toggle="dropdown" aria-expanded="false">全部</button>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-container">
-                                            <ul>
-                                                <li class="dropdown-item">全部</li>
-                                                <li class="dropdown-item">信用卡</li>
-                                            </ul>
+                                            <div class="view-window">
+                                                <div class="virtual-container">
+                                                    <ul>
+                                                        <li class="dropdown-item">全部</li>
+                                                        <li class="dropdown-item">信用卡</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -209,76 +221,80 @@
                                             </div>
                                         </div> -->
                                         <div class="dropdown-container">
-                                            <!-- 此處下拉選單需將已選取到的項目排序移至最上方，取消選取時則回到原本的排序 -->
-                                            <ul>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <!-- 當下方選項被局部選取時，「全部」使用 :indeterminate 改變樣式 -->
-                                                        <input class="form-check-input indeterminate" type="checkbox" id="transactionStateAll" value="optionAll" checked>
-                                                        <label class="form-check-label" for="transactionStateAll">全部</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState1" value="option1" checked>
-                                                        <label class="form-check-label" for="transactionState1">已成功</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState2" value="option2" checked>
-                                                        <label class="form-check-label" for="transactionState2">已成功(爭議處理中)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState3" value="option3" checked>
-                                                        <label class="form-check-label" for="transactionState3">已成功(爭議審核中)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState4" value="option4" checked>
-                                                        <label class="form-check-label" for="transactionState4">已成功(裁定爭議款)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState5" value="option5" checked>
-                                                        <label class="form-check-label" for="transactionState5">已成功(裁定非爭議款)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState6" value="option6" checked>
-                                                        <label class="form-check-label" for="transactionState6">已成功(爭議仲裁中)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState7" value="option7" checked>
-                                                        <label class="form-check-label" for="transactionState7">已成功(仲裁爭議款)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState8" value="option8" checked>
-                                                        <label class="form-check-label" for="transactionState8">已成功(仲裁非爭議款)</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState9" value="option9" checked>
-                                                        <label class="form-check-label" for="transactionState9">已退款</label>
-                                                    </div>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="transactionState10" value="option10" checked>
-                                                        <label class="form-check-label" for="transactionState10">已失敗</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                            <div class="view-window">
+                                                <div class="virtual-container">
+                                                    <!-- 此處下拉選單需將已選取到的項目排序移至最上方，取消選取時則回到原本的排序 -->
+                                                    <ul>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <!-- 當下方選項被局部選取時，「全部」使用 :indeterminate 改變樣式 -->
+                                                                <input class="form-check-input indeterminate" type="checkbox" id="transactionStateAll" value="optionAll" checked>
+                                                                <label class="form-check-label" for="transactionStateAll">全部</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState1" value="option1" checked>
+                                                                <label class="form-check-label" for="transactionState1">已成功</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState2" value="option2" checked>
+                                                                <label class="form-check-label" for="transactionState2">已成功(爭議處理中)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState3" value="option3" checked>
+                                                                <label class="form-check-label" for="transactionState3">已成功(爭議審核中)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState4" value="option4" checked>
+                                                                <label class="form-check-label" for="transactionState4">已成功(裁定爭議款)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState5" value="option5" checked>
+                                                                <label class="form-check-label" for="transactionState5">已成功(裁定非爭議款)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState6" value="option6" checked>
+                                                                <label class="form-check-label" for="transactionState6">已成功(爭議仲裁中)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState7" value="option7" checked>
+                                                                <label class="form-check-label" for="transactionState7">已成功(仲裁爭議款)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState8" value="option8" checked>
+                                                                <label class="form-check-label" for="transactionState8">已成功(仲裁非爭議款)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState9" value="option9" checked>
+                                                                <label class="form-check-label" for="transactionState9">已退款</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-item">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="transactionState10" value="option10" checked>
+                                                                <label class="form-check-label" for="transactionState10">已失敗</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
