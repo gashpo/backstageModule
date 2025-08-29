@@ -4,3 +4,9 @@ const tooltipTriggerList = document.querySelectorAll(
 const tooltipList = [...tooltipTriggerList].map(
   (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
 );
+
+$(function () {
+  $("[data-bs-title]").each(function () {
+    new bootstrap.Tooltip(this);
+  });
+});
