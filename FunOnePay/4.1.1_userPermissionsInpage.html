@@ -27,6 +27,9 @@
         <!-- Datatables -->
         <link href="../css/simple-datatables.min.css" rel="stylesheet" />
 
+        <!-- Tempus Dominus CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/css/tempus-dominus.min.css" rel="stylesheet"/>
+
         <!-- Bootstrap 5.2 -->
         <link href="../css/bootstrapStyles.css" rel="stylesheet" />
 
@@ -273,8 +276,13 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-4">
-                                        <label for="autoDisableDate" class="form-label required">帳號到期時間</label>
-                                        <input id="autoDisableDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy/mm/dd" aria-label="autoDisableDate" required>
+                                        <label for="autoDisableDateInput" class="form-label required">帳號到期時間</label>
+                                        <div class="input-group datepicker date" id="autoDisableDate" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                            <input id="autoDisableDateInput" type="text" class="form-control" data-td-target="#autoDisableDate" placeholder="9999-12-31"/>
+                                            <button class="input-group-btn" data-td-target="#autoDisableDate" data-td-toggle="datetimepicker">
+                                                <i class="material-symbols-rounded">calendar_month</i>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label for="identityRemarks" class="form-label">帳號備註</label>
@@ -804,8 +812,14 @@
 
         <!-- jQuery -->
         <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Date Picker -->
+        <script src="../js/datepicker.js"></script>
         <!-- Bootstrap 5.2.3 -->
         <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <!-- Popperjs (datepicker用) -->
+        <script src="../js/popper.min.js"></script>
+        <!-- Tempus Dominus JS (datepicker) -->
+        <script src="../js/tempus-dominus.min.js"></script>
         <!-- Sidebar Toggle -->
         <script src="../js/sidebarToggle.js"></script>
         <!-- Datatable -->

@@ -27,6 +27,9 @@
         <!-- Datatables -->
         <link rel="stylesheet" href="../css/dataTables.css" />
 
+        <!-- Tempus Dominus CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/css/tempus-dominus.min.css" rel="stylesheet"/>
+
         <!-- Bootstrap 5.2 -->
         <link href="../css/bootstrapStyles.css" rel="stylesheet" />
 
@@ -291,11 +294,21 @@
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4">
-                                <label for="autoDisableDate" class="form-label">帳號到期時間</label>
-                                <div class="input-group">
-                                    <input id="StartDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="StartDate">
-                                    <span class="input-group-text">~</span>
-                                    <input type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="EndDate">
+                                <label for="autoDisableDateStartInput" class="form-label">帳號到期時間</label>
+                                <div class="d-flex date-period" data-max-months="2">
+                                    <div class="input-group datepicker date start" id="autoDisableDateStart" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                        <input id="autoDisableDateStartInput" type="text" class="form-control" data-td-target="#autoDisableDateStart" placeholder="yyyy-MM-dd"/>
+                                        <button class="input-group-btn" data-td-target="#autoDisableDateStart" data-td-toggle="datetimepicker">
+                                            <i class="material-symbols-rounded">calendar_month</i>
+                                        </button>
+                                    </div>
+                                    <span class="d-flex align-items-center px-2">~</span>
+                                    <div class="input-group datepicker date end" id="autoDisableDateEnd" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                        <input id="autoDisableDateEndInput" type="text" class="form-control" data-td-target="#autoDisableDateEnd" placeholder="yyyy-MM-dd"/>
+                                        <button class="input-group-btn" data-td-target="#autoDisableDateEnd" data-td-toggle="datetimepicker">
+                                            <i class="material-symbols-rounded">calendar_month</i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4">
@@ -608,8 +621,14 @@
 
         <!-- jQuery -->
         <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Date Picker -->
+        <script src="../js/datepicker.js"></script>
         <!-- Bootstrap 5.2.3 -->
         <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <!-- Popperjs (datepicker用) -->
+        <script src="../js/popper.min.js"></script>
+        <!-- Tempus Dominus JS (datepicker) -->
+        <script src="../js/tempus-dominus.min.js"></script>
         <!-- Sidebar Toggle -->
         <script src="../js/sidebarToggle.js"></script>
         <!-- Tooltip -->

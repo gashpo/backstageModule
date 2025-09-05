@@ -199,5 +199,22 @@ textarea {
 
   .input-group-text {
     padding: px(6) px(8);
+    border: px(1) solid color(gray-300);
+  }
+}
+
+.datepicker {
+  .form-control {
+    border-right: none;
+  }
+
+  .input-group-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: color(gray-0);
+    color: color(gray-800);
+    border: px(1) solid color(gray-300);
+    border-left: none;
   }
 }

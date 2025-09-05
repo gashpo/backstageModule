@@ -27,6 +27,9 @@
         <!-- Datatables -->
         <link rel="stylesheet" href="../css/dataTables.css" />
 
+        <!-- Tempus Dominus CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/css/tempus-dominus.min.css" rel="stylesheet"/>
+
         <!-- Bootstrap 5.2 -->
         <link href="../css/bootstrapStyles.css" rel="stylesheet" />
 
@@ -308,12 +311,21 @@
                                 <input type="text" class="form-control" placeholder="請輸入商家交易單號">
                             </div>
                             <div class="col-md-4 mb-4">
-                                <label for="transactionDate" class="form-label">交易日期</label>
-                                <div class="input-group">
-                                    <!-- 預設為當日，type="date"的input無法用value屬性給預設值，故需另外使用js控制 -->
-                                    <input id="transactionDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="StartDate">
-                                    <span class="input-group-text">~</span>
-                                    <input id="endDate" type="date" max="9999-12-31" class="form-control" placeholder="yyyy-mm-dd" aria-label="EndDate">
+                                <label for="transactionDateStartInput" class="form-label">交易日期</label>
+                                <div class="d-flex date-period" data-max-months="2">
+                                    <div class="input-group datepicker date start" id="transactionDateStart" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                        <input id="transactionDateStartInput" type="text" class="form-control" data-td-target="#transactionDateStart" placeholder="yyyy-MM-dd"/>
+                                        <button class="input-group-btn" data-td-target="#transactionDateStart" data-td-toggle="datetimepicker">
+                                            <i class="material-symbols-rounded">calendar_month</i>
+                                        </button>
+                                    </div>
+                                    <span class="d-flex align-items-center px-2">~</span>
+                                    <div class="input-group datepicker date end" id="transactionDateEnd" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                        <input id="transactionDateEndInput" type="text" class="form-control" data-td-target="#transactionDateEnd" placeholder="yyyy-MM-dd"/>
+                                        <button class="input-group-btn" data-td-target="#transactionDateEnd" data-td-toggle="datetimepicker">
+                                            <i class="material-symbols-rounded">calendar_month</i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4 query-btn-group">
@@ -716,8 +728,14 @@
 
         <!-- jQuery -->
         <script src="../js/jquery-3.6.0.min.js"></script>
+        <!-- Date Picker -->
+        <script src="../js/datepicker.js"></script>
         <!-- Bootstrap 5.2.3 -->
         <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <!-- Popperjs (datepicker用) -->
+        <script src="../js/popper.min.js"></script>
+        <!-- Tempus Dominus JS (datepicker) -->
+        <script src="../js/tempus-dominus.min.js"></script>
         <!-- Sidebar Toggle -->
         <script src="../js/sidebarToggle.js"></script>
         <!-- Tooltip -->

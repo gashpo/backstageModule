@@ -144,6 +144,8 @@ div.dt-container {
   }
 
   > thead {
+    color: color(gray-600);
+
     > tr {
       > th {
         background-color: color(gray-100);
@@ -191,6 +193,8 @@ div.dt-container {
   }
 
   > tbody {
+    color: color(gray-700);
+
     > tr {
       &:nth-child(odd) {
         > td {
