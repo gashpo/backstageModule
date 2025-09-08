@@ -64,6 +64,37 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       useCurrent: true,
     });
+
+    // 加入輸入限制：只允許數字和 "-"
+    const input = el.querySelector("input");
+    if (input) {
+      input.addEventListener("keydown", (e) => {
+        const allowedKeys = [
+          "Backspace",
+          "ArrowLeft",
+          "ArrowRight",
+          "Delete",
+          "Tab",
+          "Home",
+          "End",
+        ];
+        const numberKeys = /^[0-9]$/;
+        if (
+          allowedKeys.includes(e.key) ||
+          numberKeys.test(e.key) ||
+          e.key === "-"
+        ) {
+          return;
+        }
+        e.preventDefault();
+      });
+      input.addEventListener("input", (e) => {
+        const filtered = e.target.value.replace(/[^0-9\-]/g, "");
+        if (filtered !== e.target.value) {
+          e.target.value = filtered;
+        }
+      });
+    }
   });
 
   // 年-月-日 時:分:秒
@@ -111,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const Namespace = tempusDominus.Namespace;
 
     startEl.addEventListener(Namespace.events.change, (e) => {
-      const startDate = new Date(e.detail.date); // 強制轉 Date
+      const startDate = new Date(e.detail.date);
       let maxEndDate = null;
       if (maxMonths !== null && !isNaN(maxMonths)) {
         maxEndDate = new Date(startDate);
@@ -125,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
 
-      // 若 end input 不合法即清空
+      // 非合法時清空結束框
       const endInput = endEl.querySelector("input");
       if (endInput?.value) {
         const endValue = new Date(endInput.value.replace(/-/g, "/"));
@@ -148,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     linkedEnd.subscribe(Namespace.events.change, (e) => {
-      const endDate = new Date(e.date); // 強制轉 Date
+      const endDate = new Date(e.date);
 
       linkedStart.updateOptions({
         restrictions: {
@@ -156,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
 
-      // 若 start input 不合法即清空
+      // 非合法時清空開始框
       const startInput = startEl.querySelector("input");
       if (startInput?.value) {
         const startValue = new Date(startInput.value.replace(/-/g, "/"));
@@ -168,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("end changed:", endDate, "=> start max:", endDate);
     });
 
-    // 初始化後同步一次 restrictions
+    // 初始化同步 restrictions
     linkedStart.updateOptions({});
     linkedEnd.updateOptions({});
   });
