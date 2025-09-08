@@ -241,99 +241,40 @@ div.dt-container {
     }
   }
 
-  &.fix-firstline {
-    thead,
-    tbody {
-      > tr {
-        > th,
-        > td {
-          &:first-child {
-            position: sticky;
-            left: 0;
-            z-index: 1;
+  .dtfc-fixed-left {
+    z-index: 2;
 
-            &::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              left: 100%;
-              width: px(6);
-              background: linear-gradient(
-                to right,
-                color(gray-1000-12) 0%,
-                transparent 100%
-              );
-            }
-          }
-        }
-      }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 100%;
+      width: px(6);
+      background: linear-gradient(
+        to right,
+        color(gray-200) 10%,
+        color(gray-1000-12) 10%,
+        transparent 100%
+      );
     }
   }
+  .dtfc-fixed-right {
+    z-index: 2;
 
-  &.fix-first-twoline {
-    thead,
-    tbody {
-      > tr {
-        > th,
-        > td {
-          &:first-child {
-            position: sticky;
-            left: 0;
-            z-index: 1;
-          }
-
-          &:nth-child(2) {
-            position: sticky;
-            left: px(30);
-            z-index: 1;
-
-            &::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              left: 100%;
-              width: px(6);
-              background: linear-gradient(
-                to right,
-                color(gray-1000-12) 0%,
-                transparent 100%
-              );
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &.fix-lastline {
-    thead,
-    tbody {
-      > tr {
-        > th,
-        > td {
-          &:last-child {
-            position: sticky;
-            right: 0;
-            z-index: 1;
-
-            &::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              right: 100%;
-              width: px(6);
-              background: linear-gradient(
-                to left,
-                color(gray-1000-12) 0%,
-                transparent 100%
-              );
-            }
-          }
-        }
-      }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      width: px(6);
+      background: linear-gradient(
+        to left,
+        color(gray-200) 10%,
+        color(gray-1000-12) 10%,
+        transparent 100%
+      );
     }
   }
 }

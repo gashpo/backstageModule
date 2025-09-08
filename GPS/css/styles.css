@@ -2360,73 +2360,29 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
 .dataTable > tbody > tr:last-child > td {
   border-bottom: none;
 }
-.dataTable.fix-firstline thead > tr > th:first-child,
-.dataTable.fix-firstline thead > tr > td:first-child,
-.dataTable.fix-firstline tbody > tr > th:first-child,
-.dataTable.fix-firstline tbody > tr > td:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 1;
+.dataTable .dtfc-fixed-left {
+  z-index: 2;
 }
-.dataTable.fix-firstline thead > tr > th:first-child::before,
-.dataTable.fix-firstline thead > tr > td:first-child::before,
-.dataTable.fix-firstline tbody > tr > th:first-child::before,
-.dataTable.fix-firstline tbody > tr > td:first-child::before {
+.dataTable .dtfc-fixed-left::before {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   left: 100%;
   width: 0.375rem;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
+  background: linear-gradient(to right, #dddddd 10%, rgba(0, 0, 0, 0.12) 10%, transparent 100%);
 }
-.dataTable.fix-first-twoline thead > tr > th:first-child,
-.dataTable.fix-first-twoline thead > tr > td:first-child,
-.dataTable.fix-first-twoline tbody > tr > th:first-child,
-.dataTable.fix-first-twoline tbody > tr > td:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 1;
+.dataTable .dtfc-fixed-right {
+  z-index: 2;
 }
-.dataTable.fix-first-twoline thead > tr > th:nth-child(2),
-.dataTable.fix-first-twoline thead > tr > td:nth-child(2),
-.dataTable.fix-first-twoline tbody > tr > th:nth-child(2),
-.dataTable.fix-first-twoline tbody > tr > td:nth-child(2) {
-  position: sticky;
-  left: 1.875rem;
-  z-index: 1;
-}
-.dataTable.fix-first-twoline thead > tr > th:nth-child(2)::before,
-.dataTable.fix-first-twoline thead > tr > td:nth-child(2)::before,
-.dataTable.fix-first-twoline tbody > tr > th:nth-child(2)::before,
-.dataTable.fix-first-twoline tbody > tr > td:nth-child(2)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 100%;
-  width: 0.375rem;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
-}
-.dataTable.fix-lastline thead > tr > th:last-child,
-.dataTable.fix-lastline thead > tr > td:last-child,
-.dataTable.fix-lastline tbody > tr > th:last-child,
-.dataTable.fix-lastline tbody > tr > td:last-child {
-  position: sticky;
-  right: 0;
-  z-index: 1;
-}
-.dataTable.fix-lastline thead > tr > th:last-child::before,
-.dataTable.fix-lastline thead > tr > td:last-child::before,
-.dataTable.fix-lastline tbody > tr > th:last-child::before,
-.dataTable.fix-lastline tbody > tr > td:last-child::before {
+.dataTable .dtfc-fixed-right::before {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   right: 100%;
   width: 0.375rem;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
+  background: linear-gradient(to left, #dddddd 10%, rgba(0, 0, 0, 0.12) 10%, transparent 100%);
 }
 
 .table-guideline {
