@@ -33,7 +33,14 @@ $(document).ready(function () {
         emptyTable: `<div>查詢無結果</div>`,
         zeroRecords: `<div>資料讀取失敗，請縮小範圍或再試一次。</div>`,
       },
-      columnDefs: [{ targets: "_all", orderable: false, type: "string" }],
+      columnDefs: [
+        {
+          targets: "_all",
+          defaultContent: "-",
+          orderable: false,
+          type: "string",
+        },
+      ],
       initComplete: function () {
         var $wrapper = $table.closest(".dt-container");
         var $scroller = $wrapper.find(".dt-scroll-body, .dt-scroll-head");
@@ -83,6 +90,14 @@ $(document).ready(function () {
           var x = e.pageX - $scroller.offset().left;
           var walk = x - startX;
           $scroller.scrollLeft(scrollLeft - walk);
+        });
+      },
+      drawCallback(settings) {
+        var tooltipTriggerList = [].slice.call(
+          document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        );
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return bootstrap.Tooltip.getOrCreateInstance(tooltipTriggerEl);
         });
       },
     });

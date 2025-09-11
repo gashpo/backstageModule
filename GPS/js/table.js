@@ -2,7 +2,9 @@ $(".dataTable").DataTable({
   scrollX: true,
   // 表頭不排序
   order: [],
-  columnDefs: [{ targets: "_all", orderable: false }],
+  columnDefs: [
+    { targets: "_all", defaultContent: "-", orderable: false, type: "string" },
+  ],
   columnDefs: [
     {
       targets: "_all",
@@ -123,6 +125,14 @@ $(".dataTable").DataTable({
       var x = e.pageX - $scroller.offset().left;
       var walk = x - startX;
       $scroller.scrollLeft(scrollLeft - walk);
+    });
+  },
+  drawCallback(settings) {
+    var tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return bootstrap.Tooltip.getOrCreateInstance(tooltipTriggerEl);
     });
   },
 });

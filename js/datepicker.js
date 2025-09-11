@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   // 年
   document.querySelectorAll(".datepicker.year").forEach(function (el) {
-    new tempusDominus.TempusDominus(el, {
+    // 初始化年份選擇器
+    const picker = new tempusDominus.TempusDominus(el, {
       display: {
         components: {
           calendar: true,
@@ -22,11 +23,43 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       useCurrent: true,
     });
+
+    // 取得 input 元素
+    const input = el.querySelector("input");
+
+    if (input) {
+      const yearPattern = /^\d{4}$/; // YYYY 格式
+
+      // 禁止手動輸入
+      input.addEventListener("keydown", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("paste", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("drop", (e) => {
+        e.preventDefault();
+      });
+
+      // 聚焦時顯示選擇器
+      input.addEventListener("focus", () => {
+        picker.show();
+      });
+
+      // 失焦時驗證格式
+      input.addEventListener("blur", () => {
+        const value = input.value.trim();
+        if (value && !yearPattern.test(value)) {
+          input.value = ""; // 清空不合法輸入
+        }
+      });
+    }
   });
 
   // 年-月
   document.querySelectorAll(".datepicker.month").forEach(function (el) {
-    new tempusDominus.TempusDominus(el, {
+    // 初始化月份選擇器
+    const picker = new tempusDominus.TempusDominus(el, {
       display: {
         components: {
           calendar: true,
@@ -47,11 +80,43 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       useCurrent: true,
     });
+
+    // 取得 input 元素
+    const input = el.querySelector("input");
+
+    if (input) {
+      const monthPattern = /^\d{4}-\d{2}$/; // YYYY-MM 格式
+
+      // 禁止手動輸入
+      input.addEventListener("keydown", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("paste", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("drop", (e) => {
+        e.preventDefault();
+      });
+
+      // 聚焦時顯示選擇器
+      input.addEventListener("focus", () => {
+        picker.show();
+      });
+
+      // 失焦時驗證格式
+      input.addEventListener("blur", () => {
+        const value = input.value.trim();
+        if (value && !monthPattern.test(value)) {
+          input.value = ""; // 清空不合法輸入
+        }
+      });
+    }
   });
 
   // 年-月-日
   document.querySelectorAll(".datepicker.date").forEach(function (el) {
-    new tempusDominus.TempusDominus(el, {
+    // 初始化日期選擇器
+    const picker = new tempusDominus.TempusDominus(el, {
       display: {
         components: {
           clock: false,
@@ -65,33 +130,33 @@ document.addEventListener("DOMContentLoaded", () => {
       useCurrent: true,
     });
 
-    // 加入輸入限制：只允許數字和 "-"
+    // 取得 input 元素
     const input = el.querySelector("input");
+
     if (input) {
+      const datePattern = /^\d{4}-\d{2}-\d{2}$/; // YYYY-MM-DD 格式
+
+      // 禁止手動輸入
       input.addEventListener("keydown", (e) => {
-        const allowedKeys = [
-          "Backspace",
-          "ArrowLeft",
-          "ArrowRight",
-          "Delete",
-          "Tab",
-          "Home",
-          "End",
-        ];
-        const numberKeys = /^[0-9]$/;
-        if (
-          allowedKeys.includes(e.key) ||
-          numberKeys.test(e.key) ||
-          e.key === "-"
-        ) {
-          return;
-        }
         e.preventDefault();
       });
-      input.addEventListener("input", (e) => {
-        const filtered = e.target.value.replace(/[^0-9\-]/g, "");
-        if (filtered !== e.target.value) {
-          e.target.value = filtered;
+      input.addEventListener("paste", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("drop", (e) => {
+        e.preventDefault();
+      });
+
+      // 聚焦時顯示選擇器
+      input.addEventListener("focus", () => {
+        picker.show();
+      });
+
+      // 失焦時驗證格式
+      input.addEventListener("blur", () => {
+        const value = input.value.trim();
+        if (value && !datePattern.test(value)) {
+          input.value = ""; // 清空不合法輸入
         }
       });
     }
@@ -99,7 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 年-月-日 時:分:秒
   document.querySelectorAll(".datepicker.time").forEach(function (el) {
-    new tempusDominus.TempusDominus(el, {
+    // 初始化日期時間選擇器
+    const picker = new tempusDominus.TempusDominus(el, {
       display: {
         components: {
           calendar: true,
@@ -120,19 +186,108 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       useCurrent: true,
     });
+
+    // 取得 input 元素
+    const input = el.querySelector("input");
+
+    if (input) {
+      const dateTimePattern = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/; // YYYY-MM-DD HH:mm:ss
+
+      // 禁止手動輸入
+      input.addEventListener("keydown", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("paste", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("drop", (e) => {
+        e.preventDefault();
+      });
+
+      // 聚焦時顯示選擇器
+      input.addEventListener("focus", () => {
+        picker.show();
+      });
+
+      // 失焦時驗證格式
+      input.addEventListener("blur", () => {
+        const value = input.value.trim();
+        if (value && !dateTimePattern.test(value)) {
+          input.value = ""; // 清空不合法輸入
+        }
+      });
+    }
   });
 
   // 日期區間 (年-月-日 ~ 年-月-日)
-  document.querySelectorAll(".date-period").forEach((periodEl) => {
-    const maxMonthsAttr = periodEl.getAttribute("data-max-months");
+  document.querySelectorAll(".date-period").forEach((el) => {
+    const maxMonthsAttr = el.getAttribute("data-max-months");
     const maxMonths = maxMonthsAttr ? parseInt(maxMonthsAttr) : null;
 
-    const startEl = periodEl.querySelector(".datepicker.start");
-    const endEl = periodEl.querySelector(".datepicker.end");
+    const startEl = el.querySelector(".datepicker.start");
+    const endEl = el.querySelector(".datepicker.end");
     if (!startEl || !endEl) return;
+
+    const datePattern = /^\d{4}-\d{2}-\d{2}$/; // YYYY-MM-DD 格式
+    // -------- startInput --------
+    const startInput = startEl.querySelector("input");
+    if (startInput) {
+      // 禁止手動輸入
+      startInput.addEventListener("keydown", (e) => {
+        e.preventDefault();
+      });
+      startInput.addEventListener("paste", (e) => {
+        e.preventDefault();
+      });
+      startInput.addEventListener("drop", (e) => {
+        e.preventDefault();
+      });
+
+      // 聚焦時顯示
+      startInput.addEventListener("focus", () => {
+        linkedStart.show();
+      });
+
+      // 失焦時驗證格式
+      startInput.addEventListener("blur", () => {
+        const value = startInput.value.trim();
+        if (value && !datePattern.test(value)) {
+          startInput.value = "";
+        }
+      });
+    }
+
+    // -------- endInput --------
+    const endInput = endEl.querySelector("input");
+    if (endInput) {
+      // 禁止手動輸入
+      endInput.addEventListener("keydown", (e) => {
+        e.preventDefault();
+      });
+      endInput.addEventListener("paste", (e) => {
+        e.preventDefault();
+      });
+      endInput.addEventListener("drop", (e) => {
+        e.preventDefault();
+      });
+
+      // 聚焦時顯示
+      endInput.addEventListener("focus", () => {
+        linkedEnd.show();
+      });
+
+      // 失焦時驗證格式
+      endInput.addEventListener("blur", () => {
+        const value = endInput.value.trim();
+        if (value && !datePattern.test(value)) {
+          endInput.value = "";
+        }
+      });
+    }
 
     const linkedStart = new tempusDominus.TempusDominus(startEl, {
       localization: { format: "yyyy-MM-dd" },
+      useCurrent: false,
     });
     const linkedEnd = new tempusDominus.TempusDominus(endEl, {
       localization: { format: "yyyy-MM-dd" },
@@ -141,8 +296,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const Namespace = tempusDominus.Namespace;
 
+    let lastStartDate = null;
     startEl.addEventListener(Namespace.events.change, (e) => {
+      if (!e.detail.date) return;
       const startDate = new Date(e.detail.date);
+      if (lastStartDate && startDate.getTime() === lastStartDate.getTime())
+        return;
+      lastStartDate = startDate;
+
       let maxEndDate = null;
       if (maxMonths !== null && !isNaN(maxMonths)) {
         maxEndDate = new Date(startDate);
@@ -156,10 +317,9 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
 
-      // 非合法時清空結束框
       const endInput = endEl.querySelector("input");
       if (endInput?.value) {
-        const endValue = new Date(endInput.value.replace(/-/g, "/"));
+        const endValue = new Date(endInput.value);
         if (
           isNaN(endValue) ||
           endValue < startDate ||
@@ -169,37 +329,42 @@ document.addEventListener("DOMContentLoaded", () => {
           linkedEnd.dates.clear();
         }
       }
-      console.log(
-        "start changed:",
-        startDate,
-        "=> end min/max:",
-        startDate,
-        maxEndDate
-      );
     });
 
-    linkedEnd.subscribe(Namespace.events.change, (e) => {
-      const endDate = new Date(e.date);
+    let lastEndDate = null;
+    endEl.addEventListener(Namespace.events.change, (e) => {
+      if (!e.detail.date) return;
+      const endDate = new Date(e.detail.date);
+      if (lastEndDate && endDate.getTime() === lastEndDate.getTime()) return;
+      lastEndDate = endDate;
+
+      let minStartDate = null;
+      if (maxMonths !== null && !isNaN(maxMonths)) {
+        minStartDate = new Date(endDate);
+        minStartDate.setMonth(minStartDate.getMonth() - maxMonths);
+      }
 
       linkedStart.updateOptions({
         restrictions: {
+          minDate: minStartDate,
           maxDate: endDate || undefined,
         },
       });
 
-      // 非合法時清空開始框
       const startInput = startEl.querySelector("input");
       if (startInput?.value) {
-        const startValue = new Date(startInput.value.replace(/-/g, "/"));
-        if (isNaN(startValue) || (endDate && startValue > endDate)) {
+        const startValue = new Date(startInput.value);
+        if (
+          isNaN(startValue) ||
+          startValue > endDate ||
+          (minStartDate && startValue < minStartDate)
+        ) {
           startInput.value = "";
           linkedStart.dates.clear();
         }
       }
-      console.log("end changed:", endDate, "=> start max:", endDate);
     });
 
-    // 初始化同步 restrictions
     linkedStart.updateOptions({});
     linkedEnd.updateOptions({});
   });

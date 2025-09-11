@@ -1931,6 +1931,7 @@ button {
 }
 .form-control:focus {
   border-color: #545454;
+  box-shadow: none;
 }
 .form-control.error {
   border: 0.0625rem solid #ba121e;
@@ -2076,6 +2077,9 @@ textarea.form-control {
   color: #545454;
   border: 0.0625rem solid #cccccc;
   border-left: none;
+}
+.datepicker:focus-within > * {
+  border-color: #545454;
 }
 
 ul {
@@ -2306,12 +2310,25 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media (max-width: 991px) {
+  .dataTable > thead > tr > th .dt-column-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
 }
 .dataTable > thead > tr > th .dt-column-title i {
   font-size: 1.125rem;
 }
 .dataTable > thead > tr > th[colspan="2"] {
   background-color: #e2e2e2;
+}
+.dataTable > thead > tr > th[colspan="2"] span {
+  font-weight: 700;
 }
 .dataTable > thead > tr > th .dt-column-order {
   display: none;
@@ -2362,6 +2379,7 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
 }
 .dataTable .dtfc-fixed-left {
   z-index: 2;
+  cursor: default;
 }
 .dataTable .dtfc-fixed-left::before {
   content: "";
@@ -2374,6 +2392,7 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
 }
 .dataTable .dtfc-fixed-right {
   z-index: 2;
+  cursor: default;
 }
 .dataTable .dtfc-fixed-right::before {
   content: "";
@@ -2507,7 +2526,7 @@ div.dt-container .dt-paging .dt-paging-button.first, div.dt-container .dt-paging
 }
 .tooltip .tooltip-inner li {
   padding: 0;
-  margin-left: 1.5rem;
+  margin-left: 0.75rem;
   list-style-type: disc;
   font-size: 0.875rem;
   font-weight: 400;

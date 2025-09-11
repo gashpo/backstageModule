@@ -157,6 +157,7 @@ div.dt-container {
           display: flex;
           align-items: center;
           justify-content: center;
+          @include fontRWD(body2);
 
           i {
             font-size: px(18);
@@ -165,6 +166,10 @@ div.dt-container {
 
         &[colspan="2"] {
           background-color: color(gray-150);
+
+          span {
+            font-weight: fontweight(Bold);
+          }
         }
 
         .dt-column-order {
@@ -243,6 +248,7 @@ div.dt-container {
 
   .dtfc-fixed-left {
     z-index: 2;
+    cursor: default;
 
     &::before {
       content: "";
@@ -261,6 +267,7 @@ div.dt-container {
   }
   .dtfc-fixed-right {
     z-index: 2;
+    cursor: default;
 
     &::before {
       content: "";
