@@ -3135,6 +3135,50 @@ footer copyright {
   }
 }
 
+.permissions-card {
+  overflow-x: auto;
+  padding-bottom: 2rem;
+}
+.permissions-card .permissions-container {
+  display: flex;
+  gap: 1.25rem;
+}
+.permissions-card .permissions-container > li {
+  flex-shrink: 0;
+  width: 18.75rem;
+}
+.permissions-card .permissions-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 150%;
+  color: #6500ee;
+}
+@media (max-width: 991px) {
+  .permissions-card .permissions-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 150%;
+  }
+}
+.permissions-card .permissions-group {
+  padding: 0.75rem;
+  background-color: #f9f9f9;
+}
+.permissions-card .permissions-group > li {
+  padding-left: 3.25rem;
+}
+.permissions-card .permissions-group > li .collapse-toggle {
+  margin-left: -3.25rem;
+}
+
+@media (max-width: 767px) {
+  .permissions-card .permissions-container {
+    flex-direction: column;
+  }
+  .permissions-card .permissions-container > li {
+    width: 100%;
+  }
+}
 .disputed-log {
   margin: 0 2rem 0 1.5rem;
   max-height: 23.375rem;
