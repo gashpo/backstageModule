@@ -1,30 +1,5 @@
 @import "GPSColors";
+@import "../../scss/main";
 
-@import "../../scss/variable/breakpoints";
-@import "../../scss/variable/sizing";
-@import "../../scss/variable/typography";
-@import "../../scss/layout/settings";
-
-@import "../../scss/component/alert";
-@import "../../scss/component/badge";
-@import "../../scss/component/breadcrumb";
-@import "../../scss/component/buttons";
-@import "../../scss/component/card";
-@import "../../scss/component/collapse";
-@import "../../scss/component/dragndrop";
-@import "../../scss/component/dropdown";
-@import "../../scss/component/form";
-@import "../../scss/component/list";
-@import "../../scss/component/loading";
-@import "../../scss/component/modal";
-@import "../../scss/component/table";
-@import "../../scss/component/text-link";
-@import "../../scss/component/tooltip";
-
-@import "../../scss/layout/container";
-@import "../../scss/layout/footer";
-@import "../../scss/layout/navbar";
-
-@import "../../scss/pages/login";
-@import "../../scss/pages/userPermissions";
-@import "../../scss/pages/directoryManagement";
+@import "pages/userPermissions";
+@import "pages/directoryManagement";

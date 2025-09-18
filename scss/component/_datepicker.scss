@@ -1,0 +1,130 @@
+.tempus-dominus-widget {
+  @include rounded(8);
+  padding: 0;
+
+  .calendar-header {
+    padding: px(8);
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: px(1) solid color(gray-150);
+
+    .picker-switch {
+      @include fontRWD(body2-bold);
+    }
+
+    .previous,
+    .next {
+      display: flex;
+      align-items: center;
+
+      svg {
+        height: px(12);
+        color: color(gray-600);
+      }
+    }
+  }
+
+  .date-container-days,
+  .date-container-months,
+  .date-container-years {
+    padding: px(8) px(12);
+
+    .dow {
+      @include fontRWD(body2);
+      color: color(gray-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .day,
+    .month,
+    .year {
+      @include fontRWD(body2);
+      color: color(gray-900);
+      border-radius: px(4) !important;
+
+      &.new {
+        color: color(gray-500);
+      }
+
+      @include hover {
+        border-radius: px(4);
+        background: color(gray-100) !important;
+      }
+
+      &.active {
+        background-color: color(Primary) !important;
+        text-shadow: none;
+      }
+
+      &.today {
+        border: px(1) solid color(Primary);
+
+        &::before {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  .time-container {
+    margin-bottom: 0;
+
+    .time-container-clock {
+      padding: px(8) px(12);
+
+      .svg-inline--fa {
+        color: color(gray-600);
+      }
+
+      [title*="Pick"],
+      .separator {
+        color: color(gray-900);
+      }
+
+      [title*="Pick"],
+      [title*="Increment"],
+      [title*="Decrement"] {
+        @include rounded(4);
+
+        @include hover {
+          background: color(gray-100) !important;
+        }
+      }
+
+      button {
+        background-color: color(Primary);
+        @include rounded(8);
+        padding: px(4) px(8);
+        @include fontRWD(caption);
+        height: auto;
+
+        @include hover {
+          background-color: color(DarkPrimary);
+        }
+      }
+    }
+  }
+
+  .date-container-days {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: px(28);
+    grid-auto-rows: px(40);
+  }
+
+  .toolbar {
+    border-top: px(1) solid color(gray-150);
+
+    > div {
+      @include rounded(0, 0, 8, 8);
+      padding: px(8);
+
+      @include hover {
+        background-color: transparent !important;
+      }
+    }
+  }
+}

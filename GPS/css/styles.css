@@ -1734,6 +1734,218 @@ button {
   display: inline-block;
 }
 
+.tempus-dominus-widget {
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0;
+}
+.tempus-dominus-widget .calendar-header {
+  padding: 0.5rem;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.0625rem solid #e2e2e2;
+}
+.tempus-dominus-widget .calendar-header .picker-switch {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 150%;
+}
+@media (max-width: 991px) {
+  .tempus-dominus-widget .calendar-header .picker-switch {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 150%;
+  }
+}
+.tempus-dominus-widget .calendar-header .previous,
+.tempus-dominus-widget .calendar-header .next {
+  display: flex;
+  align-items: center;
+}
+.tempus-dominus-widget .calendar-header .previous svg,
+.tempus-dominus-widget .calendar-header .next svg {
+  height: 0.75rem;
+  color: #919191;
+}
+.tempus-dominus-widget .date-container-days,
+.tempus-dominus-widget .date-container-months,
+.tempus-dominus-widget .date-container-years {
+  padding: 0.5rem 0.75rem;
+}
+.tempus-dominus-widget .date-container-days .dow,
+.tempus-dominus-widget .date-container-months .dow,
+.tempus-dominus-widget .date-container-years .dow {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 150%;
+  color: #a2a2a2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 991px) {
+  .tempus-dominus-widget .date-container-days .dow,
+  .tempus-dominus-widget .date-container-months .dow,
+  .tempus-dominus-widget .date-container-years .dow {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+.tempus-dominus-widget .date-container-days .day,
+.tempus-dominus-widget .date-container-days .month,
+.tempus-dominus-widget .date-container-days .year,
+.tempus-dominus-widget .date-container-months .day,
+.tempus-dominus-widget .date-container-months .month,
+.tempus-dominus-widget .date-container-months .year,
+.tempus-dominus-widget .date-container-years .day,
+.tempus-dominus-widget .date-container-years .month,
+.tempus-dominus-widget .date-container-years .year {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 150%;
+  color: #333333;
+  border-radius: 0.25rem !important;
+}
+@media (max-width: 991px) {
+  .tempus-dominus-widget .date-container-days .day,
+  .tempus-dominus-widget .date-container-days .month,
+  .tempus-dominus-widget .date-container-days .year,
+  .tempus-dominus-widget .date-container-months .day,
+  .tempus-dominus-widget .date-container-months .month,
+  .tempus-dominus-widget .date-container-months .year,
+  .tempus-dominus-widget .date-container-years .day,
+  .tempus-dominus-widget .date-container-years .month,
+  .tempus-dominus-widget .date-container-years .year {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+.tempus-dominus-widget .date-container-days .day.new,
+.tempus-dominus-widget .date-container-days .month.new,
+.tempus-dominus-widget .date-container-days .year.new,
+.tempus-dominus-widget .date-container-months .day.new,
+.tempus-dominus-widget .date-container-months .month.new,
+.tempus-dominus-widget .date-container-months .year.new,
+.tempus-dominus-widget .date-container-years .day.new,
+.tempus-dominus-widget .date-container-years .month.new,
+.tempus-dominus-widget .date-container-years .year.new {
+  color: #a2a2a2;
+}
+@media (hover: hover) {
+  .tempus-dominus-widget .date-container-days .day:hover,
+  .tempus-dominus-widget .date-container-days .month:hover,
+  .tempus-dominus-widget .date-container-days .year:hover,
+  .tempus-dominus-widget .date-container-months .day:hover,
+  .tempus-dominus-widget .date-container-months .month:hover,
+  .tempus-dominus-widget .date-container-months .year:hover,
+  .tempus-dominus-widget .date-container-years .day:hover,
+  .tempus-dominus-widget .date-container-years .month:hover,
+  .tempus-dominus-widget .date-container-years .year:hover {
+    border-radius: 0.25rem;
+    background: #ededed !important;
+  }
+}
+.tempus-dominus-widget .date-container-days .day.active,
+.tempus-dominus-widget .date-container-days .month.active,
+.tempus-dominus-widget .date-container-days .year.active,
+.tempus-dominus-widget .date-container-months .day.active,
+.tempus-dominus-widget .date-container-months .month.active,
+.tempus-dominus-widget .date-container-months .year.active,
+.tempus-dominus-widget .date-container-years .day.active,
+.tempus-dominus-widget .date-container-years .month.active,
+.tempus-dominus-widget .date-container-years .year.active {
+  background-color: #e5006e !important;
+  text-shadow: none;
+}
+.tempus-dominus-widget .date-container-days .day.today,
+.tempus-dominus-widget .date-container-days .month.today,
+.tempus-dominus-widget .date-container-days .year.today,
+.tempus-dominus-widget .date-container-months .day.today,
+.tempus-dominus-widget .date-container-months .month.today,
+.tempus-dominus-widget .date-container-months .year.today,
+.tempus-dominus-widget .date-container-years .day.today,
+.tempus-dominus-widget .date-container-years .month.today,
+.tempus-dominus-widget .date-container-years .year.today {
+  border: 0.0625rem solid #e5006e;
+}
+.tempus-dominus-widget .date-container-days .day.today::before,
+.tempus-dominus-widget .date-container-days .month.today::before,
+.tempus-dominus-widget .date-container-days .year.today::before,
+.tempus-dominus-widget .date-container-months .day.today::before,
+.tempus-dominus-widget .date-container-months .month.today::before,
+.tempus-dominus-widget .date-container-months .year.today::before,
+.tempus-dominus-widget .date-container-years .day.today::before,
+.tempus-dominus-widget .date-container-years .month.today::before,
+.tempus-dominus-widget .date-container-years .year.today::before {
+  display: none !important;
+}
+.tempus-dominus-widget .time-container {
+  margin-bottom: 0;
+}
+.tempus-dominus-widget .time-container .time-container-clock {
+  padding: 0.5rem 0.75rem;
+}
+.tempus-dominus-widget .time-container .time-container-clock .svg-inline--fa {
+  color: #919191;
+}
+.tempus-dominus-widget .time-container .time-container-clock [title*=Pick],
+.tempus-dominus-widget .time-container .time-container-clock .separator {
+  color: #333333;
+}
+.tempus-dominus-widget .time-container .time-container-clock [title*=Pick],
+.tempus-dominus-widget .time-container .time-container-clock [title*=Increment],
+.tempus-dominus-widget .time-container .time-container-clock [title*=Decrement] {
+  border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
+}
+@media (hover: hover) {
+  .tempus-dominus-widget .time-container .time-container-clock [title*=Pick]:hover,
+  .tempus-dominus-widget .time-container .time-container-clock [title*=Increment]:hover,
+  .tempus-dominus-widget .time-container .time-container-clock [title*=Decrement]:hover {
+    background: #ededed !important;
+  }
+}
+.tempus-dominus-widget .time-container .time-container-clock button {
+  background-color: #e5006e;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 150%;
+  height: auto;
+}
+@media (max-width: 991px) {
+  .tempus-dominus-widget .time-container .time-container-clock button {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+@media (hover: hover) {
+  .tempus-dominus-widget .time-container .time-container-clock button:hover {
+    background-color: #b70058;
+  }
+}
+.tempus-dominus-widget .date-container-days {
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1.75rem;
+  grid-auto-rows: 2.5rem;
+}
+.tempus-dominus-widget .toolbar {
+  border-top: 0.0625rem solid #e2e2e2;
+}
+.tempus-dominus-widget .toolbar > div {
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  padding: 0.5rem;
+}
+@media (hover: hover) {
+  .tempus-dominus-widget .toolbar > div:hover {
+    background-color: transparent !important;
+  }
+}
+
 .drag-item .handle {
   cursor: grab;
 }

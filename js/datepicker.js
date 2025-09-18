@@ -4,12 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 初始化年份選擇器
     const picker = new tempusDominus.TempusDominus(el, {
       display: {
+        theme: "light",
         components: {
           calendar: true,
           date: false,
           month: false,
           year: true,
-          decades: true,
+          decades: false,
           clock: false,
           hours: false,
           minutes: false,
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         locale: "ch",
         startOfTheWeek: 1,
         format: "yyyy",
+        dayViewHeaderFormat: { year: "numeric", month: "numeric" },
       },
       useCurrent: true,
     });
@@ -61,12 +63,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 初始化月份選擇器
     const picker = new tempusDominus.TempusDominus(el, {
       display: {
+        theme: "light",
         components: {
           calendar: true,
           date: false,
           month: true,
           year: true,
-          decades: true,
+          decades: false,
           clock: false,
           hours: false,
           minutes: false,
@@ -76,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
       localization: {
         locale: "ch",
         startOfTheWeek: 1,
-        format: "yyyy-MM",
+        format: "yyyy/MM",
+        dayViewHeaderFormat: { year: "numeric", month: "numeric" },
       },
       useCurrent: true,
     });
@@ -118,14 +122,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // 初始化日期選擇器
     const picker = new tempusDominus.TempusDominus(el, {
       display: {
+        theme: "light",
         components: {
+          decades: false,
           clock: false,
         },
       },
       localization: {
         locale: "ch",
         startOfTheWeek: 1,
-        format: "yyyy-MM-dd",
+        format: "yyyy/MM/dd",
+        dayViewHeaderFormat: { year: "numeric", month: "numeric" },
       },
       useCurrent: true,
     });
@@ -163,16 +170,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 年-月-日 時:分:秒
-  document.querySelectorAll(".datepicker.time").forEach(function (el) {
+  document.querySelectorAll(".datepicker.datetime").forEach(function (el) {
     // 初始化日期時間選擇器
     const picker = new tempusDominus.TempusDominus(el, {
       display: {
+        theme: "light",
         components: {
           calendar: true,
           date: true,
           month: true,
           year: true,
-          decades: true,
+          decades: false,
           clock: true,
           hours: true,
           minutes: true,
@@ -182,7 +190,62 @@ document.addEventListener("DOMContentLoaded", () => {
       localization: {
         locale: "ch",
         startOfTheWeek: 1,
-        format: "yyyy-MM-dd HH:mm:ss",
+        format: "yyyy/MM/dd HH:mm:ss",
+        dayViewHeaderFormat: { year: "numeric", month: "numeric" },
+      },
+      useCurrent: true,
+    });
+
+    // 取得 input 元素
+    const input = el.querySelector("input");
+
+    if (input) {
+      const dateTimePattern = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/; // YYYY-MM-DD HH:mm:ss
+
+      // 禁止手動輸入
+      input.addEventListener("keydown", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("paste", (e) => {
+        e.preventDefault();
+      });
+      input.addEventListener("drop", (e) => {
+        e.preventDefault();
+      });
+
+      // 聚焦時顯示選擇器
+      input.addEventListener("focus", () => {
+        picker.show();
+      });
+
+      // 失焦時驗證格式
+      input.addEventListener("blur", () => {
+        const value = input.value.trim();
+        if (value && !dateTimePattern.test(value)) {
+          input.value = ""; // 清空不合法輸入
+        }
+      });
+    }
+  });
+
+  // 時:分:秒
+  document.querySelectorAll(".datepicker.time").forEach(function (el) {
+    // 初始化日期時間選擇器
+    const picker = new tempusDominus.TempusDominus(el, {
+      display: {
+        theme: "light",
+        components: {
+          calendar: false,
+          clock: true,
+          hours: true,
+          minutes: true,
+          seconds: true,
+        },
+      },
+      localization: {
+        locale: "ch",
+        format: "HH:mm:ss",
+        dayViewHeaderFormat: { year: "numeric", month: "numeric" },
       },
       useCurrent: true,
     });
@@ -286,11 +349,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const linkedStart = new tempusDominus.TempusDominus(startEl, {
-      localization: { format: "yyyy-MM-dd" },
+      display: {
+        theme: "light",
+        components: {
+          clock: false,
+          decades: false,
+        },
+      },
+      localization: {
+        format: "yyyy/MM/dd",
+        dayViewHeaderFormat: { year: "numeric", month: "numeric" },
+      },
       useCurrent: false,
     });
     const linkedEnd = new tempusDominus.TempusDominus(endEl, {
-      localization: { format: "yyyy-MM-dd" },
+      display: {
+        theme: "light",
+        components: {
+          clock: false,
+          decades: false,
+        },
+      },
+      localization: {
+        format: "yyyy/MM/dd",
+        dayViewHeaderFormat: { year: "numeric", month: "numeric" },
+      },
       useCurrent: false,
     });
 
